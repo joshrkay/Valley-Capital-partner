@@ -9,11 +9,11 @@ draft: true
 
 <!-- VERIFY BEFORE PUBLISHING. The reported sale in "Why a reported price says so little" comes from a search-result summary, not from the page. Open the source, confirm the figure, the date, and what was sold, then update "Last checked". The two hotels below are invented and must stay labeled as invented. -->
 
-A lender with a defaulted hotel loan will often ask what a buyer would pay for it. There is no standard answer. The reason is worth understanding, because it also explains why reported prices are hard to use.
+A buyer of a defaulted hotel loan pays for what it expects to collect, not for the balance. That figure depends on the hotel's income, the cost of fixing it, the time resolution takes, and the franchise, so there is no standard price. The same inputs explain why a reported sale price is hard to use as a benchmark.
 
-## What a buyer is pricing
+## How a buyer reaches a figure
 
-A buyer does not price the balance. It prices what it expects to collect. It starts from what the loan could realistically return under each way it might end, such as a [modification](/glossary/#loan-modification), a [discounted payoff](/glossary/#discounted-payoff), a transfer of the hotel, or enforcement. It subtracts what each route will cost, and allows for time and risk. The gap between that figure and the balance is the [haircut](/glossary/#haircut).
+A buyer starts from what the loan could realistically return under each way it might end, such as a [modification](/glossary/#loan-modification), a [discounted payoff](/glossary/#discounted-payoff), a transfer of the hotel, or enforcement. It subtracts what each route will cost and allows for time and risk. The gap between the result and the balance is the [haircut](/glossary/#haircut).
 
 ## What goes into it
 
@@ -22,18 +22,14 @@ A buyer does not price the balance. It prices what it expects to collect. It sta
 - **How much of that value the loan covers.** Loan per key against value per key, and the [debt yield](/glossary/#debt-yield), which is net operating income divided by the loan.
 - **What it will cost.** The [improvement plan](/glossary/#pip), deferred maintenance, [unpaid taxes](/blog/taxes-that-can-follow-a-hotel/), [protective advances](/glossary/#protective-advance), and legal and receiver costs.
 - **How long it will take.** Enforcement is slower in some states than in others. See [foreclosure timelines and why they matter more for hotels](/blog/foreclosure-timelines-and-hotel-value/).
-- **The franchise.** Whether the flag is secure, and whether the [comfort letter](/glossary/#comfort-letter) reaches a buyer. See [the franchise when a hotel loan is sold](/library/franchise/).
+- **The franchise.** Whether the [flag](/glossary/#flag) is secure, and whether the [comfort letter](/glossary/#comfort-letter) reaches a buyer. See [the franchise when a hotel loan is sold](/library/franchise/).
 - **Who stands behind the loan.** Any [guaranty](/glossary/#guaranty), and how willing the owner is to reach an agreement.
 
 ## Two hotels, one balance
 
-The two hotels below are invented to show how the inputs interact. They describe no real loan.
+**Illustration (invented numbers):** Two hotels each have 100 rooms and a $10 million loan, or $100,000 per key. Hotel A has [trailing twelve-month](/glossary/#t12) net operating income of $1.2 million, a 12% debt yield, and a $500,000 improvement plan, in a state where foreclosure moves quickly. Hotel B has $600,000 of income, a 6% debt yield, and a $3 million plan, where foreclosure takes a year or more.
 
-**Hotel A.** 100 rooms and a $10 million loan, which is $100,000 per key. [Trailing twelve-month](/glossary/#t12) net operating income of $1.2 million, so a debt yield of 12%. A $500,000 improvement plan. A state where foreclosure moves quickly.
-
-**Hotel B.** 100 rooms and a $10 million loan, which is $100,000 per key. Trailing twelve-month net operating income of $600,000, so a debt yield of 6%. A $3 million improvement plan. A state where foreclosure takes a year or more.
-
-The balance is the same and so is the loan per key. A buyer will not pay the same for both. Hotel B earns half as much against the same debt, owes the brand six times as much in improvements, and will take longer to resolve if talks fail. No formula turns these inputs into a price. The point is which questions move it.
+These hotels describe no real loan. The balance and the loan per key match, but a buyer will not pay the same for both. Hotel B earns half as much against the same debt, owes the brand six times as much in improvements, and will take longer to resolve if talks fail. No formula turns these inputs into a price. The example shows which questions move it.
 
 ## Why a reported price says so little
 
@@ -47,7 +43,7 @@ One reported number shows the problem. The Real Deal reported on June 17, 2026 t
 
 ## What this means for a seller
 
-The more complete the file, the less a buyer has to allow for what it cannot see. A clear [loan summary](/banks/community-banks/the-loan-summary/) and the documents in [the diligence checklist](/library/checklist/) narrow the range. A lender can also test a figure with a broker opinion of value before it asks for bids.
+The more complete the file, the less a buyer has to allow for what it cannot see. A clear [loan summary](/banks/community-banks/the-loan-summary/) and the documents in [the diligence checklist](/library/checklist/) narrow the range of bids. A lender can also test a figure with a broker opinion of value before it asks for bids.
 
 ## What this means for an owner
 
@@ -55,7 +51,7 @@ A discounted payoff figure comes from the same inputs. An owner who knows the ho
 
 ## What we don't know
 
-We have not found published hotel loan prices, stated as a share of the balance, that can be compared with one another. No one should rely on a rule of thumb. The inputs above show what moves a price, not what a price will be.
+We have not found published hotel loan prices, stated as a share of the balance, that can be compared with one another. We do not know how any particular buyer weighs the inputs above. No one should rely on a rule of thumb. The inputs show what moves a price, not what a price will be.
 
 Last checked: November 12, 2026.
 

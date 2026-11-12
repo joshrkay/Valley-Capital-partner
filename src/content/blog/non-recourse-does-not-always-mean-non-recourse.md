@@ -9,7 +9,7 @@ draft: true
 
 <!-- VERIFY BEFORE PUBLISHING. This draft was expanded from a shorter one using only the site's own pages and general practice; it adds no sourced figures. The only numbers are in the labeled illustration. Counsel should confirm the general statements about how loss-based and full-debt carve-outs differ, what a release usually covers, and which acts guaranties commonly reach. Then delete this note. -->
 
-Owners often describe a hotel loan as non-recourse. They mean that if the loan is not repaid, the lender can take the hotel, with the assets that go with it, and nothing else. That is the starting position in most commercial loans. It is not always where a loan ends up: the protection depends on conduct, and the wording of the [guaranty](/glossary/#guaranty) decides what one lapse costs.
+Owners often describe a hotel loan as non-recourse. They mean that if the loan is not repaid, the lender can take the hotel and nothing else. That is the starting position in most commercial loans. It is not always where a loan ends up: the protection depends on conduct, and the wording of the [guaranty](/glossary/#guaranty) decides what one lapse costs.
 
 ## Where carve-outs come in
 
@@ -21,7 +21,7 @@ Most non-recourse loans come with a separate promise from the owner's principals
 - Letting taxes, liens, or insurance go unpaid.
 - A voluntary bankruptcy filing, or one the owners help bring about.
 
-In some loans the list also reaches the franchise, so losing the flag can be a trigger. Each entry is an act that cuts what the lender can recover from the hotel. The guarantor is a separate person or entity, and owning the hotel through a company does not shield a guarantor from a promise the guarantor signed.
+In some loans the list also reaches the franchise, so losing the flag can be a trigger. The guarantor is a separate person or entity, and owning the hotel through a company does not shield a guarantor from a promise the guarantor signed.
 
 ## Two kinds of exposure
 
@@ -29,15 +29,13 @@ The wording decides how large the exposure is. A loss-based carve-out makes the 
 
 The same act can fall in either kind in different guaranties. Defined terms matter as much: what counts as a transfer can be wider than an owner expects.
 
-**Illustration (invented numbers):** A loan has a balance of $10 million, and a sale of the hotel would net $7 million. In a default, the owners move $200,000 of hotel receipts to an affiliate, which the guaranty lists as a carve-out. A loss-based guaranty leaves the guarantor owing $200,000. A full-debt guaranty leaves the guarantor liable for the $3 million still unpaid after the sale, before interest and costs. Same act, fifteen times the exposure.
+**Illustration (invented numbers):** A loan balance is $10 million, and a sale of the hotel would net $7 million. In a default, the owners move $200,000 of hotel receipts to another company they own, an act the guaranty lists. A loss-based guaranty leaves the guarantor owing $200,000. A full-debt guaranty leaves the guarantor liable for the $3 million unpaid after the sale, before interest and costs. Same act, fifteen times the exposure.
 
 ## Why hotels raise the stakes
 
-A hotel handles cash every day, collects occupancy and sales taxes for the government, depends on a franchise it can lose, and usually has a manager who controls the bank accounts. That gives it more ways to trip a carve-out than a building with a handful of leases, some outside the owner's sight. Whether a manager's error reaches the guarantor depends on how the guaranty defines the act.
+A hotel handles cash every day, collects occupancy and sales taxes for the government, depends on a franchise it can lose, and usually has a manager who controls the bank accounts. That gives it more ways to trip a carve-out than a building with a handful of leases, some of them outside the owner's sight.
 
 ## Steps owners take in a default
-
-Three steps are common under pressure, and a guaranty may reach each.
 
 **Moving cash.** Paying an affiliate or another debt of the owner from hotel receipts can look like taking money that belonged to the property. Paying the hotel's own payroll and taxes is different. The loan documents draw the line.
 
@@ -54,9 +52,8 @@ A release is only as good as the signed agreement behind it, and it may be parti
 ## What to check
 
 - Read the guaranty itself, not the summary of terms.
-- For each listed act, find out whether it makes the guarantor liable for losses or for the full debt.
-- Read the definitions behind the triggers, such as transfer.
-- Note which triggers need a choice by the borrower, and which can happen without one.
+- For each listed act, and the definitions behind it, find out whether it makes the guarantor liable for losses or for the full debt.
+- Note which triggers need a choice by the borrower, and which, such as a manager's error, can happen without one.
 - Before a transfer, a filing, or moving cash between accounts, speak to the guarantor's own counsel.
 
 ## What we don't know

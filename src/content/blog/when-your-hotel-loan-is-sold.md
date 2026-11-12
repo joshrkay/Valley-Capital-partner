@@ -18,7 +18,7 @@ A default stays a default. What the buyer paid is between the buyer and the sell
 
 ## What changes
 
-The person making decisions. A holder's room to negotiate depends on what it paid for the loan, not on the balance, so a new holder may agree to terms the original lender could not. It may also read the hotel, the franchise, and the timetable differently. Neither is guaranteed, which is why it is worth finding out early.
+The person making decisions. A holder's room to negotiate depends on what it paid for the loan, not on the balance, so a new holder may agree to terms the original lender could not. It may also read the hotel, the franchise, and the timetable differently. Neither is certain, which is why it is worth finding out early.
 
 ## Agreements already in place
 
@@ -36,7 +36,7 @@ A sale neither releases a guarantor nor adds liability. The guaranty passes on t
 - **A request for information.** Operating statements, performance reports, and the status of the franchise and any [improvement plan](/glossary/#pip) are typical.
 - **A proposal.** That might be a modification, a payoff figure, or a negotiated transfer of the hotel.
 
-There is no fixed timetable. Some holders want the loan to keep performing and others expect to end up with the hotel. An owner can ask which.
+There is no fixed timetable, and holders' aims differ. An owner can ask what outcome the holder expects.
 
 ## What an owner can do
 
@@ -44,10 +44,10 @@ There is no fixed timetable. Some holders want the loan to keep performing and o
 2. Gather current operating statements, the franchise status, and a clear picture of any renovation requirements.
 3. Be ready to explain what you want: to keep the hotel, to pay off at a discount, or to exit.
 4. Date and keep every notice, payment, and proposal, and put requests in writing.
-5. Speak to your own counsel before negotiating, especially about any guaranty, and before moving cash or transferring ownership. If the franchise is at risk, speak to the brand too. The franchise agreement is between the brand and the owner, not the lender.
+5. Speak to your own counsel before negotiating, especially about any guaranty and before moving cash or transferring ownership. If the franchise is at risk, speak to the brand too: the franchise agreement is between the brand and the owner, not the lender.
 
-**Illustration (invented numbers):** An owner owes $6 million on a hotel worth $5 million, and the brand wants $500,000 of improvements. The holder would accept $4 million to end the loan. Paying off takes $4.5 million of new money and leaves $500,000 of equity. Holding keeps the hotel but leaves the owner $1 million underwater, before the improvements. A transfer by agreement leaves no equity but ends the debt, and the guaranty if the release says so.
+**Illustration (invented numbers):** An owner owes $6 million on a hotel worth $5 million, with $500,000 of brand improvements due. The holder would accept $4 million as payoff. Paying off takes $4.5 million of new money and leaves $500,000 of equity. Holding leaves the owner $1 million underwater, before the improvements. A transfer ends the debt, and the guaranty if the release says so, but leaves no equity.
 
-Each path depends on something outside the arithmetic: finding the money, the holder agreeing to terms, or a signed release. Most owners and holders prefer an agreed outcome, because it is faster and cheaper for both. Where agreement cannot be reached, the holder can rely on the rights in the loan documents, which is why the same preparation matters either way.
+Each path also depends on something outside the arithmetic: the money, the holder's agreement, or a signed release. Most owners and holders prefer an agreed outcome, because it is faster and cheaper for both. Where agreement cannot be reached, the holder can rely on the rights in the loan documents, which is why the same preparation matters either way.
 
 This is general information, not legal advice.

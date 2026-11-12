@@ -35,7 +35,7 @@ The [comfort letter](/glossary/#comfort-letter) is signed by the brand, the owne
 
 Whether these rights pass to a buyer of the loan depends on the letter. Many need the brand's consent, or a replacement letter. If the rights do not pass, the new holder may learn of a default late.
 
-Consent is usually needed in other places too. A franchise agreement usually cannot pass to a new owner without the brand's consent, and in a receivership the brand has to agree to a receiver operating under the flag, often for a short term.
+Consent is also usually needed to pass a franchise agreement to a new owner and, in a receivership, for a receiver to operate under the flag, often for a short term.
 
 ## Why time is the scarce thing
 

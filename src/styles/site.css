@@ -100,20 +100,26 @@ section { position: relative; }
 .hero, .story { display: flex; }
 .hero > .wrap, .story > .wrap { width: 100%; }
 .hero { align-items: flex-end; padding: 150px 0 80px; }
-.hero.sub { min-height: 60svh; }
-.hero.home { min-height: 100svh; padding-bottom: 90px; }
+.hero.sub { min-height: max(24rem, min(60svh, 40vw)); }
+.hero.home { min-height: max(34rem, min(100svh, 64vw)); padding-bottom: clamp(3.5rem, 6vw, 5.6rem); }
 .hero h1 { max-width: 15em; }
 .hero.home h1 { font-size: clamp(44px, 7vw, 94px); line-height: 1.02; }
 .hero-copy > p:not(.eyebrow), .hero .lead { font-size: clamp(18px, 1.6vw, 22px); max-width: 660px; margin-top: 28px; color: var(--soft); }
 .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 38px; }
 .hero::before, .story::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: radial-gradient(ellipse 78% 90% at 24% 62%, rgba(var(--bg-rgb), .6), transparent 72%); }
 .scroll { position: absolute; right: 28px; bottom: 34px; color: var(--muted); }
-.story { min-height: 88svh; align-items: center; padding: 120px 0; }
+.story { align-items: center; padding: clamp(4.5rem, 9vw, 8rem) 0; }
 .story h2 { max-width: 15em; }
 .story p:not(.eyebrow) { font-size: clamp(18px, 1.7vw, 22px); max-width: 600px; margin-top: 26px; color: var(--soft); }
+.beat-facts { margin: clamp(2.25rem, 4.5vw, 3.75rem) 0 0; max-width: 1000px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 0 clamp(1.5rem, 3vw, 3rem); border-top: 1px solid var(--line); }
+.beat-facts > div { padding: 22px 0 6px; }
+.beat-facts dt { font: 650 11px/1.6 var(--display); letter-spacing: .16em; text-transform: uppercase; color: var(--accent); }
+.beat-facts dd { margin: 10px 0 0; font-size: 16px; line-height: 1.6; color: var(--soft); }
+.beat-facts + .more { display: inline-block; margin-top: 26px; }
+@media (max-width: 760px) { .beat-facts { grid-template-columns: 1fr; } .beat-facts > div { padding: 18px 0; border-bottom: 1px solid var(--line); } }
 
 /* ---- sections: plain sections sit straight on the video; `.alt` sections are a deeper ivory translucent panel ---- */
-.section { padding: 120px 0; }
+.section { padding: clamp(4rem, 6.5vw, 6.5rem) 0; }
 .section.alt { background: var(--alt-bg); }
 .head { max-width: 900px; margin-bottom: 56px; }
 .head p:not(.eyebrow) { margin-top: 22px; font-size: 20px; max-width: 680px; }
@@ -124,7 +130,7 @@ section { position: relative; }
 .pillars > div { padding: 24px 0; border-bottom: 1px solid var(--line); }
 .pillars dt { font-size: 21px; font-weight: 450; color: var(--ink); letter-spacing: -.01em; }
 .pillars dd { margin: 8px 0 0; font-size: 16px; color: var(--muted); }
-@media (max-width: 900px) { .intro, .feature .wrap { grid-template-columns: 1fr; gap: 34px; } .section { padding: 88px 0; } }
+@media (max-width: 900px) { .intro, .feature .wrap { grid-template-columns: 1fr; gap: 34px; } }
 
 /* ---- bordered cell grids ---- */
 .cells, .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; }
@@ -164,7 +170,7 @@ td { color: var(--soft); font-weight: inherit; }
 tbody tr:last-child > * { border-bottom: 0; }
 
 /* ---- feature band, library, direct contact, cta ---- */
-.feature { padding: 120px 0; background: var(--alt-bg); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.feature { padding: clamp(4rem, 6.5vw, 6.5rem) 0; background: var(--alt-bg); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .feature ul, .cap ul { list-style: none; padding: 0; margin: 28px 0 34px; border-top: 1px solid var(--line); }
 .feature li, .cap li { padding: 16px 0; border-bottom: 1px solid var(--line); color: var(--soft); font-size: 17px; }
 .feature .btn { margin-top: 0; }
@@ -191,7 +197,7 @@ tbody tr:last-child > * { border-bottom: 0; }
 .direct dd a { color: var(--accent); border-bottom: 1px solid color-mix(in srgb, var(--accent) 50%, transparent); }
 .direct dd.small, .small { font: var(--wt) 16px/1.6 var(--display); color: var(--muted); }
 
-.cta { padding: 120px 0; border-top: 1px solid var(--line); }
+.cta { padding: clamp(4rem, 6.5vw, 6.5rem) 0; border-top: 1px solid var(--line); }
 .cta .wrap { display: flex; justify-content: space-between; align-items: center; gap: 40px; flex-wrap: wrap; }
 .cta h2 { max-width: 14em; }
 .cta p { margin-top: 20px; font-size: 20px; max-width: 620px; color: var(--soft); }

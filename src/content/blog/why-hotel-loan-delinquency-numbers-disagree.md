@@ -35,7 +35,7 @@ CRED iQ publishes its own monthly distress rate, which also counts loans in spec
 
 **Weighting.** A rate weighted by balance can let one large loan dominate. A rate weighted by number of loans counts each once. Trepp's lodging rate fell 79 basis points to 5.22% in June 2026, a drop reported as the result of a large Florida portfolio loan returning to current ([CRE Daily](https://www.credaily.com/?p=219707)).
 
-**The date.** A monthly reading, a quarter-end figure, and a study published months later do not line up. KBRA's lodging figure is as of March and Trepp's is for October.
+**The date.** A monthly reading, a quarter-end figure, and a study published months later do not line up. KBRA's lodging figure and Trepp's are seven months apart.
 
 ## Same hotels, four rates
 
@@ -56,7 +56,7 @@ Add what no delinquency rate shows: maturities coming over the next year, and lo
 
 ## What we don't know
 
-We have not compared the publishers' methodology notes line by line, so the three tests above are general. We do not know why the two Hilton figures differ, and we found no CRED iQ reading to cite. The rates will change with the next report. Treat the figures here as examples of the gap, not as a current reading.
+We have not compared the publishers' methodology notes line by line, so the three tests above are general. We do not know why the two Hilton figures differ, and we found no CRED iQ reading to cite. Treat the figures here as examples of the gap, not as a current reading.
 
 Last checked: November 12, 2026.
 

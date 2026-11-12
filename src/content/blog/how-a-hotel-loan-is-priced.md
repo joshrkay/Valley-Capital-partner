@@ -29,7 +29,7 @@ A buyer starts from what the loan could realistically return under each way it m
 
 **Illustration (invented numbers):** Two hotels each have 100 rooms and a $10 million loan, or $100,000 per key. Hotel A has [trailing twelve-month](/glossary/#t12) net operating income of $1.2 million, a 12% debt yield, and a $500,000 improvement plan, in a state where foreclosure moves quickly. Hotel B has $600,000 of income, a 6% debt yield, and a $3 million plan, where foreclosure takes a year or more.
 
-These hotels describe no real loan. The balance and the loan per key match, but a buyer will not pay the same for both. Hotel B earns half as much against the same debt, owes the brand six times as much in improvements, and will take longer to resolve if talks fail. No formula turns these inputs into a price. The example shows which questions move it.
+The balance and the loan per key match, but a buyer will not pay the same for both. Hotel B earns half as much against the same debt, faces six times the improvement bill, and will take longer to resolve if talks fail. No formula turns these inputs into a price. The example shows which questions move it.
 
 ## Why a reported price says so little
 

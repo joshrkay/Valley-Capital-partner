@@ -41,7 +41,7 @@ A hotel handles cash every day, collects occupancy and sales taxes for the gover
 
 **Transferring interests.** Admitting a new investor can count as a transfer of ownership, even when the aim is to raise cash to cure. The usual route is to ask the lender for consent in writing first.
 
-**Filing for bankruptcy.** A filing can pause a foreclosure, which is why it tempts. Some guaranties treat a voluntary filing as a full-debt trigger.
+**Filing for bankruptcy.** A filing can pause a foreclosure, which is why owners consider it. Some guaranties treat a voluntary filing as a full-debt trigger.
 
 ## Releases in a negotiated ending
 
@@ -58,4 +58,4 @@ A release is only as good as the signed agreement behind it, and it may be parti
 
 ## What we don't know
 
-These documents vary by lender, by securitization, and by state. Whether a particular act triggers liability is a legal question about particular words. No post can say how a court would read an unclear clause, or whether a holder would pursue a claim it has. Counsel who has read the guaranty has to answer both.
+These documents vary by lender, by securitization, and by state. Whether a particular act triggers liability is a legal question about particular words, and the guaranty governs. No post can say how a court would read an unclear clause, or whether a holder would pursue a claim it has. Counsel who has read the guaranty has to answer both.

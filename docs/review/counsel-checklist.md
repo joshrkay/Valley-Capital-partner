@@ -66,4 +66,52 @@ The blog posts explain how hotel loan workouts work. They were written from the 
 
 ## Drafts
 
-The drafts are not published and carry their own VERIFY notes. Items for counsel on the drafts are added here when each draft is finished.
+The drafts are not published and each carries its own `VERIFY BEFORE PUBLISHING` note, which the build's publish gate enforces: a draft cannot go live until the note is removed. The items below are the statements the writers were least sure of. Items about figures and sources (rather than legal practice) are in the VERIFY note in the post itself.
+
+### Non-recourse does not always mean non-recourse
+`src/content/blog/non-recourse-does-not-always-mean-non-recourse.md`
+- A full-debt guarantor is liable for the shortfall after hotel proceeds. The illustration assumes sale proceeds are credited.
+- A release of a guarantor is usually sought in a discounted payoff or a deed in lieu, and may be partial or reserve claims.
+- Admitting a new investor can count as a transfer of the borrower, and the usual route is the lender's written consent.
+- Some guaranties make a voluntary bankruptcy filing a full-debt trigger.
+- The loan documents draw the line between paying the hotel's own payroll and taxes and moving cash to an affiliate.
+
+### Five things to confirm in writing when your hotel loan is sold
+`src/content/blog/five-things-to-confirm-in-writing-when-your-hotel-loan-is-sold.md`
+- Emailed changes to payment instructions are a known way funds get misdirected.
+- Recording of an assignment can lag closing.
+- The servicer usually collects payments, and the holder decides.
+- How an owner should document payments while the payee is unconfirmed is left to counsel.
+
+### What a buyer of a hotel loan does after closing
+`src/content/blog/what-a-buyer-of-a-hotel-loan-does-after-closing.md`
+- What each of the five endings needs and what breaks it: unpaid-tax liens complicating a deed in lieu, a brand refusing a new owner, a license transfer failing.
+- A bankruptcy filing can pause enforcement (this repeats the published foreclosure-timelines post).
+- Some holders ask for a prenegotiation letter first (from the glossary).
+
+### What a loan sale does to the franchise
+`src/content/blog/what-a-loan-sale-does-to-the-franchise.md`
+- A brand's reasons for caring about who controls a hotel are stated by logic, not sourced.
+- The comfort letter's notice and cure mechanics, that consent is usually needed to pass a franchise to a new owner, and that a receiver needs consent to operate under the flag, rest on the site's library page, not on any brand's document.
+- "Many require the brand's consent" for assignment of the comfort letter is from the library page.
+- Liquidated damages for early termination were already in the draft.
+- The "What we don't know" section says "We found no published source…". That claim about the firm's own research should be confirmed before publishing.
+
+### Why hotel loan delinquency numbers disagree
+`src/content/blog/why-hotel-loan-delinquency-numbers-disagree.md`
+- The three definitions (late on payments, nonperforming, special-serviced) are the writer's general descriptions, not any publisher's. "A special servicer takes over loans at default or imminent risk of default, so some are still current." "Whether it counts a loan past maturity depends on the publisher."
+- "A rate weighted by balance can let one large loan dominate" sits beside Trepp's June example and implies Trepp's rate is balance-weighted. That is unverified.
+- The unsourced CRED iQ sentence, including "so it runs higher than a pure delinquency rate", is kept as it was. The VERIFY note says to link it or remove it.
+- The post says it does not know why the two Hilton figures differ (KBRA 15.7%, Trepp 11.73%).
+
+### How a hotel loan is priced
+`src/content/blog/how-a-hotel-loan-is-priced.md`
+- Nothing new is factual. The mechanics (expected recovery less costs, time and risk, with the gap as the discount) are logic, not sourced.
+
+### Hotel loan watch, November 2026
+`src/content/blog/hotel-loan-watch-november-2026.md`
+- General statements that are the writer's own, not from the publishers' notes: delinquency counts missed payments by days; special servicing counts loans a servicer has taken over, some still current, so it can rise before delinquency does; a single loan can move a rate weighted by balance; a loan is repaid from the income left after costs.
+- "KBRA's reading uses 30 or more days" is inferred from the existing "30-plus-day" label. "The figures are national" is inferred from the CoStar and HVS titles.
+- "No stated reason for October's lodging decline" and "no July reading" describe what the search summaries showed, not what the pages say.
+- The "What this means for a lender" section is judgment, not sourced: comparing the share of a lender's own hotel loans 30 or more days past due against a publisher's figure, and the two developments said to "change the picture".
+- The "What we don't know" sections use "we" for the limits of the research only. No post claims what the firm does, and none uses an "Our view" sentence.

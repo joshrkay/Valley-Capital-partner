@@ -48,7 +48,7 @@ A loan that is extended or modified can leave the delinquent count without havin
 
 For a lender whose hotel loans sit in none of these pools, the numbers are context. The useful comparison is the share of its own hotel loans [past due](/glossary/#past-due) by 30 days or more, by balance and by count, against a publisher's figure for the same month.
 
-For each loan, a few questions beat any market rate. Is it current on its original terms or on a [modification](/glossary/#loan-modification)? When does it mature, and could the hotel's income support a refinance? How does the hotel compare with its [competitive set](/glossary/#comp-set)?
+For each loan, ask whether it is current on its original terms or on a [modification](/glossary/#loan-modification), when it matures and whether the hotel's income could support a refinance, and how the hotel compares with its [competitive set](/glossary/#comp-set).
 
 A lodging reading that moves with no single large loan to explain it, or special servicing rising while delinquency stays low, would change the picture. Each is a reason to read the lender's own measures first, not by itself a reason to act.
 

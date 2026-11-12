@@ -2,7 +2,7 @@
 
 The website for Valley Capital Partners, a buyer of non-performing hotel loans. It is built to grow: a set of core pages about what the firm does, and a **Resources** area made of a **Library** of technical notes, a **Blog**, a **Glossary**, and an **FAQ**. The notes, posts, and glossary terms are plain Markdown files that anyone can add to without touching code.
 
-**Design:** dark and quiet: near-black teal with one amber accent, set in two voices. DM Serif Display for headlines (with an italic amber phrase in each, as in "We acquire *non-performing* hotel loans") and Outfit for everything else, with small tracked uppercase labels. A faded hotel video sits fixed behind the whole page; on the home page it crossfades between four clips as the story scrolls. Buttons and cards have small corners; the primary nav gets an amber underline that slides in; blocks rise into place as they scroll into view. The look borrows from Lyon Stahl (serif headlines, italic highlight, outlined buttons, sliding nav underline) and Blue Owl (scroll motion, and the home page leading with a row for each audience).
+**Design:** warm ivory with one deep-forest-green accent, set in two voices. DM Serif Display for headlines (with an italic green phrase in each, as in "We acquire *non-performing* hotel loans") and Outfit for everything else, with small tracked uppercase labels. A faded hotel video sits fixed behind the whole page, kept light so it reads as a soft moving shade over the ivory; on the home page it crossfades between four clips as the story scrolls. Buttons and cards have small corners; the primary nav gets a green underline that slides in; blocks rise into place as they scroll into view. The look borrows from Lyon Stahl (serif headlines, italic highlight, outlined buttons, sliding nav underline) and Blue Owl (scroll motion, and the home page leading with a row for each audience).
 
 **Stack:** [Astro](https://astro.build) (a static site generator), Markdown content, hosted on [Vercel](https://vercel.com). No database, no server, no client framework: pages are plain HTML, CSS and a little JavaScript.
 
@@ -76,10 +76,10 @@ Each audience reads the site in its own words, and every page has to say the sam
 ## Making design changes
 
 - **Words on a core page:** edit that page in `src/pages/`.
-- **Colours and type:** the variables at the top of `src/styles/site.css` (`--bg`, `--bg2`, `--accent`, `--display`, `--serif`, `--r` for corner radius).
-- **Headline accent:** the italic amber phrase in a headline is just `<em>` inside an `h1` or `h2`.
+- **Colours and type:** every colour is in the `PALETTE` block at the top of `src/styles/site.css` (`--bg`, `--ink`, `--accent`, `--alt-bg`, `--video-gain`, and so on); change only that block to re-colour the site. Type is `--display` and `--serif`, corner radius `--r`. A dark palette sets `--tint` to light, `--video-gain` to `1`, and `color-scheme` to `dark`; the meta tags in `src/layouts/Base.astro` should match.
+- **Headline accent:** the italic accent phrase in a headline is just `<em>` inside an `h1` or `h2`.
 - **Motion:** blocks rise in as they scroll into view; the lists of what moves and how far are at the top of the motion block in `src/scripts/site.js`, and the distance and easing are `--rise` and `--ease` in `src/styles/site.css`. Nothing is hidden without JavaScript or with reduced motion.
-- **How visible the video is:** each section can carry `data-bg` (which clip) and `data-op` (strength from 0 to 1). Sections without them inherit the previous clip and fade right down. The home story beats use about `.26` and the hero `.34`; turn these down if text ever feels hard to read. The blur and colour are on `.bgv video` in `src/styles/site.css`.
+- **How visible the video is:** each section can carry `data-bg` (which clip) and `data-op` (strength from 0 to 1). Sections without them inherit the previous clip and fade right down. The home story beats use about `.26` and the hero `.34`, all multiplied by `--video-gain` in the palette (`.5` on this ivory palette, because video darkens ivory instead of lighting it; `1` on a dark one). Turn these down if text ever feels hard to read. The blur and colour are on `.bgv video` in `src/styles/site.css`.
 
 Run `npm run build` and then `npm run check` before opening a pull request. The check fails on any broken link or anchor, missing asset, unbalanced markup, page without exactly one heading, or CSS class that has no style.
 
@@ -120,7 +120,7 @@ The logo is a bold **V** (the valley) with an amber window lit in its notch: a h
 | `public/favicon.svg`, `public/apple-touch-icon.png` | Browser tab and phone home-screen icons |
 | `public/og-image.png` | The 1200 by 630 preview shown when a page is shared |
 
-Colours: ink `#0B1626`, background `#050E16`, text `#EEF3F7`, accent amber `#F5B454`. The mark in the header is `src/components/Logo.astro` and takes the surrounding text colour.
+Site colours: ivory `#F5F1E8` background, ink `#14201A`, accent forest green `#1F5A44`. The logo keeps its own brand colours whatever the site palette is: ink `#0B1626` V with an amber `#F5B454` window. The mark in the header is `src/components/Logo.astro`; the V takes the surrounding text colour and the window is always amber. The favicon, home-screen icon and `public/og-image.png` were drawn on the brand's dark ink and have not been redrawn for the ivory site.
 
 ## Video credits
 

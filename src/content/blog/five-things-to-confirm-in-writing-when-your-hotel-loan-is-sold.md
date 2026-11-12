@@ -13,7 +13,9 @@ When a lender sells a hotel loan, the owner usually learns of it from a letter. 
 
 ## 1. Who holds the loan now
 
-Payments, notices, and proposals need to reach the party that can act on them. A good answer gives the holder's legal name, its address for notices, and the details of the [assignment of the mortgage](/glossary/#assignment-of-mortgage), which is usually recorded in the local land records. Recording can lag closing, so a missing record on the first day proves little. A refusal to name the holder, or a name that matches nothing on record, calls for counsel.
+Payments, notices, and proposals need to reach the party that can act on them. A good answer gives the holder's legal name, its address for notices, and the details of the [assignment of the mortgage](/glossary/#assignment-of-mortgage), which is usually recorded in the local land records.
+
+Recording can lag closing, so a missing record on the first day proves little. A refusal to name the holder, or a name that matches nothing on record, calls for counsel.
 
 ## 2. Who services it
 
@@ -43,7 +45,7 @@ A conversation with someone who cannot decide costs time that a hotel in default
 
 Keep meeting the payment obligations in the loan documents, to the party that has been confirmed, and tell the owner's counsel. Send each request again in writing to the notice address the transfer letter gives, keep a copy, and note the date.
 
-If no holder can be confirmed, counsel can check the land records and advise how to document payments while the question is open. If no payoff statement arrives, ask again and state the figure the owner's records show. If a forbearance's end date is unclear, send the owner's signed copy and ask the holder to confirm it matches. The earlier post on [what changes, and what does not, when your hotel loan is sold](/blog/when-your-hotel-loan-is-sold/) covers what else to expect.
+If no holder can be confirmed, counsel can check the land records and advise how to document payments meanwhile. If no payoff statement arrives, ask again and state the figure the owner's records show. If a forbearance's end date is unclear, send the owner's signed copy and ask the holder to confirm it. The earlier post on [what changes, and what does not, when your hotel loan is sold](/blog/when-your-hotel-loan-is-sold/) covers what else to expect.
 
 ## What we don't know
 

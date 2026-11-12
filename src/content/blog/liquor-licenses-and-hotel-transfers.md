@@ -16,7 +16,7 @@ If a hotel loses its ability to serve alcohol, the loss is more than a bar. Rest
 
 ## Why it does not move on its own
 
-A foreclosure, a sale, a deed in lieu, and a receiver's appointment change who controls the premises. They do not change who holds the license. A note sale changes only who holds the loan, so on its own it leaves the license where it is, though some states regulate who may hold a financial interest in a licensed business.
+A foreclosure, a sale, a [deed in lieu](/glossary/#deed-in-lieu), and a receiver's appointment change who controls the premises. They do not change who holds the license. A [note sale](/glossary/#note-sale) changes only who holds the loan, so on its own it leaves the license where it is, though some states regulate who may hold a financial interest in a licensed business.
 
 Whether a license can be pledged or sold at all, or can only be surrendered and reissued, differs by state.
 

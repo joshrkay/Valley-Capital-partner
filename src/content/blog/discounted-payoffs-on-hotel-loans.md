@@ -35,7 +35,7 @@ A payoff is not a [note sale](/glossary/#note-sale). In a payoff the loan ends a
 Four terms decide whether the lender is protected:
 
 - **Releases.** Whether the lender releases only the borrower or also each [guaranty](/glossary/#guaranty), and whether the borrower releases claims against the lender in return.
-- **Lien release and payoff letter.** The release should take effect only when funds arrive. The payoff letter states the amount due, the date through which it holds, and what changes if funds come later.
+- **Lien release and payoff letter.** The release should take effect only when funds arrive. The payoff letter states the amount due and the date through which it holds.
 - **If funding slips.** How long the lender waits, whether the discount lapses, whether the deposit is kept, and whether enforcement continues meanwhile.
 - **Confidentiality.** A discount given to one borrower can be cited by another.
 

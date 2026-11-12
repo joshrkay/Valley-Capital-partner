@@ -35,7 +35,7 @@ A clean answer is dull: returns filed on time, payments that match what revenue 
 
 The exposure is the tax owed, plus penalties and interest through the expected closing date, plus any returns not yet filed. Interest keeps running while a process drags on, so delay makes the number larger. A buyer allows for the chance that an audit finds more.
 
-Who carries it depends on what is sold. A buyer of a note takes the loan, not the hotel or its tax history, and loan sales are often made as-is. The balance stays with the borrower, but it reduces what the collateral can repay, so the buyer prices it.
+Who carries it depends on what is sold. A buyer of a note takes the loan, not the hotel or its tax history, and loan sales are often made as-is. The balance stays with the borrower, but it reduces what the collateral can repay, so the buyer prices it, and the seller feels it as a lower bid.
 
 A holder may also pay property taxes to protect its lien. That [protective advance](/glossary/#protective-advance) is added to the loan balance, which makes the loan larger against the same collateral.
 

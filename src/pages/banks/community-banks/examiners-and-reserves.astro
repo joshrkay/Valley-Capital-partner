@@ -1,0 +1,42 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Hero from '../../../components/Hero.astro';
+import Cta from '../../../components/Cta.astro';
+import SectionNav from '../../../components/SectionNav.astro';
+---
+<Base title={"Examiners, Reserves, and a Hotel Loan Sale"} description={"How a loan sale of a problem hotel loan shows up in a community bank's numbers (risk rating, non-accrual, reserve, charge-off) and what supervisors tend to want to see."}>
+  <Hero eyebrow="For community banks" title={"How a loan sale shows up in the bank's numbers."} lead={"What changes at closing, and what supervisors generally want to see on the way there. General information, not accounting or regulatory advice."} />
+  <SectionNav section="communityBanks" />
+  <main id="main">
+<section class="section"><div class="wrap">
+      <div class="head"><p class="eyebrow">What changes at closing</p><h2>The problem loan leaves the books.</h2></div>
+      <div class="cells">
+        <div><h3>The problem list</h3><p>The loan comes off the classified and non-accrual balances. The special assets officer's calendar clears.</p></div>
+        <div><h3>The reserve</h3><p>Any specific reserve held against the loan is released or used, depending on the price and the carrying value.</p></div>
+        <div><h3>The gain or loss</h3><p>The difference between the price and the carrying value is recognized at closing. A price below it is a charge-off or loss; a price above it is a recovery.</p></div>
+        <div><h3>The costs</h3><p>Legal fees, protective advances, receiver costs, and OREO carrying costs stop.</p></div>
+      </div>
+      <p class="fine">How a loan sale is treated in the bank's accounts is a matter for the bank, its CFO, and its auditors.</p>
+    </div></section>
+
+    <section class="section alt"><div class="wrap intro">
+      <div><p class="eyebrow">On the way there</p><h2>What supervisors generally want to see.</h2>
+        <div class="body"><p>Supervisors expect a bank to have a documented plan for each problem asset and to pursue it. They do not tell a bank which resolution to choose. These are the things a bank can usually show.</p></div></div>
+      <dl class="pillars">
+        <div><dt>A documented analysis of the options</dt><dd>The comparison in the committee memo, with recovery net of costs and time for each option.</dd></div>
+        <div><dt>Valuation support</dt><dd>A current appraisal or evaluation, and an explanation of how the price relates to it.</dd></div>
+        <div><dt>Committee and board approval</dt><dd>Minutes that show the decision was made by the people with authority, on the information in the memo.</dd></div>
+        <div><dt>A fair process</dt><dd>The price tested, and no insider or affiliate on either side.</dd></div>
+        <div><dt>Timely action</dt><dd>A plan with dates, and evidence that it is being followed.</dd></div>
+      </dl>
+    </div></section>
+
+    <section class="section"><div class="wrap">
+      <div class="head"><p class="eyebrow">The other route</p><h2>Taking the hotel back as OREO has its own costs and its own clock.</h2>
+        <p>Foreclosing and holding the hotel as <a href="/glossary/#oreo">OREO</a> makes the bank the owner of an operating business that it has to staff, license, insure, and eventually sell. Rules limit how long a bank may hold OREO, and they differ by charter and by state, so ask counsel before assuming how long a hotel can sit on the books.</p></div>
+    </div></section>
+
+    <section class="section alt"><div class="wrap"><div class="head"><p class="eyebrow">Related reading</p></div><ul class="toc"><li><a href="/banks/community-banks/board-package/">The memo to the loan committee <span>Community banks</span></a></li><li><a href="/glossary/#classified-loan">Classified loan <span>Glossary</span></a></li><li><a href="/glossary/#charge-off">Charge-off <span>Glossary</span></a></li><li><a href="/glossary/#reserve">Reserve (specific reserve) <span>Glossary</span></a></li><li><a href="/glossary/#collateral-dependent">Collateral-dependent loan <span>Glossary</span></a></li></ul></div></section>
+  </main>
+  <Cta title={"Discuss a hotel loan in confidence."} text={"A conversation and an indicative price carry no obligation to sell."} label={"Start a conversation"} />
+</Base>

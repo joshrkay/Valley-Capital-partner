@@ -21,7 +21,9 @@
   --accent: #1F5A44;             /* the one accent: buttons, italic phrases, labels, links (deep forest green) */
   --on-accent: #FFFFFF;          /* text on an accent fill */
   --inv: #F5F1E8;                /* text on a filled outline button */
-  --video-gain: .5;              /* scales how strong the background video is everywhere: 1 on a dark palette, about half on a light one (video darkens ivory instead of lighting it) */
+  --wash: .8;                    /* how opaque the page-coloured veil over the video is (1 on a dark site; lower lets more video through) */
+  --video-gain: .8;              /* scales how strong the video is everywhere (1 on a dark site). On ivory the video darkens the page instead of lighting it, so
+                                    these two are the strongest pair that keeps the headline, body text and green labels at AA contrast over the darkest footage */
   color-scheme: light;
   /* ===== end of palette ===== */
   --r: 4px; --wt: 340; --bgop: .34; --ease: cubic-bezier(.38, .37, .16, .99); --rise: 150px;
@@ -57,7 +59,7 @@ p { margin: 0; color: var(--muted); }
 .bgv video.on { opacity: calc(var(--bgop) * var(--video-gain)); }
 .bgv::before { content: ""; position: absolute; inset: 0; background:
     radial-gradient(ellipse 70% 55% at 18% 0%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 70%),
-    linear-gradient(180deg, rgba(var(--bg-rgb), .80) 0%, rgba(var(--bg-rgb), .52) 40%, rgba(var(--bg-rgb), .72) 78%, var(--bg) 100%); }
+    linear-gradient(180deg, rgba(var(--bg-rgb), calc(.80 * var(--wash))) 0%, rgba(var(--bg-rgb), calc(.52 * var(--wash))) 40%, rgba(var(--bg-rgb), calc(.72 * var(--wash))) 78%, var(--bg) 100%); }
 
 /* ---- header: uppercase nav with a gold underline that slides in (Lyon Stahl, Brookfield) ---- */
 .bar { position: fixed; inset: 0 0 auto 0; z-index: 20; transition: background .3s, border-color .3s; border-bottom: 1px solid transparent; }

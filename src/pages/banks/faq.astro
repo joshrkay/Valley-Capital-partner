@@ -1,0 +1,74 @@
+---
+import Base from '../../layouts/Base.astro';
+import Hero from '../../components/Hero.astro';
+import Cta from '../../components/Cta.astro';
+import SectionNav from '../../components/SectionNav.astro';
+import FaqList from '../../components/FaqList.astro';
+
+const faqs: { q: string; a: string }[] = [
+  {
+    "q": "Will you contact our borrower?",
+    "a": "Not without the bank's consent. We do not contact the borrower, guarantors, the brand, or hotel staff without it. After a sale closes, we contact the borrower directly, with notice of the transfer and where payments go."
+  },
+  {
+    "q": "Do you buy loans that are already in foreclosure, receivership, or bankruptcy?",
+    "a": "Yes. Loans in foreclosure, receivership, or borrower bankruptcy are eligible, along with loans that are past due, on non-accrual, matured, or in forbearance."
+  },
+  {
+    "q": "Do you buy participation interests, or only whole loans?",
+    "a": "Both, along with hotels a bank already owns."
+  },
+  {
+    "q": "Do you buy OREO hotels?",
+    "a": "Yes. We buy hotels a bank already owns, as well as loans, and we buy the loan at any point before the lender takes title."
+  },
+  {
+    "q": "Can you buy a government-guaranteed hotel loan?",
+    "a": "We review them, and we work within the agency's consent requirements for a sale."
+  },
+  {
+    "q": "What size of transaction do you look at?",
+    "a": "Single loans and small pools."
+  },
+  {
+    "q": "Do we need a complete file to get a price?",
+    "a": "No. A one-page summary is enough to start: the balance, status, the hotel's brand and room count, and any recent valuation. A full file is not needed yet."
+  },
+  {
+    "q": "How quickly will we hear back?",
+    "a": "If a loan is not for us, you hear that within days, with the reason. Otherwise we respond with an indicative price and the assumptions behind it."
+  },
+  {
+    "q": "What does the bank receive?",
+    "a": "Cash at closing. The bank transfers the loan, the file, and the workout, and its involvement ends on a date it chooses."
+  },
+  {
+    "q": "Do you need financing to close?",
+    "a": "No. We do not rely on third-party financing to close a purchase, and we provide proof of funds with a bid."
+  },
+  {
+    "q": "Are we committed to sell if we talk to you?",
+    "a": "No. A conversation and an indicative price carry no obligation to sell, and if we do not proceed we return or destroy the file on request."
+  },
+  {
+    "q": "In what capacity do you act?",
+    "a": "We tell you which seat we are in and confirm it in writing before any engagement or agreement: principal buyer, capital provider, or arranger."
+  }
+];
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(({ q, a }) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })),
+};
+---
+<Base title={"FAQ for Banks"} description={"Short answers to the questions credit officers ask about selling a non-performing hotel loan: contact with the borrower, size, files, speed, and confidentiality."} jsonLd={jsonLd}>
+  <Hero eyebrow={"For banks"} title={"Questions banks ask."} lead={"Short answers for credit officers and special assets teams. For anything specific, write to us."} />
+  <SectionNav section="banks" />
+  <main id="main">
+<section class="section"><div class="wrap">
+      <FaqList faqs={faqs} />
+      <p class="fine">General information only. Nothing here is legal, accounting, or regulatory advice, and nothing is a commitment to purchase any loan.</p>
+    </div></section>
+  </main>
+  <Cta title={"Discuss a hotel loan in confidence."} text={"A conversation and an indicative price carry no obligation to sell."} label={"Start a conversation"} />
+</Base>

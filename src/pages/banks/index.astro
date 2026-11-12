@@ -1,12 +1,15 @@
 ---
-import Base from '../layouts/Base.astro';
-import Hero from '../components/Hero.astro';
-import Cta from '../components/Cta.astro';
+import Base from '../../layouts/Base.astro';
+import Hero from '../../components/Hero.astro';
+import Cta from '../../components/Cta.astro';
+import SectionNav from '../../components/SectionNav.astro';
+import { SECTIONS } from '../../lib/sections';
 ---
 <Base title={"For Banks"} description={"Valley Capital Partners buys non-performing hotel loans from community and regional banks."}>
 <Hero eyebrow={"For banks"} title={"A buyer for the hotel loan on your problem list."} lead={"We purchase past-due, matured, and classified hotel loans from community and regional banks. The bank receives cash at closing and transfers the loan, the file, and the workout."}>
   <a class="btn btn-light arrow" href="/contact/">Discuss a loan in confidence</a>
 </Hero>
+<SectionNav section="banks" />
 <main id="main">
 <section class="section"><div class="wrap intro">
   <div><p class="eyebrow">Why banks sell hotel loans</p><h2>A hotel workout asks more of a lender than most banks are staffed for.</h2>
@@ -57,6 +60,17 @@ import Cta from '../components/Cta.astro';
     <div><h3>For diligence</h3><ul><li>Note, mortgage, assignments, and guaranties</li><li>Franchise agreement, comfort letter, and improvement plan</li><li>Operating statements and performance reports</li><li>Tax, insurance, and licence status</li><li>Default correspondence and any court filings</li></ul></div>
   </div>
 </div></section>
+
+<section class="section alt">
+  <div class="wrap">
+    <div class="head"><p class="eyebrow">In this section</p><h2>Everything a bank needs to know, <em>in one place.</em></h2></div>
+    <div class="cards">
+      {SECTIONS.banks.pages.slice(1).map((p, i) => (
+        <a class="card" href={p.href}><span class="mono num">{String(i + 1).padStart(2, '0')}</span><h3>{p.title}</h3><p>{p.summary}</p><span class="go">Read</span></a>
+      ))}
+    </div>
+  </div>
+</section>
 </main>
 <Cta title={"Discuss a hotel loan in confidence."} text={"A conversation and an indicative price carry no obligation to sell."} label={"Start a conversation"} />
 </Base>

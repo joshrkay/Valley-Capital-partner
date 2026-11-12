@@ -1,5 +1,6 @@
 ---
-import { getCollection, render } from 'astro:content';
+import { render } from 'astro:content';
+import { getPublishedPosts } from '../../lib/posts';
 import Base from '../../layouts/Base.astro';
 import Hero from '../../components/Hero.astro';
 import Cta from '../../components/Cta.astro';
@@ -7,7 +8,7 @@ import { tagSlug } from '../../lib/tags';
 import PostCard from '../../components/PostCard.astro';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('blog', ({ data }) => (import.meta.env.PROD ? !data.draft : true));
+  const posts = await getPublishedPosts();
   return posts.map((post) => ({ params: { slug: post.id }, props: { post, all: posts } }));
 }
 
@@ -17,7 +18,6 @@ const fmt = (d: Date) => d.toLocaleDateString('en-US', { year: 'numeric', month:
 const minutes = Math.max(1, Math.round((post.body ?? '').split(/\s+/).length / 220));
 const more = all
   .filter((p) => p.id !== post.id)
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
   .slice(0, 3);
 const url = new URL(Astro.url.pathname, Astro.site).href;
 const jsonLd = {

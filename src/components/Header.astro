@@ -1,22 +1,23 @@
 ---
-const NAV = [
-  ['/banks/', 'Banks'],
-  ['/receivers/', 'Receivers'],
-  ['/servicers/', 'Special servicers'],
-  ['/underwriting/', 'Underwriting'],
-  ['/library/', 'Library'],
-  ['/blog/', 'Blog'],
-  ['/firm/', 'Firm'],
+import Logo from './Logo.astro';
+// [address, label, addresses that count as "this section"]
+const NAV: [string, string, string[]][] = [
+  ['/banks/', 'Banks', ['/banks/']],
+  ['/receivers/', 'Receivers', ['/receivers/']],
+  ['/servicers/', 'Special servicers', ['/servicers/']],
+  ['/underwriting/', 'Underwriting', ['/underwriting/']],
+  ['/resources/', 'Resources', ['/resources/', '/library/', '/blog/', '/glossary/', '/faq/']],
+  ['/firm/', 'Firm', ['/firm/']],
 ];
 const path = Astro.url.pathname;
-const current = (href: string) => path.startsWith(href);
+const current = (match: string[]) => match.some((m) => path.startsWith(m));
 ---
 <a class="skip" href="#main">Skip to content</a>
 <header class="bar" id="bar">
   <div class="wrap">
-    <a class="brand" href="/" aria-label="Valley Capital Partners, home">Valley Capital Partners<i>.</i></a>
+    <a class="brand" href="/" aria-label="Valley Capital Partners, home"><Logo /><span>Valley Capital Partners</span></a>
     <nav class="nav" aria-label="Primary">
-      {NAV.map(([href, label]) => <a href={href} aria-current={current(href) ? 'page' : undefined}>{label}</a>)}
+      {NAV.map(([href, label, match]) => <a href={href} aria-current={current(match) ? 'page' : undefined}>{label}</a>)}
     </nav>
     <div class="bar-end">
       <a class="btn btn-ink" href="/contact/">Contact</a>

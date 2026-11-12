@@ -1,6 +1,6 @@
 # Valley Capital Partners website
 
-The website for Valley Capital Partners, a buyer of non-performing hotel loans. It is built to grow: a set of core pages about what the firm does, a **Library** of technical notes, and a **Blog**, all written as plain Markdown files that anyone can add to without touching code.
+The website for Valley Capital Partners, a buyer of non-performing hotel loans. It is built to grow: a set of core pages about what the firm does, and a **Resources** area made of a **Library** of technical notes, a **Blog**, a **Glossary**, and an **FAQ**. The notes, posts, and glossary terms are plain Markdown files that anyone can add to without touching code.
 
 **Design:** dark and quiet, with Outfit type, one amber accent, monospace numbered labels, and a single dimmed hotel video fixed behind every page. On the home page the video crossfades with the story beats and fades right down after the hero, so text stays easy to read.
 
@@ -32,6 +32,18 @@ Tags become their own pages automatically (`/blog/tags/<tag>/`). The list page, 
 
 Same idea, in `src/content/library/`. Notes are longer technical pieces; `order` in the front matter sets where each appears in the list, and `topic` is the short label shown beside the title. The five existing notes are there as examples.
 
+### A glossary term
+
+Add a file to `src/content/glossary/`, for example `src/content/glossary/revpar.md`, with one line of front matter (`term: "Revenue per available room (RevPAR)"`) and the definition below it. The file name is the anchor, so other pages can link to `/glossary/#revpar`. Terms are sorted alphabetically and grouped by letter automatically.
+
+### The FAQ
+
+The questions and answers are a list at the top of `src/pages/faq.astro`. Add or edit an entry there; the page and its search-engine markup both update. Keep answers consistent with the core pages: every current answer restates what those pages already say.
+
+### A page inside Banks or Receivers
+
+The Banks and Receivers areas are sections of several pages, each with a sub-navigation bar under the hero and an overview page that links to the rest. To add a page, create it in `src/pages/banks/` or `src/pages/receivers/` (copy a sibling, for example `src/pages/banks/what-we-buy.astro`) and list it in `src/lib/sections.ts`. That one list drives the sub-navigation bar and the "In this section" cards. Question-and-answer pages use the `FaqList` component and publish FAQ search markup automatically.
+
 ### A new page
 
 Add a file to `src/pages/`, for example `src/pages/team.astro`, using the same shape as `src/pages/firm.astro`: the `Base` layout, a `Hero`, a `<main id="main">` with sections, and a `Cta`. Add it to the menu in `src/components/Header.astro` (and the footer, if it belongs there).
@@ -44,10 +56,11 @@ Case studies, FAQs, or team profiles each work the same way as the blog: add a c
 
 | Path | What it is |
 |---|---|
-| `src/pages/` | One file per page. `index`, `banks`, `receivers`, `servicers`, `borrowers`, `underwriting`, `firm`, `contact`, plus `library/`, `blog/`, `404`, and `rss.xml.js`. |
-| `src/content/blog/`, `src/content/library/` | The Markdown content. Front matter is checked against `src/content.config.ts` at build time, so a typo fails loudly instead of publishing a broken page. |
+| `src/pages/` | One file per page: `index`, `banks`, `receivers`, `servicers`, `borrowers`, `underwriting`, `firm`, `contact`, `resources` (the hub), `faq`, `glossary`, and `404`, plus `library/`, `blog/`, and `rss.xml.js`. |
+| `src/content/blog/`, `library/`, `glossary/` | The Markdown content. Front matter is checked against `src/content.config.ts` at build time, so a typo fails loudly instead of publishing a broken page. |
+| `src/lib/` | `sections.ts` (the pages in each audience section), `posts.ts` and `tags.ts` (blog helpers). |
 | `src/layouts/Base.astro` | The page shell: head and search-engine tags (canonical link, Open Graph, structured data), the background video layer, header, footer, scripts. |
-| `src/components/` | `Header`, `Footer`, `Hero`, `Cta`, `PostCard`. |
+| `src/components/` | `Header`, `Footer`, `Logo`, `Hero`, `Cta`, `PostCard`, `SectionNav` (sub-navigation for Banks and Receivers), `FaqList`. |
 | `src/styles/site.css` | The whole design. Colours and the accent are variables at the top. |
 | `src/scripts/bg.js` | The background video: crossfades clips as sections scroll by and sets how strong the video is. Paused for reduced-motion, a single clip on phones, none on data-saver. |
 | `src/scripts/site.js` | Frosted header on scroll, mobile menu, sections settling into place. |
@@ -80,12 +93,27 @@ Vercel builds the site from `main` (`vercel.json` holds the settings: `npm run b
 - [ ] Firm facts still to confirm: principals, phone, address, loan size range, regions, and the bid terms on the special servicers page.
 - [ ] The contact address `acquisitions@valleycapitalpartner.com` must exist as a working mailbox.
 - [ ] Attach the production domain in Vercel and set `SITE_URL`.
-- [ ] Review the Blog page and 404 page wording, which are new.
+- [ ] Have counsel read the Banks and Receivers pages. They restate the site's existing copy and add general explanation (for example the outline of a receiver's sale and the typical terms of a loan sale), which should be checked against how the firm actually works.
+- [ ] Review the wording that is new: the Blog and Resources page intros, the 404 page, the FAQ, the glossary definitions, and the first eight blog posts. They are general explanations drafted without any firm-specific facts, and they should be read by someone qualified (ideally counsel) before launch.
 - [ ] Look at every page on a phone and a laptop, with the background video both playing and blocked.
 
 ## Ideas for later
 
 Site search (Pagefind works with static sites), a case-study collection, a newsletter sign-up, analytics, social preview images per post, and a browser-based editor for non-technical authors (Keystatic or Decap both write the same Markdown files).
+
+## Brand
+
+The logo is a bold **V** (the valley) with an amber window lit in its notch: a hotel window, and the "lights return" idea behind the firm's story. Wordmark is Outfit (SIL Open Font Licence), medium weight.
+
+| File | Use |
+|---|---|
+| `public/brand/logo-lockup.svg` | Mark and name together, for dark backgrounds (lettering is outlined, so no font is needed) |
+| `public/brand/logo-lockup-dark.svg` | The same for light backgrounds, such as letterhead or slides |
+| `public/brand/logo-mark.svg`, `logo-mark-dark.svg` | The mark alone, light and dark versions |
+| `public/favicon.svg`, `public/apple-touch-icon.png` | Browser tab and phone home-screen icons |
+| `public/og-image.png` | The 1200 by 630 preview shown when a page is shared |
+
+Colours: ink `#0B1626`, background `#050E16`, text `#EEF3F7`, accent amber `#F5B454`. The mark in the header is `src/components/Logo.astro` and takes the surrounding text colour.
 
 ## Video credits
 

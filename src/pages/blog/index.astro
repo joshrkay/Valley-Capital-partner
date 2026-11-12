@@ -1,15 +1,12 @@
 ---
-import { getCollection } from 'astro:content';
+import { getPublishedPosts } from '../../lib/posts';
 import Base from '../../layouts/Base.astro';
 import Hero from '../../components/Hero.astro';
 import Cta from '../../components/Cta.astro';
 import { tagSlug } from '../../lib/tags';
 import PostCard from '../../components/PostCard.astro';
 
-// Drafts appear while writing (`npm run dev`) and never in a production build.
-const posts = (await getCollection('blog', ({ data }) => (import.meta.env.PROD ? !data.draft : true))).sort(
-  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
-);
+const posts = await getPublishedPosts();
 const tags = [...new Set(posts.flatMap((p) => p.data.tags))].sort();
 ---
 <Base title="Blog" description="Commentary on non-performing hotel loans, receiverships, and franchise issues, for lenders, servicers, receivers, and counsel.">

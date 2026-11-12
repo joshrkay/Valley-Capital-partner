@@ -1,0 +1,70 @@
+---
+import Base from '../../layouts/Base.astro';
+import Hero from '../../components/Hero.astro';
+import Cta from '../../components/Cta.astro';
+import SectionNav from '../../components/SectionNav.astro';
+import FaqList from '../../components/FaqList.astro';
+
+const faqs: { q: string; a: string }[] = [
+  {
+    "q": "Do you buy hotels that are in receivership?",
+    "a": "Yes. We purchase hotels through court-approved receiver sales, and we buy the underlying loan when the lender prefers to sell the note."
+  },
+  {
+    "q": "Will you serve as the opening bidder?",
+    "a": "Yes. We will serve as the initial bidder, the stalking horse, under court-approved overbid procedures."
+  },
+  {
+    "q": "Do you post a deposit?",
+    "a": "Yes. We post a deposit when the agreement is signed."
+  },
+  {
+    "q": "Do you take the hotel as-is?",
+    "a": "Yes. We complete our diligence before we sign and take the hotel in its present condition."
+  },
+  {
+    "q": "Are your agreements written for court approval?",
+    "a": "Yes. Our purchase agreements are written for a sale order, with the receiver's customary limits on representations."
+  },
+  {
+    "q": "What happens to the franchise?",
+    "a": "We apply to the brand for a new franchise agreement in advance of closing, and we address its improvement requirements directly."
+  },
+  {
+    "q": "What about the liquor licence and permits?",
+    "a": "We arrange the transfer of the liquor licence and operating permits, with interim arrangements where the state allows."
+  },
+  {
+    "q": "Will bookings, staff, and taxes carry over?",
+    "a": "Group contracts and advance deposits are identified and honoured through the transfer. We work with the manager so the staff the hotel depends on stay in place, and occupancy and sales tax balances are settled at closing under the sale order."
+  },
+  {
+    "q": "What if the lender would rather sell the loan?",
+    "a": "We purchase the note with the receivership in place, substitute in as plaintiff, and work with the receiver through to a sale. The receiver and manager remain in place under the existing order, and the lender is paid at the loan sale."
+  },
+  {
+    "q": "Do you need financing to close?",
+    "a": "No. We do not rely on third-party financing to close a purchase, and we provide proof of funds with a bid."
+  },
+  {
+    "q": "Who do we deal with?",
+    "a": "We respond to receivers and counsel directly, and a principal of the firm replies."
+  }
+];
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(({ q, a }) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })),
+};
+---
+<Base title={"FAQ for Receivers and Counsel"} description={"Short answers to the questions receivers and lenders' counsel ask: bidding as the stalking horse, deposits, as-is purchases, the franchise, licences, and loan sales."} jsonLd={jsonLd}>
+  <Hero eyebrow={"For receivers and counsel"} title={"Questions receivers and counsel ask."} lead={"Short answers for receivers and the attorneys who represent a lender. For anything specific, write to us."} />
+  <SectionNav section="receivers" />
+  <main id="main">
+<section class="section"><div class="wrap">
+      <FaqList faqs={faqs} />
+      <p class="fine">General information only. Nothing here is legal advice, and nothing is a commitment to purchase any hotel or loan.</p>
+    </div></section>
+  </main>
+  <Cta title={"Tell us about the hotel and the case."} text={"We respond to receivers and counsel directly."} label={"Discuss a receivership"} />
+</Base>

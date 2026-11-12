@@ -1,0 +1,15 @@
+---
+import { SECTIONS } from '../lib/sections';
+
+interface Props {
+  section: keyof typeof SECTIONS;
+}
+const { section } = Astro.props;
+const { label, pages } = SECTIONS[section];
+const path = Astro.url.pathname;
+---
+<nav class="subnav" aria-label={`${label} pages`}>
+  <div class="wrap">
+    {pages.map((p) => <a href={p.href} aria-current={path === p.href ? 'page' : undefined}>{p.title}</a>)}
+  </div>
+</nav>

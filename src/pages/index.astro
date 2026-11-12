@@ -2,11 +2,16 @@
 import Base from '../layouts/Base.astro';
 import Hero from '../components/Hero.astro';
 import Cta from '../components/Cta.astro';
+import PostCard from '../components/PostCard.astro';
+import { getPublishedPosts } from '../lib/posts';
+
+const latest = (await getPublishedPosts()).slice(0, 3);
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'Valley Capital Partners',
   url: Astro.site?.href,
+  logo: new URL('/apple-touch-icon.png', Astro.site).href,
   description: "Valley Capital Partners acquires non-performing loans secured by hotels from banks, special servicers, and other lenders.",
 };
 ---
@@ -127,6 +132,15 @@ const jsonLd = {
     <a class="card" href="/library/receivership/"><span class="mono">Note 03</span><h3>Keeping a hotel open through receivership</h3><p>The six points that decide whether a hotel keeps operating.</p><span class="go">Read</span></a>
   </div>
 </div></section>
+  {latest.length > 0 && (
+    <section class="section alt">
+      <div class="wrap">
+        <div class="head"><p class="eyebrow">Blog</p><h2>Recent <em>writing.</em></h2></div>
+        <div class="cards">{latest.map((p) => <PostCard post={p} />)}</div>
+        <p><a class="more arrow" href="/blog/">All posts</a></p>
+      </div>
+    </section>
+  )}
 </main>
 <Cta title={"Have a hotel loan you would like us to review?"} text={"Send a summary of the loan and the property. We reply with an indication of interest or a clear decline."} label={"Contact us"} />
 </Base>

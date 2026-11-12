@@ -5,7 +5,7 @@
 Checks: balanced markup, one <h1> / <title> / description / canonical per page, unique ids, every internal link, anchor and asset
 resolves, every CSS class used has a rule, no leftovers from the old build, every section's video slot exists, and (if you pass an
 older build) that page copy matches it. Exit code 1 if anything is wrong. Uses only the Python standard library."""
-import glob, os, re, sys
+import glob, json, os, re, sys
 from html.parser import HTMLParser
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -20,6 +20,7 @@ class Page(HTMLParser):
         super().__init__(convert_charrefs=True)
         self.stack, self.ids, self.classes, self.links, self.assets, self.errors = [], set(), set(), [], [], []
         self.h1, self.title, self.desc, self.canonical, self._in_title = 0, '', None, None, False
+        self.ld, self._ld = [], False
 
     def handle_starttag(self, tag, attrs):
         a = dict(attrs)
@@ -28,6 +29,7 @@ class Page(HTMLParser):
             self.ids.add(a['id'])
         for c in (a.get('class') or '').split(): self.classes.add(c)
         if tag == 'h1': self.h1 += 1
+        if tag == 'script' and a.get('type') == 'application/ld+json': self._ld = True; self.ld.append('')
         if tag == 'title': self._in_title = True
         if tag == 'meta' and a.get('name') == 'description': self.desc = a.get('content')
         if tag == 'link' and a.get('rel') == 'canonical': self.canonical = a.get('href')
@@ -38,9 +40,11 @@ class Page(HTMLParser):
 
     def handle_data(self, data):
         if self._in_title: self.title += data
+        if self._ld: self.ld[-1] += data
 
     def handle_endtag(self, tag):
         if tag == 'title': self._in_title = False
+        if tag == 'script': self._ld = False
         if tag in VOID: return
         if not self.stack or self.stack[-1] != tag: self.errors.append('mismatched </%s> (open: %s)' % (tag, self.stack[-1] if self.stack else 'none'))
         else: self.stack.pop()
@@ -63,6 +67,9 @@ for url, (p, _) in pages.items():
     if not p.desc: problems.append('%s: no meta description' % url)
     if url != '/404.html' and not p.canonical: problems.append('%s: no canonical link' % url)
     if 'main' not in p.ids: problems.append('%s: no #main for the skip link' % url)
+    for blob in p.ld:
+        try: json.loads(blob)
+        except ValueError as e: problems.append('%s: invalid structured data (%s)' % (url, e))
 titles = [p.title for p, _ in pages.values()]
 for t in set(titles):
     if titles.count(t) > 1: problems.append('duplicate <title> %r' % t)
@@ -130,7 +137,7 @@ if OLD:
             kind = 'containment'
         else:
             new = body_text(pages['/' if stem == 'index' else '/%s/' % stem][1])
-            kind = 'containment' if stem == 'index' else 'identical'
+            kind = 'containment' if stem in ('index', 'banks', 'receivers') else 'identical'     # these pages have had sections added
         if kind == 'identical':
             if new == old: print('%s: copy identical to the old build' % old_name)
             else: problems.append('%s: copy differs from the old build' % old_name)

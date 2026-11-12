@@ -30,9 +30,9 @@ Hotel loan delinquency in commercial mortgage-backed securities eased in October
 
 ## What moved
 
-Lodging delinquency has run 5.22%, 5.84%, 6.18%, and 5.94% in June, August, September, and October. It rose into September and gave back part of that rise in October. No July reading was found, and we found no stated reason for October's lodging decline.
+Lodging delinquency has run 5.22%, 5.84%, 6.18%, and 5.94% in June, August, September, and October. It rose into September and gave back part of that rise in October. No July reading was found.
 
-The overall rate fell mainly because one large loan, a showroom loan, returned to current. That says little about hotels.
+The overall rate fell mainly because one large loan, a showroom loan, returned to current, which says little about hotels. A single loan can move a rate weighted by balance.
 
 A loan that is extended or modified can leave the delinquent count without having been repaid. A lower rate does not by itself show that the underlying loans have been resolved.
 
@@ -42,15 +42,15 @@ A loan that is extended or modified can leave the delinquent count without havin
 
 **Why the publishers differ.** They draw on different loans and define the measure in their own ways, and the lodging figures here are from different months: KBRA's is as of March, Trepp's is for October. Close readings would not show agreement, and distant ones would not show error.
 
-**Weekly hotel results.** They show direction, and little else. Revenue per available room is revenue; a loan is paid from net operating income after payroll, taxes, insurance, and franchise fees. Loans come under stress hotel by hotel, when income cannot cover the payment or the balance cannot be refinanced.
+**Weekly hotel results.** They show direction, and little else. Revenue per available room is revenue; a loan is repaid from the income left after costs. Loans come under stress hotel by hotel, when income cannot cover the payment or the balance cannot be refinanced.
 
 ## What this means for a lender
 
-A lender whose hotel loans sit in none of these pools can use the numbers only as context. The useful comparison is the share of its own hotel loans [past due](/glossary/#past-due) by 30 days or more, by balance and by count, against a publisher's figure for the same month.
+For a lender whose hotel loans sit in none of these pools, the numbers are context. The useful comparison is the share of its own hotel loans [past due](/glossary/#past-due) by 30 days or more, by balance and by count, against a publisher's figure for the same month.
 
 For each loan, a few questions beat any market rate. Is it current on its original terms or on a [modification](/glossary/#loan-modification)? When does it mature, and could the hotel's income support a refinance? How does it compare with its [competitive set](/glossary/#comp-set)?
 
-A lodging reading that moves with no single large loan to explain it, or special servicing rising while delinquency stays low, would change the picture. None of this points to an action. It shows which of a lender's own measures to read first.
+A lodging reading that moves with no single large loan to explain it, or special servicing rising while delinquency stays low, would change the picture. Neither calls for action by itself. Each is a reason to read the lender's own measures first.
 
 ## What is due next
 

@@ -23,7 +23,7 @@ CRED iQ publishes its own monthly distress rate, which also counts loans in spec
 
 ## Why the figures differ
 
-**What counts as trouble.** Each publisher sets its own rule, and its methodology note governs. Three tests are common.
+**What counts as trouble.** Each publisher's methodology note governs. Three tests are common.
 
 **Late on payments** counts a loan once a payment is missed by a stated number of days. It misses a loan that is current until maturity and then cannot repay ([maturity default](/glossary/#maturity-default)), and a loan that was extended or modified and is current on its new terms.
 
@@ -45,19 +45,18 @@ None of the four is wrong. Each answers a different question: how many loans hav
 
 ## What a lender can use instead
 
-These rates describe securitized loans. They do not cover hotel loans held on a bank's own balance sheet, which is where many community-bank hotel loans sit. A bank's own records answer its question better: [past due](/glossary/#past-due) status, [non-accrual](/glossary/#non-accrual) loans, [classified loans](/glossary/#classified-loan), and the [watch list](/glossary/#watch-list).
+These rates describe securitized loans, not hotel loans held on a bank's own balance sheet, which is where many community-bank hotel loans sit. A bank's own records answer its question better: [past due](/glossary/#past-due) status, [non-accrual](/glossary/#non-accrual) loans, [classified loans](/glossary/#classified-loan), and the [watch list](/glossary/#watch-list).
 
-Add what no delinquency rate shows: maturities coming over the next year, and loans that are current only because they were extended or modified. To compare with a market rate, restate the lender's figure on the publisher's definition and say that the pools differ. The result is context, not a benchmark.
+Add what no delinquency rate shows: maturities coming over the next year, and loans current only on extended or modified terms. To compare with a market rate, restate the lender's figure on the publisher's definition and say that the pools differ. The result is context, not a benchmark.
 
 ## Mistakes when quoting a market rate
 
 - **Dropping the label.** Quote the measure, publisher, and month together: "Trepp's lodging delinquency rate was 5.94% in October."
 - **Comparing publishers.** KBRA's 6.4% for March set against Trepp's 5.94% for October is not a fall. The measure, pool, and date all differ.
-- **Calling a lower rate repayment.** An extended or modified loan can leave the count without being repaid.
 
 ## What we don't know
 
-We have not compared the publishers' methodology notes line by line, so the three tests above are general and may not match any one publisher's rule. We do not know why the two Hilton figures differ, and we found no CRED iQ reading to cite. The rates will change with the next report. Read the figures here as examples of the gap, not a current reading.
+We have not compared the publishers' methodology notes line by line, so the three tests above are general. We do not know why the two Hilton figures differ, and we found no CRED iQ reading to cite. The rates will change with the next report. Read the figures here as examples of the gap, not a current reading.
 
 Last checked: November 12, 2026.
 

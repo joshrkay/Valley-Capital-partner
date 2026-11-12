@@ -7,7 +7,7 @@
   --ink: #F4F8FB; --ink-2: #DBE4EA; --soft: #C3CFD9; --body: #C9D4DD; --muted: #A9B8C4; --faint: #7C90A2;
   --accent: #F5B454; --on-accent: #1A1204; --inv: #001625; --tint: 255, 255, 255;
   --paper: #F2F1EF; --blue: #6F9DBE;
-  --r: 4px; --wt: 340;
+  --r: 4px; --wt: 340; --ease: cubic-bezier(.38, .37, .16, .99); --rise: 150px;
   --display: "Outfit", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --serif: "DM Serif Display", Georgia, "Times New Roman", serif;
   --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
@@ -62,6 +62,7 @@ p { margin: 0; color: var(--muted); }
 .menu > div a { padding: 13px 14px; border-radius: 3px; font: 500 13px/1.2 var(--display); letter-spacing: .1em; text-transform: uppercase; }
 .menu > div a:hover { background: rgba(255, 255, 255, .06); }
 @media (max-width: 1180px) { .nav { display: none; } .menu { display: block; } }
+@media (max-width: 700px) { :root { --rise: 90px; } }
 @media (max-width: 520px) { .bar-end .btn-ink { display: none; } .brand { font-size: 19px; gap: 10px; } .brand-mark { width: 26px; height: 26px; } }
 
 /* ---- buttons: squarer, uppercase; the outline button fills on hover (Lyon Stahl) ---- */
@@ -192,6 +193,16 @@ tbody tr:last-child > * { border-bottom: 0; }
 .panel p { font-size: 16px; }
 @media (max-width: 860px) { .panel { grid-template-columns: 1fr; } .panel > div { border-right: 0; border-bottom: 1px solid var(--line); } }
 
+/* audience rows (after Blue Owl's platforms): title, a sentence and a link on the left, highlights on the right */
+.rows { border-top: 1px solid var(--line); overflow-x: clip; }
+.row { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: start; padding: 64px 0; border-bottom: 1px solid var(--line); }
+.row h3 { font: 400 clamp(30px, 3.6vw, 46px)/1.08 var(--serif); letter-spacing: -.012em; margin-bottom: 18px; }
+.row-main p { font-size: 19px; color: var(--soft); max-width: 520px; }
+.row-list .mono { display: block; margin-bottom: 14px; font-size: 11px; }
+.row-list ul { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.row-list li { padding: 15px 0; border-bottom: 1px solid var(--line); font-size: 17px; color: var(--soft); }
+@media (max-width: 900px) { .row { grid-template-columns: 1fr; gap: 28px; padding: 48px 0; } }
+
 .acc { border-top: 1px solid var(--line); }
 .acc details { border-bottom: 1px solid var(--line); }
 .acc summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 64px 1fr 44px; align-items: center; gap: 12px; padding: 30px 0; }
@@ -299,12 +310,20 @@ footer { position: relative; border-top: 1px solid var(--line); padding: 70px 0 
 @media (max-width: 700px) { .foot { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 440px) { .foot { grid-template-columns: 1fr; } }
 
-/* ---- motion: sections settle into place; everything stays readable if scripts never run ---- */
-.motion .reveal { opacity: 0; transform: translateY(8px); transition: opacity .5s ease, transform .5s ease; }
-.motion .reveal.in { opacity: 1; transform: none; }
+/* ---- motion (after Blue Owl): blocks rise 150px over a second on a soft ease-out; audience rows slide in from the left.
+        site.js adds .motion to <html> only when motion is allowed, so everything stays readable without scripts and with
+        reduced motion. The transition lives on the revealed state only, so a block is hidden instantly and then moves in
+        (nothing visible at load ever fades out first). The hero headline starts light blue and settles to white 750ms
+        after load; that one is pure CSS, so it needs no script. ---- */
+.motion .reveal, .motion .reveal-left { opacity: 0; will-change: opacity, transform; }
+.motion .reveal { transform: translateY(var(--rise)); }
+.motion .reveal-left { transform: translateX(calc(var(--rise) * -1)); }
+.motion .reveal.in, .motion .reveal-left.in { opacity: 1; transform: none; transition: opacity 1s var(--ease), transform 1s var(--ease); }
+@keyframes settle { from { color: var(--blue); } to { color: var(--ink); } }
+.hero h1 { animation: settle .75s cubic-bezier(.4, 0, .2, 1) .75s both; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .btn, .card, .toc a, .hero-media video, .more::after, .nav a::after, .foot li a { transition: none; }
-  .motion .reveal { opacity: 1; transform: none; transition: none; }
+  .hero h1 { animation: none; }
 }
-@media print { .hero-media, .bar, .skip { display: none; } body { background: #fff; color: #000; } p, dd, td { color: #222; } }
+@media print { .hero-media, .bar, .skip { display: none; } body { background: #fff; color: #000; } p, dd, td { color: #222; } .motion .reveal, .motion .reveal-left { opacity: 1; transform: none; } }

@@ -1,0 +1,3 @@
+# Pre-launch: keep the site out of search engines. Replace with an allow rule (and remove the X-Robots-Tag header in vercel.json) at launch.
+User-agent: *
+Disallow: /

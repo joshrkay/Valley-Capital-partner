@@ -1,0 +1,17 @@
+---
+interface Props {
+  title: string;
+  text: string;
+  label?: string;
+}
+const { title, text, label = 'Contact us' } = Astro.props;
+---
+<section class="cta">
+  <div class="wrap">
+    <div>
+      <h2>{title}</h2>
+      <p>{text}</p>
+    </div>
+    <a class="btn btn-light arrow" href="/contact/">{label}</a>
+  </div>
+</section>

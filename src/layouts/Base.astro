@@ -1,0 +1,59 @@
+---
+import '../styles/site.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  clips?: 'home' | 'inner';
+  ogType?: 'website' | 'article';
+  jsonLd?: Record<string, unknown>;
+}
+
+const { title, description, clips = 'inner', ogType = 'website', jsonLd } = Astro.props;
+const fullTitle = title === 'Valley Capital Partners' ? title : `${title} | Valley Capital Partners`;
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+
+// Background clips. The home page swaps four as the story scrolls; every other page uses one. Files are fetched into public/video at build.
+const CLIPS = {
+  home: [['hero', 'hotel-lit.mp4'], ['default', 'hotel-corridor.mp4'], ['lender', 'hotel-neon.mp4'], ['purchase', 'hotel-resort-aerial.mp4']],
+  inner: [['default', 'hotel-corridor.mp4']],
+};
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#050E16" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content="Valley Capital Partners" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="alternate" type="application/rss+xml" title="Valley Capital Partners" href="/rss.xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" />
+    {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
+  </head>
+  <body>
+    <div class="bgv" aria-hidden="true">
+      {CLIPS[clips].map(([slot, file]) => <video data-slot={slot} data-src={`/video/${file}`} muted loop playsinline preload="none"></video>)}
+    </div>
+    <Header />
+    <slot />
+    <Footer />
+    <script>
+      import '../scripts/bg.js';
+      import '../scripts/site.js';
+    </script>
+  </body>
+</html>

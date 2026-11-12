@@ -1,0 +1,66 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Hero from '../../components/Hero.astro';
+import Cta from '../../components/Cta.astro';
+import { tagSlug } from '../../lib/tags';
+import PostCard from '../../components/PostCard.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => (import.meta.env.PROD ? !data.draft : true));
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post, all: posts } }));
+}
+
+const { post, all } = Astro.props;
+const { Content } = await render(post);
+const fmt = (d: Date) => d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
+const minutes = Math.max(1, Math.round((post.body ?? '').split(/\s+/).length / 220));
+const more = all
+  .filter((p) => p.id !== post.id)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
+const url = new URL(Astro.url.pathname, Astro.site).href;
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: post.data.title,
+  description: post.data.description,
+  datePublished: post.data.date.toISOString(),
+  dateModified: (post.data.updated ?? post.data.date).toISOString(),
+  author: { '@type': 'Organization', name: post.data.author },
+  publisher: { '@type': 'Organization', name: 'Valley Capital Partners' },
+  mainEntityOfPage: url,
+};
+---
+<Base title={post.data.title} description={post.data.description} ogType="article" jsonLd={jsonLd}>
+  <Hero eyebrow={post.data.category ?? 'Blog'} title={post.data.title} lead={post.data.description} />
+  <main id="main">
+    <section class="section">
+      <div class="wrap">
+        <p class="meta">
+          <time datetime={post.data.date.toISOString()}>{fmt(post.data.date)}</time>
+          <span>{post.data.author}</span>
+          <span>{minutes} min read</span>
+          {post.data.updated && <span>Updated {fmt(post.data.updated)}</span>}
+        </p>
+        <div class="prose"><Content /></div>
+        {post.data.tags.length > 0 && (
+          <ul class="taglist" aria-label="Topics">
+            {post.data.tags.map((t) => <li><a href={`/blog/tags/${tagSlug(t)}/`}>{t}</a></li>)}
+          </ul>
+        )}
+        <p class="fine">General commentary only. It is not legal, accounting, or regulatory advice.</p>
+        <p><a class="more arrow" href="/blog/">All posts</a></p>
+      </div>
+    </section>
+    {more.length > 0 && (
+      <section class="section alt">
+        <div class="wrap">
+          <div class="head"><p class="eyebrow">More from the blog</p></div>
+          <div class="cards">{more.map((p) => <PostCard post={p} />)}</div>
+        </div>
+      </section>
+    )}
+  </main>
+  <Cta title="Have a hotel loan you would like us to review?" text="Send a summary of the loan and the property. We reply with an indication of interest or a clear decline." />
+</Base>

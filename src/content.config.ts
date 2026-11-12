@@ -30,4 +30,12 @@ const library = defineCollection({
   }),
 });
 
-export const collections = { blog, library };
+// Glossary: one short definition per file, src/content/glossary/<slug>.md. The file name is the anchor: /glossary/#<slug>.
+const glossary = defineCollection({
+  loader: glob({ pattern: '**/[^_]*.md', base: './src/content/glossary' }),
+  schema: z.object({
+    term: z.string(),                              // as shown, for example "Revenue per available room (RevPAR)"
+  }),
+});
+
+export const collections = { blog, library, glossary };

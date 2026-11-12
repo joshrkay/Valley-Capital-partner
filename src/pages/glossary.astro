@@ -1,0 +1,38 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import Cta from '../components/Cta.astro';
+
+const entries = (await getCollection('glossary')).sort((a, b) => a.data.term.localeCompare(b.data.term, 'en', { sensitivity: 'base' }));
+const rendered = await Promise.all(entries.map(async (entry) => ({ entry, Content: (await render(entry)).Content })));
+const letter = (term: string) => term[0].toUpperCase();
+const letters = [...new Set(entries.map((e) => letter(e.data.term)))];
+---
+<Base title="Glossary" description="Plain-language definitions of the terms that come up in a hotel loan workout: RevPAR, comfort letters, PIPs, forbearance, receivership, and more.">
+  <Hero eyebrow="Glossary" title="The terms that come up in a hotel loan workout." lead="Plain-language definitions for lenders, owners, and counsel. General explanations only." />
+  <main id="main">
+    <section class="section">
+      <div class="wrap">
+        <nav class="alpha" aria-label="Jump to a letter">
+          {letters.map((l) => <a href={`#letter-${l}`}>{l}</a>)}
+        </nav>
+        {letters.map((l) => (
+          <section class="gloss-group" id={`letter-${l}`}>
+            <h2 class="gloss-letter">{l}</h2>
+            <dl class="gloss">
+              {rendered.filter((r) => letter(r.entry.data.term) === l).map(({ entry, Content }) => (
+                <div id={entry.id}>
+                  <dt>{entry.data.term}</dt>
+                  <dd><Content /></dd>
+                </div>
+              ))}
+            </dl>
+          </section>
+        ))}
+        <p class="fine">These definitions are general explanations and are not legal, accounting, or regulatory advice. Terms and practice vary by lender, brand, and state.</p>
+      </div>
+    </section>
+  </main>
+  <Cta title="Have a hotel loan you would like us to review?" text="Send a summary of the loan and the property. We reply with an indication of interest or a clear decline." />
+</Base>

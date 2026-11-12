@@ -1,0 +1,38 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import Cta from '../components/Cta.astro';
+import PostCard from '../components/PostCard.astro';
+import { getPublishedPosts } from '../lib/posts';
+
+const posts = await getPublishedPosts();
+const notes = await getCollection('library', ({ data }) => !data.draft);
+const terms = await getCollection('glossary');
+const latest = posts.slice(0, 3);
+---
+<Base title="Resources" description="Technical notes, writing, answers to common questions, and a glossary for anyone dealing with a non-performing hotel loan.">
+  <Hero eyebrow="Resources" title="Notes, answers, and a glossary for hotel loan workouts." lead="Written for credit officers, asset managers, receivers, counsel, and owners who are dealing with a hotel loan in default." />
+  <main id="main">
+    <section class="section">
+      <div class="wrap">
+        <div class="cards cards-4">
+          <a class="card" href="/library/"><span class="mono">{notes.length} notes</span><h3>Library</h3><p>Longer technical notes on franchises, improvement plans, receivership, and lender options.</p><span class="go">Browse</span></a>
+          <a class="card" href="/blog/"><span class="mono">{posts.length} posts</span><h3>Blog</h3><p>Shorter commentary on hotel loans, workouts, and what buyers look at.</p><span class="go">Read</span></a>
+          <a class="card" href="/glossary/"><span class="mono">{terms.length} terms</span><h3>Glossary</h3><p>Plain-language definitions of the terms that come up in a workout.</p><span class="go">Look up</span></a>
+          <a class="card" href="/faq/"><span class="mono">Answers</span><h3>FAQ</h3><p>What we buy, how a loan sale works, and what changes for an owner.</p><span class="go">Read</span></a>
+        </div>
+      </div>
+    </section>
+    {latest.length > 0 && (
+      <section class="section alt">
+        <div class="wrap">
+          <div class="head"><p class="eyebrow">Latest</p><h2>Recent <em>writing.</em></h2></div>
+          <div class="cards">{latest.map((p) => <PostCard post={p} />)}</div>
+          <p><a class="more arrow" href="/blog/">All posts</a></p>
+        </div>
+      </section>
+    )}
+  </main>
+  <Cta title="Have a hotel loan you would like us to review?" text="Send a summary of the loan and the property. We reply with an indication of interest or a clear decline." />
+</Base>

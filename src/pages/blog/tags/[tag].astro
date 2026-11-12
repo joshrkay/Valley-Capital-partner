@@ -1,5 +1,5 @@
 ---
-import { getCollection } from 'astro:content';
+import { getPublishedPosts } from '../../../lib/posts';
 import Base from '../../../layouts/Base.astro';
 import Hero from '../../../components/Hero.astro';
 import Cta from '../../../components/Cta.astro';
@@ -7,14 +7,14 @@ import { tagSlug } from '../../../lib/tags';
 import PostCard from '../../../components/PostCard.astro';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('blog', ({ data }) => (import.meta.env.PROD ? !data.draft : true));
+  const posts = await getPublishedPosts();
   const labels = new Map<string, string>();
   for (const p of posts) for (const t of p.data.tags) labels.set(tagSlug(t), t);
   return [...labels].map(([slug, label]) => ({
     params: { tag: slug },
     props: {
       label,
-      posts: posts.filter((p) => p.data.tags.some((t) => tagSlug(t) === slug)).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf()),
+      posts: posts.filter((p) => p.data.tags.some((t) => tagSlug(t) === slug)),
     },
   }));
 }

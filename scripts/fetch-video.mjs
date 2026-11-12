@@ -10,7 +10,7 @@ import { fileURLToPath } from 'node:url';
 
 const dest = join(dirname(fileURLToPath(import.meta.url)), '..', 'public', 'video');
 // file name -> Mixkit clip id (360p versions: 0.3-4 MB, plenty under the dark fade). See the README for titles.
-const CLIPS = { 'hotel-lit.mp4': 27291, 'hotel-corridor.mp4': 34613 };
+const CLIPS = { 'hotel-lit.mp4': 27291, 'hotel-corridor.mp4': 34613, 'hotel-neon.mp4': 41154, 'hotel-resort-aerial.mp4': 9902 };
 const url = (id) => `https://assets.mixkit.co/videos/${id}/${id}-360.mp4`;
 const isMp4 = (buf) => buf.length > 10000 && buf.subarray(4, 8).toString('latin1') === 'ftyp';
 

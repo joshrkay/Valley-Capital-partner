@@ -25,7 +25,7 @@ CRED iQ publishes its own monthly distress rate, which also counts loans in spec
 
 **What counts as trouble.** Each publisher's methodology note governs. Three tests are common.
 
-**Late on payments** counts a loan once a payment is missed by a stated number of days. It misses a loan that is current until maturity and then cannot repay ([maturity default](/glossary/#maturity-default)), and a loan that was extended or modified and is current on its new terms.
+**Late on payments** counts a loan once a payment is missed by a stated number of days. Whether it counts a loan past its maturity date that cannot repay ([maturity default](/glossary/#maturity-default)) depends on the publisher. It does not count a loan that was extended or modified and is current on its new terms.
 
 **Nonperforming** sets a different bar. In bank usage a loan is commonly [non-performing](/glossary/#non-performing-loan) when it is on non-accrual or 90 days or more past due, so a loan one month late can be delinquent without being nonperforming.
 
@@ -33,15 +33,15 @@ CRED iQ publishes its own monthly distress rate, which also counts loans in spec
 
 **Which loans are in the pool.** All securitized hotel loans, only the deals one agency rates, or one brand or city. KBRA's study title says delinquencies vary by price class and chain, so the mix matters.
 
-**Weighting.** A rate weighted by balance lets one large loan dominate. A rate weighted by number of loans counts each once. Trepp's lodging rate fell 79 basis points to 5.22% in June 2026, a drop reported as the result of a large Florida portfolio loan returning to current ([CRE Daily](https://www.credaily.com/?p=219707)).
+**Weighting.** A rate weighted by balance can let one large loan dominate. A rate weighted by number of loans counts each once. Trepp's lodging rate fell 79 basis points to 5.22% in June 2026, a drop reported as the result of a large Florida portfolio loan returning to current ([CRE Daily](https://www.credaily.com/?p=219707)).
 
 **The date.** A monthly reading, a quarter-end figure, and a study published months later do not line up. KBRA's lodging figure is as of March and Trepp's is for October.
 
 ## Same hotels, four rates
 
-**Illustration (invented numbers):** A pool holds ten hotel loans totaling $100 million. One loan, $5 million, is 45 days late and has gone to the special servicer. Another, $30 million, is current but was transferred because its maturity is close. Late loans are 10% of the pool by number and 5% by balance. Special-serviced loans are 20% by number and 35% by balance.
+**Illustration (invented numbers):** A pool holds ten hotel loans totaling $100 million. One loan, $5 million, is 45 days late and has gone to the special servicer. Another, $30 million, is current but was transferred because its maturity is close. The late-payment rate is 10% by number and 5% by balance. The special-serviced rate is 20% by number and 35% by balance.
 
-None of the four is wrong. Each answers a different question: how many loans have missed a payment, or how much money sits with a servicer.
+None of the four is wrong. Each answers a different question: loans that are late or loans with a servicer, counted by number or by balance.
 
 ## What a lender can use instead
 
@@ -56,7 +56,7 @@ Add what no delinquency rate shows: maturities coming over the next year, and lo
 
 ## What we don't know
 
-We have not compared the publishers' methodology notes line by line, so the three tests above are general. We do not know why the two Hilton figures differ, and we found no CRED iQ reading to cite. The rates will change with the next report. Read the figures here as examples of the gap, not a current reading.
+We have not compared the publishers' methodology notes line by line, so the three tests above are general. We do not know why the two Hilton figures differ, and we found no CRED iQ reading to cite. The rates will change with the next report. Treat the figures here as examples of the gap, not as a current reading.
 
 Last checked: November 12, 2026.
 

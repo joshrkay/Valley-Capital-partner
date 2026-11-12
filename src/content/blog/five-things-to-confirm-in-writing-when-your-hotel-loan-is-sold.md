@@ -7,7 +7,7 @@ tags: ["owners", "note sales"]
 draft: true
 ---
 
-<!-- VERIFY BEFORE PUBLISHING. This draft was expanded from a shorter one using only the site's own pages and general practice; it adds no sourced figures. The only numbers are in the labeled illustration. Counsel should confirm the general statements about payment-instruction fraud, recording of assignments, and how to handle payments while the payee is unconfirmed. Then delete this note. -->
+<!-- VERIFY BEFORE PUBLISHING. Expanded from a shorter draft using only the site's own pages and general practice; no sourced figures were added, and the only numbers are in the labeled illustration. Counsel should confirm the general statements about payment-instruction fraud, recording of assignments, and how to handle payments while the payee is unconfirmed. -->
 
 When a lender sells a hotel loan, the owner usually learns of it from a letter. The letter is the start of the conversation, not the end of it. Five points are worth having in writing before anything changes, because the loan has a new party on the other end, and an answer given by phone is hard to rely on later.
 

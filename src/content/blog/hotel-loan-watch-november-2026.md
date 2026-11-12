@@ -18,7 +18,7 @@ draft: true
 - Whether the FDIC Quarterly Banking Profile separates hotel loans was not checked.
 Update "Last checked" when done. -->
 
-Hotel loan delinquency in commercial mortgage-backed securities eased in October, and hotel results kept rising year over year. The latest lodging special servicing readings found are from the summer. All of these readings describe securitized loans, not hotel loans held by banks.
+Hotel loan delinquency in commercial mortgage-backed securities eased in October, and hotel results kept rising year over year. The latest lodging special servicing readings found are from the summer.
 
 ## The numbers
 
@@ -30,7 +30,7 @@ Hotel loan delinquency in commercial mortgage-backed securities eased in October
 
 ## What moved
 
-Lodging delinquency has run 5.22%, 5.84%, 6.18%, and 5.94% in June, August, September, and October. It rose into September and gave back part of that rise in October. No July reading was found.
+Trepp's lodging delinquency has run 5.22%, 5.84%, 6.18%, and 5.94% in June, August, September, and October. It rose into September and gave back part of that rise in October. No July reading was found.
 
 The overall rate fell mainly because one large loan, a showroom loan, returned to current, which says little about hotels. A single loan can move a rate weighted by balance.
 
@@ -38,19 +38,19 @@ A loan that is extended or modified can leave the delinquent count without havin
 
 ## How to read these numbers
 
-**What each counts.** A delinquency rate counts loans that have missed a payment by a stated number of days; KBRA's reading here uses 30 or more. A special servicing rate counts loans a [special servicer](/glossary/#special-servicer) has taken over, some still current, so it can rise first. Only the lodging lines speak to hotels.
+**What each counts.** A delinquency rate counts loans that have missed a payment by a stated number of days; KBRA's reading here uses 30 or more days. A special servicing rate counts loans a [special servicer](/glossary/#special-servicer) has taken over, some still current, so it can rise before delinquency does. Only the lodging lines speak to hotels.
 
-**Why the publishers differ.** They draw on different loans and define the measure in their own ways, and the lodging figures here are from different months: KBRA's is as of March, Trepp's is for October. Close readings would not show agreement, and distant ones would not show error.
+**Why the publishers differ.** They draw on different loans and define the measure in their own ways, and the lodging figures here are from different months: KBRA's is as of March, Trepp's is for October.
 
-**Weekly hotel results.** They show direction, and little else. Revenue per available room is revenue; a loan is repaid from the income left after costs. Loans come under stress hotel by hotel, when income cannot cover the payment or the balance cannot be refinanced.
+**Weekly hotel results.** They show direction, and little else. Revenue per available room is revenue, and a loan is repaid from the income left after costs. The figures are national, while loans come under stress hotel by hotel, when income cannot cover the payment or the balance cannot be refinanced.
 
 ## What this means for a lender
 
 For a lender whose hotel loans sit in none of these pools, the numbers are context. The useful comparison is the share of its own hotel loans [past due](/glossary/#past-due) by 30 days or more, by balance and by count, against a publisher's figure for the same month.
 
-For each loan, a few questions beat any market rate. Is it current on its original terms or on a [modification](/glossary/#loan-modification)? When does it mature, and could the hotel's income support a refinance? How does it compare with its [competitive set](/glossary/#comp-set)?
+For each loan, a few questions beat any market rate. Is it current on its original terms or on a [modification](/glossary/#loan-modification)? When does it mature, and could the hotel's income support a refinance? How does the hotel compare with its [competitive set](/glossary/#comp-set)?
 
-A lodging reading that moves with no single large loan to explain it, or special servicing rising while delinquency stays low, would change the picture. Neither calls for action by itself. Each is a reason to read the lender's own measures first.
+A lodging reading that moves with no single large loan to explain it, or special servicing rising while delinquency stays low, would change the picture. Each is a reason to read the lender's own measures first, not by itself a reason to act.
 
 ## What is due next
 

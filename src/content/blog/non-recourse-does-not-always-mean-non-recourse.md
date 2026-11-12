@@ -7,7 +7,7 @@ tags: ["guarantors", "owners"]
 draft: true
 ---
 
-<!-- VERIFY BEFORE PUBLISHING. This draft was expanded from a shorter one using only the site's own pages and general practice; it adds no sourced figures. The only numbers are in the labeled illustration. Counsel should confirm the general statements about how loss-based and full-debt carve-outs differ, what a release usually covers, and which acts guaranties commonly reach. Then delete this note. -->
+<!-- VERIFY BEFORE PUBLISHING. Expanded from a shorter draft using only the site's own pages and general practice; no sourced figures were added, and the only numbers are in the labeled illustration. Counsel should confirm the general statements about how loss-based and full-debt carve-outs differ, what a release usually covers, and which acts guaranties commonly reach. -->
 
 Owners often describe a hotel loan as non-recourse. They mean that if the loan is not repaid, the lender can take the hotel and nothing else. That is the starting position in most commercial loans. It is not always where a loan ends up: the protection depends on conduct, and the wording of the [guaranty](/glossary/#guaranty) decides what one lapse costs.
 

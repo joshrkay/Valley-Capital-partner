@@ -7,7 +7,7 @@ tags: ["note sales", "owners"]
 draft: true
 ---
 
-<!-- VERIFY BEFORE PUBLISHING. This draft was expanded from a shorter one using only the site's own pages and general practice; it adds no sourced figures. The only numbers are in the labeled illustration. Counsel should confirm the general statements about what each ending needs and what can interrupt it, especially those about bankruptcy, liens, and releases. Then delete this note. -->
+<!-- VERIFY BEFORE PUBLISHING. Expanded from a shorter draft using only the site's own pages and general practice; no sourced figures were added, and the only numbers are in the labeled illustration. Counsel should confirm the general statements about what each ending needs and what can interrupt it, especially those about bankruptcy, liens, taxes, and releases. -->
 
 A defaulted hotel loan can change hands in a day. What happens next takes longer, and it follows a fairly regular order. This describes common practice, not any one buyer's. Each step asks for something the owner can prepare.
 
@@ -33,7 +33,7 @@ Many buyers prefer an agreed ending, because enforcement is slower and costs mor
 
 **Illustration (invented numbers):** A holder has a $10 million loan on a hotel now worth $8 million. A discounted payoff of $7 million arrives in month 3. A deed in lieu in month 4 is followed by $0.5 million of costs and a sale in month 10 at $7.8 million, netting $7.3 million. Enforcement takes 18 months, the hotel slips to $7 million, and $1 million of costs leave $6 million.
 
-Enforcement looks strongest on paper, since it ends in title to a hotel worth $8 million today, yet here it is the slowest and nets the least. Other facts could reorder the three.
+Enforcement looks strongest on paper, since it ends in title to a hotel worth $8 million today, yet here it is the slowest and nets the least, before counting the cost of waiting. Other facts could reorder the three.
 
 ## What drives speed
 
@@ -43,10 +43,10 @@ There is no fixed timeline, so the owner cannot plan around a date the buyer nam
 
 ## Buyers differ
 
-Buyers differ in what they want the end result to be. Some prefer the loan to keep performing, so their interest runs with the hotel's recovery. Others expect to end up with the hotel, and weigh a modification against enforcement.
+Buyers want different end results. Some prefer the loan to keep performing, so their interest runs with the hotel's recovery. Others expect to end up with the hotel, and weigh a modification against enforcement.
 
 An owner is entitled to ask a buyer which it is, and to ask for the answer in writing. The answer is not a promise, because facts change, but it can be checked against later conduct. For the owner's side, see [what changes, and what does not, when your hotel loan is sold](/blog/when-your-hotel-loan-is-sold/).
 
 ## What we don't know
 
-We have not seen a fixed order or timetable that every buyer follows, and we do not describe one here. Sequence and timing depend on the loan documents, the hotel, and the state.
+We have not seen a fixed order or timetable that every buyer follows, and we do not describe one. Sequence and timing depend on the loan documents, the hotel, and the state.

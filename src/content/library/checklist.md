@@ -26,7 +26,7 @@ Buyers discount what they cannot verify. A complete file improves pricing and sh
 - Three years of operating statements, plus year to date
 - Monthly performance reports against the competitive set
 - Occupancy and sales tax filings
-- Liquor licence and operating permits
+- Liquor license and operating permits
 - Group bookings and advance deposits
 
 ### Property and proceedings

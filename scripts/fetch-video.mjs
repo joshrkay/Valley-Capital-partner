@@ -1,6 +1,6 @@
 // Fetch the background clips into public/video if they are not already there.
 //
-// The clips are Mixkit stock footage (free licence: fine to use in a site, not to redistribute as standalone files), so they are
+// The clips are Mixkit stock footage (free license: fine to use in a site, not to redistribute as standalone files), so they are
 // not committed to git. `npm run build` runs this first. It never fails the build: if a clip cannot be fetched the site still
 // builds and shows the dark gradient where that clip would be.
 import { existsSync, mkdirSync, statSync, writeFileSync } from 'node:fs';

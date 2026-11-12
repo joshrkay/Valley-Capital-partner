@@ -87,9 +87,16 @@ Figures below are placeholders.
 | "Hotel defaults are exploding, and smart money is circling." | "Hotel loans in CMBS pools were X% delinquent in [month], up from Y% a year earlier, according to [source]. Limited-service hotels were higher." |
 | "Owner A is about to lose Hotel B." | "When a portfolio loan moves to special servicing ahead of maturity, three things usually follow: ..." |
 
+## Decided
+
+- **American English** (decided November 12, 2026). The existing site copy was converted to match. The license post now lives at `/blog/liquor-licenses-and-hotel-transfers/`, with a permanent redirect from the old address in `vercel.json`.
+- **Byline: a named principal.** The name and role are still needed: no principal is named anywhere on the site yet. Until they are supplied, posts keep the firm name as the author. Once named:
+  - set the default `author` in `src/content.config.ts`;
+  - change the Article structured data in `src/pages/blog/[...slug].astro` so the author is a `Person` (it is an `Organization` today);
+  - that person is the reviewer of record for every post, so they should read each one before it merges.
+
 ## Open decisions (need a principal)
 
-1. **Byline.** "Valley Capital Partners" (today's default) or a named principal. People read people.
-2. **"Our view" sentence.** Allowed, or facts only.
-3. **American English.** Confirm. About 18 existing files use British spellings (licence, favour, organise), including the home page, and the post slug `/blog/liquor-licences-and-hotel-transfers/` would need a redirect if renamed.
-4. **Named-party exception.** Needs counsel to set the rule once.
+1. **"Our view" sentence.** Allowed, or facts only.
+2. **Named-party exception.** Needs counsel to set the rule once.
+3. **The eight existing posts.** Put the principal's name on them too, or leave them under the firm name until they have been read. A name on a post says the person has read it.

@@ -4,6 +4,9 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "trailingSlash": true,
+  "redirects": [
+    { "source": "/blog/liquor-licences-and-hotel-transfers/", "destination": "/blog/liquor-licenses-and-hotel-transfers/", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/(.*)",

@@ -1,6 +1,6 @@
 # Voice guide
 
-**Status: draft v1.** Built from the site's existing copy. Not yet tested against how peers write (research in progress) and not yet confirmed by a principal. Open decisions are at the bottom.
+**Status: draft v2.** Built from the site's existing copy, then checked against research on how peers write (`docs/research/peer-voice.md`). That research is search-snippet level only, because the peer sites could not be opened from this environment, so full-text checks are still outstanding. A principal has not yet confirmed it. Decisions are at the bottom.
 
 **Readers of this file:** whoever writes or reviews a post, and the drafting agent that produces first drafts.
 
@@ -11,6 +11,10 @@ A calm, exact colleague who has read the whole loan file and has no interest in 
 ## Who we write for
 
 Bank special-assets officers, special servicers, receivers and their counsel, and hotel owners in trouble. Many are under pressure. Some are about to lose a hotel. Write so any of them could read the post over a colleague's shoulder.
+
+## Where this voice sits
+
+Peers mostly write in one of two registers: impersonal, hedged research and law-firm notes, or transaction announcements. Almost nobody writes as the buyer of a hotel note, in plain words, about how the process works. That is the lane. Be as careful as the research houses and as readable as a good explainer. Do not borrow the announcement register.
 
 ## Three traits
 
@@ -48,6 +52,10 @@ Call a loan non-performing, or a hotel struggling, only when a source says so. D
 - Sentence-case headlines. No exclamation marks. No rhetorical questions in headlines.
 - Figures as numerals: $265 million, 7%, November 12, 2026.
 - Link a glossary term on first use only.
+- State the measure, the source and the as-of date in the same sentence: "Trepp's lodging delinquency rate was 5.94% in October." Publishers define delinquency differently, so never set one publisher's rate beside another's without saying so.
+- Date every post. Add a "Last checked" line to any post that relies on figures or on a court ruling.
+- For a ruling, give the court, the date, whether it is published, whether it applies only in one state, and whether it was later withdrawn or appealed.
+- No puns in headlines, and no weather or water images.
 
 ## Shape of a news note
 
@@ -56,7 +64,7 @@ Call a loan non-performing, or a hotel struggling, only when a source says so. D
 1. **What happened.** Two sentences, sourced, with the date.
 2. **Why it matters to a holder of a hotel loan.** Three to five sentences.
 3. **What to check.** A short list.
-4. **What we don't know.** One or two sentences.
+4. **What we don't know.** One or two sentences. For a ruling, also say what it does not decide.
 5. **Sources.** Linked list.
 
 Lengths: flash note 150 to 300 words; explainer 400 to 800; monthly data note about 500 with a table.
@@ -69,6 +77,9 @@ React to the pattern, not the party.
 - Exception: public record (a court filing, regulator release, rating-agency report, or a named press report), cleared by counsel, cited, and stated neutrally ("according to a court filing dated ..."). The exception needs counsel's sign-off before it is used. (Open decision 4.)
 - Never write about an asset or party we have bid on, hold, or signed an NDA about.
 - Never ride a bank failure, a closure, or layoffs for attention.
+- Attribute every claim about a party: "according to a court filing dated ...", "alleges". Check the plaintiff of record against the originating lender before naming either.
+- Check URLs, file names, image names, and alt text for identities the text leaves out. Peers anonymize the body and leak the name in the address.
+- Do not use "path to ownership", "loan-to-own", or "opportunity" framing. The press has attached allegations of predatory conduct to it.
 
 ## Never
 

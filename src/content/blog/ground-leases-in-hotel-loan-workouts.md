@@ -8,7 +8,7 @@ tags: ["collateral", "diligence"]
 
 Some hotels sit on leased land. The owner owns the building but pays rent to a landowner under a [ground lease](/glossary/#ground-lease). In a workout, that lease is part of the collateral, and it can decide what a foreclosure would actually deliver.
 
-A lender with a mortgage on a ground-leased hotel holds a leasehold interest, not ownership of the land. If the ground lease ends, so does the collateral. The questions that matter are how long the lease has to run, what could end it early, and what the lender can do to prevent that.
+A lender with a mortgage on a ground-leased hotel holds a leasehold interest, not ownership of the land. If the ground lease ends, so does the collateral, so the term left and the ways it could end early come first.
 
 ## Why the remaining term matters
 

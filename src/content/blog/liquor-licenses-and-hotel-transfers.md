@@ -18,7 +18,7 @@ If a hotel loses its ability to serve alcohol, the loss is more than a bar. Rest
 
 A foreclosure, a sale, a [deed in lieu](/glossary/#deed-in-lieu), and a receiver's appointment change who controls the premises. They do not change who holds the license. A [note sale](/glossary/#note-sale) changes only who holds the loan, so on its own it leaves the license where it is, though some states regulate who may hold a financial interest in a licensed business.
 
-Whether a license can be pledged or sold at all, or can only be surrendered and reissued, differs by state.
+Whether a license can be pledged or sold at all, or can only be surrendered and reissued, differs by state. For a lender, that means the license may not be collateral it can enforce against.
 
 ## How a transfer or new application usually runs
 
@@ -48,8 +48,7 @@ The license can be a condition of closing, with a timeline that allows for the a
 - Who may hold the license after a sale or a receiver's appointment, and may the buyer apply before closing?
 - Is a temporary permit or an interim operating arrangement available, and for how long?
 - Does the authority need notice of the receiver's appointment, or of a change in the lender?
-- Do any open violations affect an application?
 
-**Illustration (invented numbers):** A hotel takes in $100,000 a month from its restaurant, bar, and banquets. About $40,000 of that depends on serving alcohol, and the events that book on that basis bring $30,000 a month in room revenue. If a transfer leaves a four-month gap with no interim arrangement, up to $280,000 of revenue is exposed.
+**Illustration (invented numbers):** A hotel takes in $100,000 a month from its restaurant, bar, and banquets. About $40,000 of that depends on serving alcohol, and the events that book on that basis also bring $30,000 a month in room revenue. If a transfer leaves a four-month gap with no interim arrangement, up to $280,000 of revenue is exposed.
 
 Revenue is not profit, so the hotel's loss is the margin on it, but payroll for retained staff and other fixed costs keep running. A temporary arrangement covering two of the four months would halve the exposure to $140,000.

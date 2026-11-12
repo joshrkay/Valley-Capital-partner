@@ -18,17 +18,19 @@ A default stays a default. What the buyer paid is between the buyer and the sell
 
 ## What changes
 
-The person making decisions. A holder's room to negotiate depends on what it paid for the loan, not on the balance, so a new holder may agree to terms the original lender could not. It may also read the hotel, the franchise, and the timetable differently. Neither is certain, which is why it is worth finding out early.
+The person making decisions. A holder's room to negotiate depends on what it paid for the loan, not on the balance, so a new holder may agree to terms the original lender could not.
+
+It may also read the hotel, the franchise, and the timetable differently, and be more or less patient than the old lender. Neither is certain, which is why it is worth finding out early.
 
 ## Agreements already in place
 
-A forbearance or modification passes with the loan, but its wording decides what it is worth. Read it for whether it binds successors and assigns, when it expires, and what the owner must keep doing to stay within it, such as payments, reports, or milestones.
+A forbearance or modification passes with the loan, but its wording decides what it is worth. Read it for whether it binds successors and assigns (later holders), when it expires, and what the owner must keep doing to stay within it, such as payments, reports, or milestones.
 
 Check what is in writing. A promise made in conversation or by email to the old lender's officer may not bind a new holder, and whether it does depends on the documents and the state. Ask the new holder to say in writing which agreements it will honor.
 
 ## The guarantor's position
 
-A sale neither releases a guarantor nor adds liability. The guaranty passes on the same wording, and that wording decides whether it covers the whole debt or only certain acts. What can change is the new holder's willingness to limit or release it, which is often part of a negotiated transfer of the hotel.
+A sale by itself neither releases a guarantor nor adds liability. The guaranty passes on the same wording, and that wording decides whether it covers the whole debt or only certain acts. What can change is the new holder's willingness to limit or release it, which is often part of a negotiated transfer of the hotel.
 
 ## What to expect
 

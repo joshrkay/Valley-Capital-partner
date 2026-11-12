@@ -52,7 +52,7 @@ Add a file to `src/pages/`, for example `src/pages/team.astro`, using the same s
 
 Case studies, FAQs, or team profiles each work the same way as the blog: add a collection in `src/content.config.ts` (a folder of Markdown files plus a checked list of front matter fields), then a list page and a detail page under `src/pages/`. `src/pages/library/` is the shortest example to copy.
 
-## How it is organised
+## How it is organized
 
 | Path | What it is |
 |---|---|
@@ -62,7 +62,7 @@ Case studies, FAQs, or team profiles each work the same way as the blog: add a c
 | `src/lib/` | `sections.ts` (the pages in each audience section), `posts.ts` and `tags.ts` (blog helpers). |
 | `src/layouts/Base.astro` | The page shell: head and search-engine tags (canonical link, Open Graph, structured data), the background video layer, header, footer, scripts. |
 | `src/components/` | `Header`, `Footer`, `Logo`, `Hero`, `Cta`, `PostCard`, `SectionNav` (sub-navigation for Banks and Receivers), `FaqList`. |
-| `src/styles/site.css` | The whole design. Colours and the accent are variables at the top. |
+| `src/styles/site.css` | The whole design. Colors and the accent are variables at the top. |
 | `src/scripts/bg.js` | The background video: crossfades clips as sections scroll by and sets how strong the video is. Paused for reduced-motion, a single clip on phones, none on data-saver. |
 | `src/scripts/site.js` | Frosted header on scroll, mobile menu, sections settling into place. |
 | `public/` | Files served as they are: favicon, `robots.txt`, and the background clips (`public/video/`, fetched by the build, not stored in git). |
@@ -76,10 +76,10 @@ Each audience reads the site in its own words, and every page has to say the sam
 ## Making design changes
 
 - **Words on a core page:** edit that page in `src/pages/`.
-- **Colours and type:** every colour is in the `PALETTE` block at the top of `src/styles/site.css` (`--bg`, `--ink`, `--accent`, `--alt-bg`, `--video-gain`, and so on); change only that block to re-colour the site. Type is `--display` and `--serif`, corner radius `--r`. A dark palette sets `--tint` to light, `--video-gain` to `1`, and `color-scheme` to `dark`; the meta tags in `src/layouts/Base.astro` should match.
+- **Colors and type:** every color is in the `PALETTE` block at the top of `src/styles/site.css` (`--bg`, `--ink`, `--accent`, `--alt-bg`, `--video-gain`, and so on); change only that block to re-color the site. Type is `--display` and `--serif`, corner radius `--r`. A dark palette sets `--tint` to light, `--video-gain` to `1`, and `color-scheme` to `dark`; the meta tags in `src/layouts/Base.astro` should match.
 - **Headline accent:** the italic accent phrase in a headline is just `<em>` inside an `h1` or `h2`.
 - **Motion:** blocks rise in as they scroll into view; the lists of what moves and how far are at the top of the motion block in `src/scripts/site.js`, and the distance and easing are `--rise` and `--ease` in `src/styles/site.css`. Nothing is hidden without JavaScript or with reduced motion.
-- **How visible the video is:** each section can carry `data-bg` (which clip) and `data-op` (strength from 0 to 1). Sections without them inherit the previous clip and fade right down. The home story beats use about `.26` and the hero `.34`, all multiplied by `--video-gain` in the palette, and the page-coloured veil over the video is `--wash` (`.8` and `.8` on this ivory palette, because video darkens ivory instead of lighting it; `1` and `1` on a dark one). Raise them for a stronger video, but check text contrast over the darkest footage: much past these values the green labels fall below AA. Turn them down if text ever feels hard to read. The blur and colour are on `.bgv video` in `src/styles/site.css`.
+- **How visible the video is:** each section can carry `data-bg` (which clip) and `data-op` (strength from 0 to 1). Sections without them inherit the previous clip and fade right down. The home story beats use about `.26` and the hero `.34`, all multiplied by `--video-gain` in the palette, and the page-colored veil over the video is `--wash` (`.8` and `.8` on this ivory palette, because video darkens ivory instead of lighting it; `1` and `1` on a dark one). Raise them for a stronger video, but check text contrast over the darkest footage: much past these values the green labels fall below AA. Turn them down if text ever feels hard to read. The blur and color are on `.bgv video` in `src/styles/site.css`.
 
 Run `npm run build` and then `npm run check` before opening a pull request. The check fails on any broken link or anchor, missing asset, unbalanced markup, page without exactly one heading, or CSS class that has no style.
 
@@ -110,7 +110,7 @@ Site search (Pagefind works with static sites), a case-study collection, a newsl
 
 ## Brand
 
-The logo is a bold **V** (the valley) with an amber window lit in its notch: a hotel window, and the "lights return" idea behind the firm's story. Wordmark is Outfit (SIL Open Font Licence), medium weight.
+The logo is a bold **V** (the valley) with an amber window lit in its notch: a hotel window, and the "lights return" idea behind the firm's story. Wordmark is Outfit (SIL Open Font License), medium weight.
 
 | File | Use |
 |---|---|
@@ -120,7 +120,7 @@ The logo is a bold **V** (the valley) with an amber window lit in its notch: a h
 | `public/favicon.svg`, `public/apple-touch-icon.png` | Browser tab and phone home-screen icons |
 | `public/og-image.png` | The 1200 by 630 preview shown when a page is shared |
 
-Site colours: ivory `#F5F1E8` background, ink `#14201A`, accent forest green `#1F5A44`. The logo keeps its own brand colours whatever the site palette is: ink `#0B1626` V with an amber `#F5B454` window. The mark in the header is `src/components/Logo.astro`; the V takes the surrounding text colour and the window is always amber. The favicon, home-screen icon and `public/og-image.png` were drawn on the brand's dark ink and have not been redrawn for the ivory site.
+Site colors: ivory `#F5F1E8` background, ink `#14201A`, accent forest green `#1F5A44`. The logo keeps its own brand colors whatever the site palette is: ink `#0B1626` V with an amber `#F5B454` window. The mark in the header is `src/components/Logo.astro`; the V takes the surrounding text color and the window is always amber. The favicon, home-screen icon and `public/og-image.png` were drawn on the brand's dark ink and have not been redrawn for the ivory site.
 
 ## Video credits
 

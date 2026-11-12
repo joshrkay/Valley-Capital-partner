@@ -18,11 +18,11 @@ A hotel's value rests on things that do not stand still:
 - **The staff.** People leave when they are unsure about their jobs, and the ones who go are often the ones who held the hotel together.
 - **Bookings and reputation.** Groups and repeat customers move on, and reviews follow service.
 - **The building.** Maintenance is the first thing to be deferred when money is short.
-- **Licences and permits,** which can lapse if no one is looking after them.
+- **Licenses and permits,** which can lapse if no one is looking after them.
 
 ## How timing changes the choices
 
-A long foreclosure favours options that keep the hotel running. A [receiver](/glossary/#receivership) can operate the property while the case proceeds. A forbearance or a [note sale](/glossary/#note-sale) may make more sense in a state where enforcement is slow than in one where it is fast.
+A long foreclosure favors options that keep the hotel running. A [receiver](/glossary/#receivership) can operate the property while the case proceeds. A forbearance or a [note sale](/glossary/#note-sale) may make more sense in a state where enforcement is slow than in one where it is fast.
 
 The costs add up as well: legal fees, receiver costs, [protective advances](/glossary/#protective-advance), and carrying costs, all on top of any decline in value.
 

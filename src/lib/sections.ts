@@ -45,7 +45,7 @@ export const SECTIONS: Record<'banks' | 'communityBanks' | 'receivers', Audience
     pages: [
       { href: '/receivers/', title: 'Overview', summary: 'A buyer for hotels in receivership.' },
       { href: '/receivers/buying-from-a-receiver/', title: 'Buying from a receiver', summary: 'How we bid in a form a court can approve, and how a receiver\'s sale usually runs.' },
-      { href: '/receivers/keeping-the-hotel-open/', title: 'Keeping the hotel open', summary: 'What we handle so the hotel does not miss a night: franchise, management, licences, bookings, staff, and taxes.' },
+      { href: '/receivers/keeping-the-hotel-open/', title: 'Keeping the hotel open', summary: 'What we handle so the hotel does not miss a night: franchise, management, licenses, bookings, staff, and taxes.' },
       { href: '/receivers/for-lenders-counsel/', title: 'For lenders\' counsel', summary: 'When the lender would prefer to sell the loan with the receivership in place.' },
       { href: '/receivers/what-we-ask-for/', title: 'What we ask for', summary: 'The information that lets us respond to a receiver or counsel.' },
       { href: '/receivers/faq/', title: 'FAQ', summary: 'Short answers to the questions receivers and counsel ask.' },

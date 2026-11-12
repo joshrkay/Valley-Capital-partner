@@ -2,9 +2,9 @@
    Serif display headings with an italic accent phrase, tracked uppercase labels, squarer corners, and scroll motion after Blue Owl.
    Design references: Lyon Stahl (serif display, italic highlight, outlined buttons, sliding nav underline) and Blue Owl (motion). */
 :root {
-  /* ===== PALETTE: every colour on the site comes from this block. To re-colour the site, change only these. ===== */
+  /* ===== PALETTE: every color on the site comes from this block. To re-color the site, change only these. ===== */
   --bg: #F5F1E8;                 /* page and video base (ivory) */
-  --bg-rgb: 245, 241, 232;       /* the same colour as r, g, b: overlays and the frosted header are built from it */
+  --bg-rgb: 245, 241, 232;       /* the same color as r, g, b: overlays and the frosted header are built from it */
   --alt-bg: rgba(234, 228, 214, .80); /* alternate sections and the feature band: a deeper ivory panel over the video */
   --footer-bg: #EAE4D5;
   --panel: rgba(255, 255, 255, .62); /* cards, steps, tables */
@@ -21,7 +21,7 @@
   --accent: #1F5A44;             /* the one accent: buttons, italic phrases, labels, links (deep forest green) */
   --on-accent: #FFFFFF;          /* text on an accent fill */
   --inv: #F5F1E8;                /* text on a filled outline button */
-  --wash: .8;                    /* how opaque the page-coloured veil over the video is (1 on a dark site; lower lets more video through) */
+  --wash: .8;                    /* how opaque the page-colored veil over the video is (1 on a dark site; lower lets more video through) */
   --video-gain: .8;              /* scales how strong the video is everywhere (1 on a dark site). On ivory the video darkens the page instead of lighting it, so
                                     these two are the strongest pair that keeps the headline, body text and green labels at AA contrast over the darkest footage */
   color-scheme: light;

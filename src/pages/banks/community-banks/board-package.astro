@@ -1,0 +1,40 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Hero from '../../../components/Hero.astro';
+import Cta from '../../../components/Cta.astro';
+import SectionNav from '../../../components/SectionNav.astro';
+---
+<Base title={"Taking a Hotel Loan Sale to the Loan Committee and the Board"} description={"What the memo to the loan committee should cover when a community bank considers a loan sale of a problem hotel loan, with a recovery comparison of the six options."}>
+  <Hero eyebrow="For community banks" title={"What the memo to the loan committee should cover."} lead={"An outline for taking a loan sale to committee, and a comparison of the options on one page. An outline only: follow the bank's own policy."} />
+  <SectionNav section="communityBanks" />
+  <main id="main">
+<section class="section"><div class="wrap">
+      <div class="head"><p class="eyebrow">The memo</p><h2>Nine headings.</h2>
+        <p>Committees and boards want the same few things: what the loan is, what it is worth, what the options are, what the bank recommends, what it does to the numbers, and how anyone knows the price is fair.</p></div>
+      <ol class="steps"><li><h3>Background</h3><p>The loan, the collateral, the guarantor(s), and how the loan came to the bank.</p></li><li><h3>Current status</h3><p>Past due since when, the risk rating, the flag, any improvement plan, and how the hotel is performing: T-12 and RevPAR against the comp set.</p></li><li><h3>Valuation</h3><p>The latest appraisal or evaluation and its date, the basis of value, and any indication received from a buyer.</p></li><li><h3>The options</h3><p>Modify or extend, forbear, discounted payoff, foreclose and hold as OREO, receivership, and loan sale. Each on the same footing, in the comparison below.</p></li><li><h3>The recommendation</h3><p>What the bank proposes to do and why, in a paragraph.</p></li><li><h3>Financial effect</h3><p>The reserve, any charge-off or recovery, the carrying value, the effect on earnings and capital, and the costs that stop.</p></li><li><h3>How the price was tested</h3><p>Who was asked, what they offered, how the valuation supports it, and confirmation that no insider or affiliate is on either side.</p></li><li><h3>Legal and consents</h3><p>Counsel's review, participants' consents, any government guarantee, and any claims the borrower has made or could make.</p></li><li><h3>Timeline and communications</h3><p>The expected closing, who tells the borrower and when, and what the regulators are told.</p></li></ol>
+    </div></section>
+
+    <section class="section alt"><div class="wrap">
+      <div class="head"><p class="eyebrow">The comparison</p><h2>The options, on the same footing.</h2>
+        <p>For each option, estimate the recovery net of every cost, and the time it takes. The table shows what goes in each column; the numbers are the bank's.</p></div>
+      <div class="table-scroll"><table>
+        <thead><tr><th scope="col">Option</th><th scope="col">What to estimate as the recovery</th><th scope="col">What it costs the bank</th><th scope="col">How long</th><th scope="col">What can go wrong</th></tr></thead>
+        <tbody><tr><th scope="row">Modify or extend</th><td>What the loan is worth if the hotel recovers, less the cost of waiting.</td><td>Staff time, a possible further risk rating downgrade, and new money if the bank funds an improvement plan.</td><td>Months to years</td><td>The same decision returns later.</td></tr><tr><th scope="row">Forbearance</th><td>The balance, if the borrower performs the commitments.</td><td>Staff time to monitor.</td><td>The forbearance term</td><td>The commitments are not kept.</td></tr><tr><th scope="row">Discounted payoff</th><td>An agreed figure, paid at closing.</td><td>The discount, and legal costs.</td><td>Until the owner raises the money</td><td>The money does not arrive.</td></tr><tr><th scope="row">Foreclose and hold as OREO</th><td>The value of the hotel, less costs, when it is eventually sold.</td><td>Legal fees, advances, carrying costs, and an operating business to run.</td><td>The state's foreclosure timeline, then the sale</td><td>Value erodes while the hotel waits.</td></tr><tr><th scope="row">Receivership</th><td>As for foreclosure, with the hotel kept operating.</td><td>Receiver costs and advances.</td><td>Until a sale closes</td><td>The case runs long.</td></tr><tr><th scope="row">Loan sale</th><td>A price, fixed in the loan sale agreement.</td><td>The discount to the balance. No further legal budget, advances, or hotel to run.</td><td>The closing date in the agreement</td><td>The price is below a successful workout.</td></tr></tbody>
+      </table></div>
+      <p class="fine">General outline, not legal, accounting, or regulatory advice. The bank's counsel and auditors should review the memo.</p>
+    </div></section>
+
+    <section class="section"><div class="wrap intro">
+      <div><p class="eyebrow">Fair price</p><h2>The committee will want to know how the price was tested.</h2></div>
+      <dl class="pillars">
+        <div><dt>Support the number</dt><dd>A current appraisal or evaluation, and an indication of price from the buyer in writing, with the assumptions behind it.</dd></div>
+        <div><dt>Say who was asked</dt><dd>If more than one buyer gave an indication, show them side by side. If only one was asked, say why.</dd></div>
+        <div><dt>No obligation</dt><dd>A conversation and an indicative price carry no obligation to sell, so the committee can see a figure before anything is decided.</dd></div>
+        <div><dt>Check the other side</dt><dd>Confirm that no insider, affiliate, or related party is on either side of the transaction.</dd></div>
+      </dl>
+    </div></section>
+
+    <section class="section alt"><div class="wrap"><div class="head"><p class="eyebrow">Related reading</p></div><ul class="toc"><li><a href="/banks/community-banks/examiners-and-reserves/">How a loan sale shows up in the numbers <span>Community banks</span></a></li><li><a href="/library/choices/">Extend, sell, or foreclose <span>Library</span></a></li><li><a href="/glossary/#loan-committee">Loan committee <span>Glossary</span></a></li><li><a href="/glossary/#carrying-value">Carrying value <span>Glossary</span></a></li></ul></div></section>
+  </main>
+  <Cta title={"Discuss a hotel loan in confidence."} text={"A conversation and an indicative price carry no obligation to sell."} label={"Start a conversation"} />
+</Base>

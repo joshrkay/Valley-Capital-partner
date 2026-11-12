@@ -1,0 +1,27 @@
+{
+  "_note": "Deterministic checks on a drafted post, taken from docs/voice.md. Patterns are regular expressions matched case-insensitively at word boundaries. An error blocks a clean draft (the drafter gets one chance to fix it); a warning goes to the reviewer. These checks catch rule breaks and invented figures. They do not judge whether a post is right or good: a person reads every draft.",
+  "banned": [
+    "vultures?", "bottom[- ]?fish\\w*", "fire[- ]sales?", "blood in the water", "game[- ]?changers?", "unlock\\w*", "best[- ]in[- ]class",
+    "robust", "guaranteed", "tsunami", "meltdown", "bloodbath", "wave of (defaults|distress|foreclosures|delinquenc\\w+)",
+    "opportunit\\w*", "path to ownership", "loan[- ]to[- ]own", "turnkey", "synerg\\w*", "cutting[- ]edge", "disrupt\\w*"
+  ],
+  "quotedOnly": ["extend and pretend"],
+  "british": [
+    "licence", "favour", "colour", "organis", "programme", "centre", "labour", "judgement", "whilst", "defence",
+    "behaviour", "honour", "analyse", "recognis", "summaris", "authoris", "utilis", "minimis", "prioritis", "finalis", "realis",
+    "catalogue", "enquir", "grey\\b", "tonne"
+  ],
+  "titleMax": 90,
+  "descriptionMax": 220,
+  "categories": ["For owners", "Lender options", "Collateral", "Licensing", "Valuation", "Liabilities", "Special servicing", "Data", "Note sales", "Franchise", "Receivership", "Rulings", "News"],
+  "wordRanges": { "flash": [120, 380], "explainer": [350, 950], "data": [300, 950] },
+  "allowedEntities": [
+    "Trepp", "KBRA", "CREFC", "CRED iQ", "CoStar", "STR", "HVS", "MBA", "FDIC", "Federal Reserve", "Federal Register", "OCC",
+    "Morningstar", "Morningstar Credit", "Morningstar DBRS", "Fitch", "Moody's", "Business Wire", "Hospitality Net", "Hotel Online", "Lodging",
+    "Connect CRE", "CRE Daily", "The Real Deal", "Bisnow", "Commercial Observer", "Skift", "Hotel Business", "Hospitality Investor",
+    "Senior Loan Officer Survey", "Quarterly Banking Profile", "Special Servicing", "Chapter 11", "Real Estate", "Commercial Real Estate",
+    "United States", "New York", "Los Angeles", "San Francisco", "California", "Florida", "Texas", "Chicago", "Las Vegas", "Hawaii",
+    "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December",
+    "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday", "Valley Capital Partners"
+  ]
+}

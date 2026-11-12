@@ -2,14 +2,31 @@
    Serif display headings with an italic accent phrase, tracked uppercase labels, squarer corners, and scroll motion after Blue Owl.
    Design references: Lyon Stahl (serif display, italic highlight, outlined buttons, sliding nav underline) and Blue Owl (motion). */
 :root {
-  --bg: #050E16; --bg2: #08151F; --bg-rgb: 5, 14, 22; --panel: rgba(5, 14, 22, .55); --cell: #060F18; --line: rgba(255, 255, 255, .13);
-  --ink: #F4F8FB; --ink-2: #DBE4EA; --soft: #C3CFD9; --body: #C9D4DD; --muted: #A9B8C4; --faint: #77889A;
-  --accent: #F5B454; --on-accent: #1A1204; --inv: #050E16; --tint: 255, 255, 255;
+  /* ===== PALETTE: every colour on the site comes from this block. To re-colour the site, change only these. ===== */
+  --bg: #050E16;                 /* page and video base */
+  --bg-rgb: 5, 14, 22;           /* the same colour as r, g, b: overlays and the frosted header are built from it */
+  --alt-bg: rgba(8, 21, 31, .78);/* alternate sections and the feature band: a translucent panel over the video */
+  --footer-bg: #030A10;
+  --panel: rgba(5, 14, 22, .55); /* cards, steps, tables */
+  --cell: #060F18;               /* bordered cell grids */
+  --tint: 255, 255, 255;         /* r, g, b of the hairlines and hover fills: light on a dark site, dark on a light one */
+  --line: rgba(var(--tint), .13);
+  --ink: #F4F8FB;                /* headings and strong text */
+  --ink-2: #DBE4EA;
+  --soft: #C3CFD9;
+  --body: #C9D4DD;              /* long-form reading text */
+  --muted: #A9B8C4;
+  --faint: #77889A;
+  --nav-ink: #CDD7DF;            /* nav and footer links */
+  --accent: #F5B454;             /* the one accent: buttons, italic phrases, labels, links */
+  --on-accent: #1A1204;          /* text on an accent fill */
+  --inv: #050E16;                /* text on a filled outline button */
+  color-scheme: dark;
+  /* ===== end of palette ===== */
   --r: 4px; --wt: 340; --bgop: .34; --ease: cubic-bezier(.38, .37, .16, .99); --rise: 150px;
   --display: "Outfit", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --serif: "DM Serif Display", Georgia, "Times New Roman", serif;
   --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
-  color-scheme: dark;
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -47,19 +64,19 @@ p { margin: 0; color: var(--muted); }
 .bar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 24px; height: 76px; }
 .brand { display: inline-flex; align-items: center; gap: 12px; font-size: 22px; font-weight: 500; letter-spacing: -.012em; white-space: nowrap; }
 .brand-mark { width: 30px; height: 30px; flex: none; }
-.nav { display: flex; align-self: stretch; gap: 26px; font: 500 12.5px/1 var(--display); letter-spacing: .1em; text-transform: uppercase; color: #CDD7DF; }
+.nav { display: flex; align-self: stretch; gap: 26px; font: 500 12.5px/1 var(--display); letter-spacing: .1em; text-transform: uppercase; color: var(--nav-ink); }
 .nav a { position: relative; display: flex; align-items: center; transition: color .2s; }
 .nav a::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: linear-gradient(90deg, var(--accent), transparent); transform: scaleX(0); transform-origin: left; transition: transform .3s ease; }
-.nav a:hover { color: #fff; }
+.nav a:hover { color: var(--ink); }
 .nav a:hover::after, .nav a[aria-current="page"]::after { transform: scaleX(1); }
-.nav a[aria-current="page"] { color: #fff; }
+.nav a[aria-current="page"] { color: var(--ink); }
 .bar-end { display: flex; align-items: center; gap: 12px; position: relative; }
 .menu { display: none; }
 .menu summary { list-style: none; cursor: pointer; border: 2px solid var(--line); border-radius: var(--r); padding: 11px 18px; font: 600 12.5px/1 var(--display); letter-spacing: .1em; text-transform: uppercase; }
 .menu summary::-webkit-details-marker { display: none; }
 .menu > div { position: absolute; right: 0; top: 54px; min-width: 240px; background: rgba(var(--bg-rgb), .98); border: 1px solid var(--line); border-radius: 6px; padding: 8px; display: grid; }
 .menu > div a { padding: 13px 14px; border-radius: 3px; font: 500 13px/1.2 var(--display); letter-spacing: .1em; text-transform: uppercase; }
-.menu > div a:hover { background: rgba(255, 255, 255, .06); }
+.menu > div a:hover { background: rgba(var(--tint), .06); }
 @media (max-width: 1180px) { .nav { display: none; } .menu { display: block; } }
 @media (max-width: 700px) { :root { --rise: 90px; } }
 @media (max-width: 520px) { .bar-end .btn-ink { display: none; } .brand { font-size: 19px; gap: 10px; } .brand-mark { width: 26px; height: 26px; } }
@@ -94,7 +111,7 @@ section { position: relative; }
 
 /* ---- sections: plain sections sit straight on the video; `.alt` sections are a darker translucent panel ---- */
 .section { padding: 120px 0; }
-.section.alt { background: rgba(8, 21, 31, .78); }
+.section.alt { background: var(--alt-bg); }
 .head { max-width: 900px; margin-bottom: 56px; }
 .head p:not(.eyebrow) { margin-top: 22px; font-size: 20px; max-width: 680px; }
 .intro, .feature .wrap { display: grid; grid-template-columns: 1.1fr 1fr; gap: 70px; align-items: start; }
@@ -144,7 +161,7 @@ td { color: var(--soft); font-weight: inherit; }
 tbody tr:last-child > * { border-bottom: 0; }
 
 /* ---- feature band, library, direct contact, cta ---- */
-.feature { padding: 120px 0; background: rgba(8, 21, 31, .78); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.feature { padding: 120px 0; background: var(--alt-bg); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .feature ul, .cap ul { list-style: none; padding: 0; margin: 28px 0 34px; border-top: 1px solid var(--line); }
 .feature li, .cap li { padding: 16px 0; border-bottom: 1px solid var(--line); color: var(--soft); font-size: 17px; }
 .feature .btn { margin-top: 0; }
@@ -274,25 +291,25 @@ tbody tr:last-child > * { border-bottom: 0; }
 .acc.faq .t { font-size: clamp(21px, 2.4vw, 30px); line-height: 1.25; }
 
 /* ---- audience sections: sub-navigation under the hero, in-section cards ---- */
-.subnav { position: sticky; top: 76px; z-index: 15; background: rgba(var(--bg-rgb), .72); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-top: 1px solid rgba(255, 255, 255, .14); border-bottom: 1px solid rgba(255, 255, 255, .14); }
+.subnav { position: sticky; top: 76px; z-index: 15; background: rgba(var(--bg-rgb), .72); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-top: 1px solid rgba(var(--tint), .14); border-bottom: 1px solid rgba(var(--tint), .14); }
 .subnav .wrap { display: flex; gap: 6px; overflow-x: auto; padding-top: 12px; padding-bottom: 12px; scrollbar-width: none; }
 .subnav .wrap::-webkit-scrollbar { display: none; }
-.subnav a { white-space: nowrap; padding: 9px 16px; border-radius: 3px; font: 500 12.5px/1.2 var(--display); letter-spacing: .08em; text-transform: uppercase; color: #CDD7DF; border: 1px solid transparent; transition: color .2s, border-color .2s, background .2s; }
-.subnav a:hover { color: #fff; border-color: rgba(255, 255, 255, .22); }
-.subnav a.back { color: #A9B8C4; padding-right: 12px; margin-right: 4px; border-right: 1px solid rgba(255, 255, 255, .14); border-radius: 0; }
-.subnav a.back:hover { color: #fff; border-color: rgba(255, 255, 255, .22); }
-.subnav a[aria-current="page"] { background: #F5B454; color: #1A1204; font-weight: 600; }
+.subnav a { white-space: nowrap; padding: 9px 16px; border-radius: 3px; font: 500 12.5px/1.2 var(--display); letter-spacing: .08em; text-transform: uppercase; color: var(--nav-ink); border: 1px solid transparent; transition: color .2s, border-color .2s, background .2s; }
+.subnav a:hover { color: var(--ink); border-color: rgba(var(--tint), .22); }
+.subnav a.back { color: var(--muted); padding-right: 12px; margin-right: 4px; border-right: 1px solid rgba(var(--tint), .14); border-radius: 0; }
+.subnav a.back:hover { color: var(--ink); border-color: rgba(var(--tint), .22); }
+.subnav a[aria-current="page"] { background: var(--accent); color: var(--on-accent); font-weight: 600; }
 .related { margin-top: 8px; }
 .acc .body strong { color: var(--ink); font-weight: 550; }
 .acc .body p + p { margin-top: 14px; }
 .card .num { color: var(--accent); }
 
 /* ---- footer: darker, dotted rules between links (Lyon Stahl) ---- */
-footer { position: relative; border-top: 1px solid var(--line); padding: 70px 0 40px; background: #030A10; }
+footer { position: relative; border-top: 1px solid var(--line); padding: 70px 0 40px; background: var(--footer-bg); }
 .foot { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr; gap: 40px; }
 .foot h3 { margin: 0 0 16px; font: 650 12px/1 var(--display); letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
-.foot ul { list-style: none; margin: 0; padding: 0; font-size: 15px; color: #CDD7DF; }
-.foot li { padding: 8px 0; border-bottom: 1px dotted rgba(255, 255, 255, .2); }
+.foot ul { list-style: none; margin: 0; padding: 0; font-size: 15px; color: var(--nav-ink); }
+.foot li { padding: 8px 0; border-bottom: 1px dotted rgba(var(--tint), .2); }
 .foot li a { display: block; transition: color .2s, padding .2s; }
 .foot ul a:hover { color: var(--accent); padding-left: 8px; }
 .foot .brand { margin-bottom: 14px; }

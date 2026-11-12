@@ -2,7 +2,7 @@
 :root {
   --bg: #050E16; --bg2: #08151F; --panel: rgba(5, 14, 22, .55); --cell: #060F18; --line: rgba(255, 255, 255, .13);
   --ink: #F4F8FB; --soft: #C3CFD9; --muted: #A9B8C4; --faint: #77889A;
-  --accent: #F5B454; --on-accent: #1A1204; --bgop: .34;
+  --accent: #F5B454; --on-accent: #1A1204;
   --display: "Outfit", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
   color-scheme: dark;
@@ -25,13 +25,13 @@ p { margin: 0; color: var(--muted); }
 .eyebrow, .mono { font: 500 12px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
 .eyebrow { display: block; margin: 0 0 22px; }
 
-/* ---- the faded background video: one fixed layer behind everything ---- */
-.bgv { position: fixed; inset: 0; z-index: -1; pointer-events: none; background: var(--bg); overflow: hidden; }
-.bgv video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1.6s ease; transform: scale(1.06); filter: blur(3px) saturate(.55) brightness(.85); }
-.bgv video.on { opacity: var(--bgop); }
-.bgv::before { content: ""; position: absolute; inset: 0; background:
-    radial-gradient(ellipse 70% 55% at 18% 0%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 70%),
-    linear-gradient(180deg, rgba(5, 14, 22, .80) 0%, rgba(5, 14, 22, .52) 40%, rgba(5, 14, 22, .72) 78%, var(--bg) 100%); }
+/* ---- the hero video: sits inside the hero section only, dimmed, and fades into the page colour at the bottom edge ---- */
+.hero { overflow: hidden; isolation: isolate; }
+.hero-media { position: absolute; inset: 0; z-index: -2; background: var(--bg); }
+.hero-media video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1.4s ease; transform: scale(1.08); filter: blur(7px) saturate(.2) brightness(.8); }
+.hero-media video.on { opacity: .24; }
+.hero.sub .hero-media video.on { opacity: .17; }
+.hero-media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(5, 14, 22, .84) 0%, rgba(5, 14, 22, .58) 45%, rgba(5, 14, 22, .84) 80%, var(--bg) 100%); }
 
 /* ---- header ---- */
 .bar { position: fixed; inset: 0 0 auto 0; z-index: 20; transition: background .3s, border-color .3s; border-bottom: 1px solid transparent; }
@@ -73,7 +73,7 @@ section { position: relative; }
 .hero.home h1 { font-size: clamp(44px, 7.4vw, 96px); line-height: 1.04; }
 .hero-copy > p:not(.eyebrow), .hero .lead { font-size: clamp(18px, 1.6vw, 22px); max-width: 660px; margin-top: 28px; color: var(--soft); }
 .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 38px; }
-.hero::before, .story::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: radial-gradient(ellipse 78% 90% at 24% 62%, rgba(5, 14, 22, .6), transparent 72%); }
+.hero::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: radial-gradient(ellipse 78% 90% at 24% 62%, rgba(5, 14, 22, .6), transparent 72%); }
 .scroll { position: absolute; right: 28px; bottom: 34px; color: var(--muted); }
 .story { min-height: 88svh; align-items: center; padding: 120px 0; }
 .story h2 { max-width: 15em; }
@@ -279,11 +279,11 @@ footer { position: relative; border-top: 1px solid var(--line); padding: 70px 0 
 @media (max-width: 440px) { .foot { grid-template-columns: 1fr; } }
 
 /* ---- motion: sections settle into place; everything stays readable if scripts never run ---- */
-.motion .reveal { opacity: 0; transform: translateY(16px); transition: opacity .7s ease, transform .7s ease; }
+.motion .reveal { opacity: 0; transform: translateY(8px); transition: opacity .5s ease, transform .5s ease; }
 .motion .reveal.in { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .btn, .card, .toc a, .bgv video, .more::after { transition: none; }
+  .btn, .card, .toc a, .hero-media video, .more::after { transition: none; }
   .motion .reveal { opacity: 1; transform: none; transition: none; }
 }
-@media print { .bgv, .bar, .skip { display: none; } body { background: #fff; color: #000; } p, dd, td { color: #222; } }
+@media print { .hero-media, .bar, .skip { display: none; } body { background: #fff; color: #000; } p, dd, td { color: #222; } }

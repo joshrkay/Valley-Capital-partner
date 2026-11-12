@@ -12,7 +12,10 @@
     "fetch-video": "node scripts/fetch-video.mjs",
     "build": "node scripts/fetch-video.mjs && astro build",
     "preview": "astro preview",
-    "check": "python3 scripts/check_site.py"
+    "check": "python3 scripts/check_site.py",
+    "desk:listen": "node scripts/desk/listen.mjs",
+    "desk:check": "node scripts/desk/listen.mjs --check",
+    "desk:test": "node --test scripts/desk/*.test.mjs"
   },
   "dependencies": {
     "@astrojs/markdown-remark": "^7.2.0",

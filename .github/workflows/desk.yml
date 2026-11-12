@@ -1,0 +1,81 @@
+name: News desk listeners
+
+# Runs once a day, reads the sources in desk/sources.json, and opens one GitHub issue with the day's candidates.
+# It changes no files in the repository and publishes nothing. Scheduled workflows run only from the default branch,
+# so nothing starts until this file is merged. Even then the daily schedule stays off until the repository variable
+# DESK_ENABLED is set to "true" (Settings > Secrets and variables > Actions > Variables), because the source addresses are
+# unverified. Run the workflow by hand first (Actions > News desk listeners > Run workflow), read the result, fix the sources,
+# then set the variable. To stop it later, delete the variable or disable the workflow.
+on:
+  schedule:
+    - cron: '17 12 * * *'   # 12:17 UTC every day
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: news-desk
+  cancel-in-progress: false
+
+jobs:
+  listen:
+    if: github.event_name == 'workflow_dispatch' || vars.DESK_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+
+      - name: Test the listener
+        run: node --test scripts/desk/*.test.mjs
+
+      # The list of items already seen lives in the Actions cache, not in the repository.
+      - name: Restore what was already seen
+        uses: actions/cache/restore@v4
+        with:
+          path: desk/state
+          key: desk-state-${{ github.run_id }}
+          restore-keys: desk-state-
+
+      - name: Listen
+        id: listen
+        run: node scripts/desk/listen.mjs
+        env:
+          DESK_CONTACT: ${{ secrets.DESK_CONTACT }}
+
+      - name: Remember what was seen
+        if: steps.listen.outcome == 'success'
+        uses: actions/cache/save@v4
+        with:
+          path: desk/state
+          key: desk-state-${{ github.run_id }}
+
+      # One issue per day, and only when there is something to read: a candidate, or a release window that opens today.
+      - name: Open the desk sheet
+        if: steps.listen.outcome == 'success'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          n=$(jq '.candidates' desk/out/summary.json)
+          opens=$(jq '.opensToday' desk/out/summary.json)
+          d=$(jq -r '.date' desk/out/summary.json)
+          if [ "$n" -gt 0 ] || [ "$opens" -gt 0 ]; then
+            gh label create news-desk --color 0B1626 --description "Daily news desk sheet" --force || true
+            gh issue create --title "News desk $d: $n candidate(s)" --label news-desk --body-file desk/out/candidates.md
+          else
+            echo "Nothing to report for $d."
+          fi
+
+      - name: Keep the sheet
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: news-desk-sheet
+          path: desk/out
+          if-no-files-found: ignore
+          retention-days: 14

@@ -1,12 +1,10 @@
-/* Valley Capital Partners. Deep navy and one gold accent, with warm "paper" sections for reading. Serif display headings with an
-   italic accent phrase, tracked uppercase labels, squarer corners. A single faded hotel video sits behind the hero (see bg.js).
-   Design references: Lyon Stahl (serif display, italic highlight, outlined buttons, sliding nav underline) and Brookfield REIT
-   (navy and gold, tracked blue labels, navy and paper sections alternating). Dark pages stay dark; `.section.alt` is the paper. */
+/* Valley Capital Partners. Dark and quiet, one gold accent: near-black teal, amber, and a faded hotel video fixed behind the page.
+   Serif display headings with an italic accent phrase, tracked uppercase labels, squarer corners, and scroll motion after Blue Owl.
+   Design references: Lyon Stahl (serif display, italic highlight, outlined buttons, sliding nav underline) and Blue Owl (motion). */
 :root {
-  --bg: #001625; --bg2: #002540; --bg-rgb: 0, 22, 37; --panel: rgba(0, 37, 64, .5); --cell: #001B2F; --line: rgba(255, 255, 255, .14);
-  --ink: #F4F8FB; --ink-2: #DBE4EA; --soft: #C3CFD9; --body: #C9D4DD; --muted: #A9B8C4; --faint: #7C90A2;
-  --accent: #F5B454; --on-accent: #1A1204; --inv: #001625; --tint: 255, 255, 255;
-  --paper: #F2F1EF; --blue: #6F9DBE;
+  --bg: #050E16; --bg2: #08151F; --bg-rgb: 5, 14, 22; --panel: rgba(5, 14, 22, .55); --cell: #060F18; --line: rgba(255, 255, 255, .13);
+  --ink: #F4F8FB; --ink-2: #DBE4EA; --soft: #C3CFD9; --body: #C9D4DD; --muted: #A9B8C4; --faint: #77889A;
+  --accent: #F5B454; --on-accent: #1A1204; --inv: #050E16; --tint: 255, 255, 255;
   --r: 4px; --wt: 340; --bgop: .34; --ease: cubic-bezier(.38, .37, .16, .99); --rise: 150px;
   --display: "Outfit", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --serif: "DM Serif Display", Georgia, "Times New Roman", serif;
@@ -35,7 +33,7 @@ p { margin: 0; color: var(--muted); }
 .eyebrow { display: block; margin: 0 0 22px; }
 
 /* ---- the faded background video: one fixed layer behind everything (the original design). Clips crossfade as sections scroll
-        by; each section picks a clip and a strength with data-bg and data-op (see bg.js). Paper sections cover it. ---- */
+        by; each section picks a clip and a strength with data-bg and data-op (see bg.js).  ---- */
 .bgv { position: fixed; inset: 0; z-index: -1; pointer-events: none; background: var(--bg); overflow: hidden; }
 .bgv video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1.6s ease; transform: scale(1.06); filter: blur(3px) saturate(.55) brightness(.85); }
 .bgv video.on { opacity: var(--bgop); }
@@ -45,7 +43,7 @@ p { margin: 0; color: var(--muted); }
 
 /* ---- header: uppercase nav with a gold underline that slides in (Lyon Stahl, Brookfield) ---- */
 .bar { position: fixed; inset: 0 0 auto 0; z-index: 20; transition: background .3s, border-color .3s; border-bottom: 1px solid transparent; }
-.bar.solid { background: rgba(var(--bg-rgb), .94); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom-color: var(--line); }
+.bar.solid { background: rgba(var(--bg-rgb), .74); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom-color: var(--line); }
 .bar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 24px; height: 76px; }
 .brand { display: inline-flex; align-items: center; gap: 12px; font-size: 22px; font-weight: 500; letter-spacing: -.012em; white-space: nowrap; }
 .brand-mark { width: 30px; height: 30px; flex: none; }
@@ -94,15 +92,9 @@ section { position: relative; }
 .story h2 { max-width: 15em; }
 .story p:not(.eyebrow) { font-size: clamp(18px, 1.7vw, 22px); max-width: 600px; margin-top: 26px; color: var(--soft); }
 
-/* ---- sections. Plain sections are navy; `.alt` sections are warm paper with navy type and blue labels (Brookfield).
-        The paper scope re-points the colour variables, so every component inside it re-skins itself. ---- */
+/* ---- sections: plain sections sit straight on the video; `.alt` sections are a darker translucent panel ---- */
 .section { padding: 120px 0; }
-.section.alt {
-  --ink: #001625; --ink-2: #12293A; --soft: #2C4252; --body: #1F3444; --muted: #4B6172; --faint: #566B7B;
-  --line: rgba(0, 22, 37, .15); --cell: #FFFFFF; --panel: #FFFFFF; --accent: #1D5A85; --on-accent: #FFFFFF;
-  --inv: #F2F1EF; --tint: 0, 22, 37; --wt: 400;
-  background: var(--paper); color: var(--ink); font-weight: var(--wt); color-scheme: light;
-}
+.section.alt { background: rgba(8, 21, 31, .78); }
 .head { max-width: 900px; margin-bottom: 56px; }
 .head p:not(.eyebrow) { margin-top: 22px; font-size: 20px; max-width: 680px; }
 .intro, .feature .wrap { display: grid; grid-template-columns: 1.1fr 1fr; gap: 70px; align-items: start; }
@@ -152,7 +144,7 @@ td { color: var(--soft); font-weight: inherit; }
 tbody tr:last-child > * { border-bottom: 0; }
 
 /* ---- feature band, library, direct contact, cta ---- */
-.feature { padding: 120px 0; background: rgba(0, 37, 64, .78); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.feature { padding: 120px 0; background: rgba(8, 21, 31, .78); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .feature ul, .cap ul { list-style: none; padding: 0; margin: 28px 0 34px; border-top: 1px solid var(--line); }
 .feature li, .cap li { padding: 16px 0; border-bottom: 1px solid var(--line); color: var(--soft); font-size: 17px; }
 .feature .btn { margin-top: 0; }
@@ -179,7 +171,7 @@ tbody tr:last-child > * { border-bottom: 0; }
 .direct dd a { color: var(--accent); border-bottom: 1px solid color-mix(in srgb, var(--accent) 50%, transparent); }
 .direct dd.small, .small { font: var(--wt) 16px/1.6 var(--display); color: var(--muted); }
 
-.cta { padding: 120px 0; background: rgba(0, 37, 64, .6); border-top: 1px solid var(--line); }
+.cta { padding: 120px 0; border-top: 1px solid var(--line); }
 .cta .wrap { display: flex; justify-content: space-between; align-items: center; gap: 40px; flex-wrap: wrap; }
 .cta h2 { max-width: 14em; }
 .cta p { margin-top: 20px; font-size: 20px; max-width: 620px; color: var(--soft); }
@@ -282,7 +274,7 @@ tbody tr:last-child > * { border-bottom: 0; }
 .acc.faq .t { font-size: clamp(21px, 2.4vw, 30px); line-height: 1.25; }
 
 /* ---- audience sections: sub-navigation under the hero, in-section cards ---- */
-.subnav { position: sticky; top: 76px; z-index: 15; background: rgba(var(--bg-rgb), .94); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-top: 1px solid rgba(255, 255, 255, .14); border-bottom: 1px solid rgba(255, 255, 255, .14); }
+.subnav { position: sticky; top: 76px; z-index: 15; background: rgba(var(--bg-rgb), .72); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-top: 1px solid rgba(255, 255, 255, .14); border-bottom: 1px solid rgba(255, 255, 255, .14); }
 .subnav .wrap { display: flex; gap: 6px; overflow-x: auto; padding-top: 12px; padding-bottom: 12px; scrollbar-width: none; }
 .subnav .wrap::-webkit-scrollbar { display: none; }
 .subnav a { white-space: nowrap; padding: 9px 16px; border-radius: 3px; font: 500 12.5px/1.2 var(--display); letter-spacing: .08em; text-transform: uppercase; color: #CDD7DF; border: 1px solid transparent; transition: color .2s, border-color .2s, background .2s; }
@@ -295,10 +287,10 @@ tbody tr:last-child > * { border-bottom: 0; }
 .acc .body p + p { margin-top: 14px; }
 .card .num { color: var(--accent); }
 
-/* ---- footer: deeper navy, dotted rules between links (Lyon Stahl) ---- */
-footer { position: relative; border-top: 1px solid var(--line); padding: 70px 0 40px; background: #000E18; }
+/* ---- footer: darker, dotted rules between links (Lyon Stahl) ---- */
+footer { position: relative; border-top: 1px solid var(--line); padding: 70px 0 40px; background: #030A10; }
 .foot { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr; gap: 40px; }
-.foot h3 { margin: 0 0 16px; font: 650 12px/1 var(--display); letter-spacing: .16em; text-transform: uppercase; color: var(--blue); }
+.foot h3 { margin: 0 0 16px; font: 650 12px/1 var(--display); letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
 .foot ul { list-style: none; margin: 0; padding: 0; font-size: 15px; color: #CDD7DF; }
 .foot li { padding: 8px 0; border-bottom: 1px dotted rgba(255, 255, 255, .2); }
 .foot li a { display: block; transition: color .2s, padding .2s; }
@@ -320,7 +312,7 @@ footer { position: relative; border-top: 1px solid var(--line); padding: 70px 0 
 .motion .reveal { transform: translateY(var(--rise)); }
 .motion .reveal-left { transform: translateX(calc(var(--rise) * -1)); }
 .motion .reveal.in, .motion .reveal-left.in { opacity: 1; transform: none; transition: opacity 1s var(--ease), transform 1s var(--ease); }
-@keyframes settle { from { color: var(--blue); } to { color: var(--ink); } }
+@keyframes settle { from { color: var(--muted); } to { color: var(--ink); } }
 .hero h1 { animation: settle .75s cubic-bezier(.4, 0, .2, 1) .75s both; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

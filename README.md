@@ -2,7 +2,7 @@
 
 The website for Valley Capital Partners, a buyer of non-performing hotel loans. It is built to grow: a set of core pages about what the firm does, and a **Resources** area made of a **Library** of technical notes, a **Blog**, a **Glossary**, and an **FAQ**. The notes, posts, and glossary terms are plain Markdown files that anyone can add to without touching code.
 
-**Design:** deep navy with one gold accent, set in two voices: DM Serif Display for headlines (with an italic gold phrase in each, as in "We acquire *non-performing* hotel loans") and Outfit for everything else, with small tracked uppercase labels. A faded hotel video sits fixed behind the whole page; on the home page it crossfades between four clips as the story scrolls, and the warm "paper" sections (the `.alt` sections) cover it so long passages read comfortably. Buttons and cards have small corners; the primary nav gets a gold underline that slides in. The look borrows from two reference sites: Lyon Stahl (serif headlines, italic highlight, outlined buttons, sliding nav underline) and Brookfield REIT (navy and gold, tracked blue labels, navy and paper rhythm).
+**Design:** dark and quiet: near-black teal with one amber accent, set in two voices. DM Serif Display for headlines (with an italic amber phrase in each, as in "We acquire *non-performing* hotel loans") and Outfit for everything else, with small tracked uppercase labels. A faded hotel video sits fixed behind the whole page; on the home page it crossfades between four clips as the story scrolls. Buttons and cards have small corners; the primary nav gets an amber underline that slides in; blocks rise into place as they scroll into view. The look borrows from Lyon Stahl (serif headlines, italic highlight, outlined buttons, sliding nav underline) and Blue Owl (scroll motion, and the home page leading with a row for each audience).
 
 **Stack:** [Astro](https://astro.build) (a static site generator), Markdown content, hosted on [Vercel](https://vercel.com). No database, no server, no client framework: pages are plain HTML, CSS and a little JavaScript.
 
@@ -76,8 +76,9 @@ Each audience reads the site in its own words, and every page has to say the sam
 ## Making design changes
 
 - **Words on a core page:** edit that page in `src/pages/`.
-- **Colours and type:** the variables at the top of `src/styles/site.css` (`--bg`, `--bg2`, `--accent`, `--paper`, `--display`, `--serif`, `--r` for corner radius).
-- **Paper sections:** any `section class="section alt"` is paper. The `.section.alt` rule re-points the colour variables (ink, muted, line, accent becomes blue), so everything inside it re-skins itself; use the variables, not hard-coded colours, in new components so they work on both. The italic accent phrase in a headline is just `<em>` inside an `h1` or `h2`.
+- **Colours and type:** the variables at the top of `src/styles/site.css` (`--bg`, `--bg2`, `--accent`, `--display`, `--serif`, `--r` for corner radius).
+- **Headline accent:** the italic amber phrase in a headline is just `<em>` inside an `h1` or `h2`.
+- **Motion:** blocks rise in as they scroll into view; the lists of what moves and how far are at the top of the motion block in `src/scripts/site.js`, and the distance and easing are `--rise` and `--ease` in `src/styles/site.css`. Nothing is hidden without JavaScript or with reduced motion.
 - **How visible the video is:** each section can carry `data-bg` (which clip) and `data-op` (strength from 0 to 1). Sections without them inherit the previous clip and fade right down. The home story beats use about `.26` and the hero `.34`; turn these down if text ever feels hard to read. The blur and colour are on `.bgv video` in `src/styles/site.css`.
 
 Run `npm run build` and then `npm run check` before opening a pull request. The check fails on any broken link or anchor, missing asset, unbalanced markup, page without exactly one heading, or CSS class that has no style.
@@ -119,7 +120,7 @@ The logo is a bold **V** (the valley) with an amber window lit in its notch: a h
 | `public/favicon.svg`, `public/apple-touch-icon.png` | Browser tab and phone home-screen icons |
 | `public/og-image.png` | The 1200 by 630 preview shown when a page is shared |
 
-Colours: background navy `#001625`, band navy `#002540`, paper `#F2F1EF`, text `#F4F8FB`, accent amber `#F5B454` (on paper the accent is blue `#1D5A85`, which keeps the labels readable). The mark in the header is `src/components/Logo.astro` and takes the surrounding text colour. The favicon and home-screen icon sit on ink `#0B1626`, and `public/og-image.png` was drawn separately; none of them were redrawn for the navy refresh.
+Colours: ink `#0B1626`, background `#050E16`, text `#EEF3F7`, accent amber `#F5B454`. The mark in the header is `src/components/Logo.astro` and takes the surrounding text colour.
 
 ## Video credits
 

@@ -43,7 +43,7 @@ One reported number shows the problem. The Real Deal reported on June 17, 2026 t
 
 ## What this means for a seller
 
-The more complete the file, the less a buyer has to allow for what it cannot see. A clear [loan summary](/banks/community-banks/the-loan-summary/) and the documents in [the diligence checklist](/library/checklist/) narrow the range of bids. A lender can also test a figure with a broker opinion of value before it asks for bids.
+The more complete the file, the less a buyer has to allow for what it cannot see. A clear [loan summary](/banks/community-banks/the-loan-summary/) and the documents in [the diligence checklist](/library/checklist/) narrow the range of offers. A lender can also test a figure with a broker opinion of value before it asks for bids.
 
 ## What this means for an owner
 
@@ -51,7 +51,7 @@ A discounted payoff figure comes from the same inputs. An owner who knows the ho
 
 ## What we don't know
 
-We have not found published hotel loan prices, stated as a share of the balance, that can be compared with one another. We do not know how any particular buyer weighs the inputs above. No one should rely on a rule of thumb. The inputs show what moves a price, not what a price will be.
+We have not found published hotel loan prices, stated as a share of the balance, that can be compared with one another. We do not know how any particular buyer weighs the inputs above. No one should rely on a rule of thumb.
 
 Last checked: November 12, 2026.
 

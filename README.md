@@ -2,7 +2,7 @@
 
 The website for Valley Capital Partners, a buyer of non-performing hotel loans. It is built to grow: a set of core pages about what the firm does, and a **Resources** area made of a **Library** of technical notes, a **Blog**, a **Glossary**, and an **FAQ**. The notes, posts, and glossary terms are plain Markdown files that anyone can add to without touching code.
 
-**Design:** dark and quiet, with Outfit type, one amber accent, monospace numbered labels, and a single dimmed hotel video fixed behind every page. On the home page the video crossfades with the story beats and fades right down after the hero, so text stays easy to read.
+**Design:** dark and quiet, with Outfit type, one amber accent, monospace numbered labels, and a dimmed, slowed-down hotel video inside the hero at the top of each page. Below the hero the page is plain dark, so the text stays easy to read.
 
 **Stack:** [Astro](https://astro.build) (a static site generator), Markdown content, hosted on [Vercel](https://vercel.com). No database, no server, no client framework: pages are plain HTML, CSS and a little JavaScript.
 
@@ -58,8 +58,9 @@ Case studies, FAQs, or team profiles each work the same way as the blog: add a c
 |---|---|
 | `src/pages/` | One file per page: `index`, `banks`, `receivers`, `servicers`, `borrowers`, `underwriting`, `firm`, `contact`, `resources` (the hub), `faq`, `glossary`, and `404`, plus `library/`, `blog/`, and `rss.xml.js`. |
 | `src/content/blog/`, `library/`, `glossary/` | The Markdown content. Front matter is checked against `src/content.config.ts` at build time, so a typo fails loudly instead of publishing a broken page. |
+| `docs/terminology.md` | The terminology guide: the canonical words per audience. |
 | `src/lib/` | `sections.ts` (the pages in each audience section), `posts.ts` and `tags.ts` (blog helpers). |
-| `src/layouts/Base.astro` | The page shell: head and search-engine tags (canonical link, Open Graph, structured data), the background video layer, header, footer, scripts. |
+| `src/layouts/Base.astro` | The page shell: head and search-engine tags (canonical link, Open Graph, structured data), header, footer, scripts. The hero video lives in the `Hero` component (and in the home page's own hero). |
 | `src/components/` | `Header`, `Footer`, `Logo`, `Hero`, `Cta`, `PostCard`, `SectionNav` (sub-navigation for Banks and Receivers), `FaqList`. |
 | `src/styles/site.css` | The whole design. Colors and the accent are variables at the top. |
 | `src/scripts/bg.js` | The background video: crossfades clips as sections scroll by and sets how strong the video is. Paused for reduced-motion, a single clip on phones, none on data-saver. |
@@ -67,6 +68,10 @@ Case studies, FAQs, or team profiles each work the same way as the blog: add a c
 | `public/` | Files served as they are: favicon, `robots.txt`, and the background clips (`public/video/`, fetched by the build, not stored in git). |
 | `scripts/` | `fetch-video.mjs` (downloads the clips) and `check_site.py` (static checks on `dist/`). |
 | `vercel.json` | Hosting: build command, output folder, security and noindex headers, caching. |
+
+## Terminology
+
+Each audience reads the site in its own words, and every page has to say the same thing the same way. `docs/terminology.md` fixes the canonical word for each idea (for example "loan sale" and "principal balance" for community banks, where special servicers say "note sale"), and `scripts/terminology.json` holds the rules `npm run check` enforces: if a Banks page says "note sale" or "troubled loan", the check fails and names the word to use. A block that lists variants on purpose, such as the loan summary's "You may write" table, is marked `data-terms="variants"`. The work goes one audience at a time: community banks first, then regional banks, then special servicers, then receivers and hotel owners.
 
 ## Making design changes
 
@@ -123,5 +128,3 @@ Background footage is from [Mixkit](https://mixkit.co) under the [Mixkit Video F
 |---|---|
 | `hotel-lit.mp4` | Hotel rooms with the lights on (27291) |
 | `hotel-corridor.mp4` | Corridor of an elegant hotel (34613) |
-| `hotel-neon.mp4` | Neon light of a hotel flickering in the dark (41154) |
-| `hotel-resort-aerial.mp4` | Luxury vacation resort complex with pool by the sea (9902) |

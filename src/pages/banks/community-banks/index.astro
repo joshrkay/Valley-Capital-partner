@@ -1,0 +1,47 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Hero from '../../../components/Hero.astro';
+import Cta from '../../../components/Cta.astro';
+import SectionNav from '../../../components/SectionNav.astro';
+import { SECTIONS } from '../../../lib/sections';
+---
+<Base title={"Community Banks and Problem Hotel Loans"} description={"Written for the people at a community bank who deal with a problem hotel loan: the lender, special assets, the CFO, the president, the loan committee, and counsel."}>
+  <Hero eyebrow="For community banks" title={"A problem hotel loan at a community bank."} lead={"Written in the words you already use, for the people who actually deal with the loan."} />
+  <SectionNav section="communityBanks" />
+  <main id="main">
+<section class="section"><div class="wrap intro">
+      <div><p class="eyebrow">The position</p><h2>One hotel loan can matter a great deal to a community bank.</h2>
+        <div class="body">
+          <p>A hotel loan is a large loan in a market you know well, made to a customer you may know personally. When it goes wrong, it lands on a small special assets group that is also looking after the rest of the bank's credit.</p>
+          <p>Hotels are not what most community banks do every day. The flag, the management company, the liquor licence, the payroll, and the improvement plan are specialist questions, and the people who could answer them are not on your staff.</p>
+          <p>These pages are for the people who deal with the loan: the lender who made it, the special assets officer, the chief credit officer, the CFO, the president, the loan committee and the board, and the bank's counsel.</p>
+        </div></div>
+      <dl class="pillars">
+        <div><dt>The relationship</dt><dd>The borrower is often a customer, with deposits, other credit, and a guarantor who lives in the community.</dd></div>
+        <div><dt>The capacity</dt><dd>A special assets group of one or two people has the rest of the problem list to look after as well.</dd></div>
+        <div><dt>The capital</dt><dd>At a smaller bank, one classified loan moves the numbers the board looks at.</dd></div>
+        <div><dt>The scrutiny</dt><dd>Examiners, auditors, and directors all want to see a plan, a valuation, and a decision that can be explained.</dd></div>
+      </dl>
+    </div></section>
+
+    <section class="section alt"><div class="wrap">
+      <div class="head"><p class="eyebrow">In this section</p><h2>Start with the loan summary. <em>Then go as deep as you need.</em></h2></div>
+      <div class="cards">
+        {SECTIONS.communityBanks.pages.slice(1).map((p, i) => (
+          <a class="card" href={p.href}><span class="mono num">{String(i + 1).padStart(2, '0')}</span><h3>{p.title}</h3><p>{p.summary}</p><span class="go">Read</span></a>
+        ))}
+      </div>
+    </div></section>
+
+    <section class="section"><div class="wrap">
+      <div class="head"><p class="eyebrow">Where we fit</p><h2>We take over the loan, the file, and the workout.</h2></div>
+      <div class="cells">
+        <div><h3>A loan sale</h3><p>We purchase past-due, matured, and classified hotel loans from community and regional banks. Whole loans, participation interests, and hotels a bank already carries as <a href="/glossary/#oreo">OREO</a> are all within what we buy.</p></div>
+        <div><h3>Cash at closing</h3><p>The bank receives cash at closing and transfers the loan, the file, and the workout. Its involvement ends on a date it chooses.</p></div>
+        <div><h3>In confidence</h3><p>We sign your confidentiality agreement or provide ours before any loan-level information is shared. The existence of a discussion is confidential.</p></div>
+      </div>
+      <p><a class="more arrow" href="/banks/how-a-sale-works/">How a loan sale works</a></p>
+    </div></section>
+  </main>
+  <Cta title={"Discuss a hotel loan in confidence."} text={"A conversation and an indicative price carry no obligation to sell."} label={"Start a conversation"} />
+</Base>

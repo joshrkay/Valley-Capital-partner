@@ -27,7 +27,7 @@
     targets.forEach(function (el) {
       var i = Array.prototype.indexOf.call(el.parentNode.children, el);
       el.classList.add('reveal');
-      el.style.transitionDelay = Math.min(i, 6) * 70 + 'ms';
+      el.style.transitionDelay = Math.min(i, 3) * 40 + 'ms';
       io.observe(el);
     });
   }

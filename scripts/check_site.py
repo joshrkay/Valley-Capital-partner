@@ -103,13 +103,17 @@ used = set().union(*[p.classes for p, _ in pages.values()])
 unstyled = sorted(c for c in used if c not in styled)
 print('classes used but with no CSS rule (review; some are intentional hooks):', unstyled or 'none')
 
-# leftovers from the old build; video slots each section asks for
+# leftovers from the old build; video only inside a hero
 for url, (_, html) in pages.items():
     for bad in ('three.min', 'three.js', 'hotel.jpg', 'story-photo', 'id="tower"', '<canvas'):
         if bad in html: problems.append('%s: leftover %r' % (url, bad))
-    slots = set(re.findall(r'<video data-slot="(\w+)"', html))
-    for s in set(re.findall(r'data-bg="(\w+)"', html)):
-        if s not in slots: problems.append('%s: section wants video slot %r that the page does not have' % (url, s))
+    vids = re.findall(r'<video\b', html)
+    if len(vids) > 1: problems.append('%s: %d videos (at most one, in the hero)' % (url, len(vids)))
+    if vids:
+        hm = re.search(r'<section class="hero[^"]*">', html)
+        vpos = html.index('<video')
+        if not hm or not (hm.start() < vpos < html.find('</section>', hm.start())): problems.append('%s: video outside the hero section' % url)
+    if 'class="bgv"' in html: problems.append('%s: leftover page-wide video layer' % url)
 
 # feeds
 for f in ('sitemap-index.xml', 'rss.xml', 'robots.txt', 'favicon.svg'):
@@ -145,6 +149,17 @@ if OLD:
             miss = [s for s in sentences(old) if s not in new]
             print('%s: %d of %d old sentences are not in the new pages' % (old_name, len(miss), len(sentences(old))))
             for s in miss: print('    -', s[:110])
+
+# terminology: pages for an audience must use that audience's canonical words (docs/terminology.md)
+_tf = os.path.join(ROOT, 'scripts', 'terminology.json')
+if os.path.exists(_tf):
+    for rule in json.load(open(_tf))['rules']:
+        for url, (_, html) in sorted(pages.items()):
+            if not url.startswith(rule['scope']): continue
+            text = body_text(re.sub(r'<div[^>]*data-terms="variants"[^>]*>.*?</div>', ' ', html, flags=re.S))     # blocks that list variants on purpose
+            for a in rule['avoid']:
+                m = re.search(a['pattern'], text, re.I)
+                if m: problems.append('%s: terminology: %r found; say %r (%s)' % (url, m.group(0), a['say'], rule['audience']))
 
 print('\n%d pages checked' % len(pages))
 for w in warnings: print('warning:', w)

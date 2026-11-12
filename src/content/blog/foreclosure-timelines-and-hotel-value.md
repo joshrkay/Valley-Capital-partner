@@ -1,6 +1,6 @@
 ---
 title: "Foreclosure timelines and why they matter more for hotels"
-description: "Foreclosure takes longer in some states than in others, and a hotel loses value while it waits. How timing changes the choices a lender faces."
+description: "How long foreclosure takes depends on the state, and a hotel loses value while it waits. What accrues, what erodes, and how the expected timeline changes a lender's choice."
 date: 2026-11-12
 category: "Lender options"
 tags: ["foreclosure", "lender options"]
@@ -8,24 +8,41 @@ tags: ["foreclosure", "lender options"]
 
 How long a [foreclosure](/glossary/#foreclosure) takes depends heavily on the state. In some, a lender can proceed without going to court and the process can be relatively quick. In others, it must go through the courts and can take a year or more. A borrower's bankruptcy filing can pause either one.
 
-For most property, the difference is mainly one of cost. For a hotel it is more than that, because the collateral is an operating business.
+For most property, the difference is mainly one of cost. For a hotel it is more than that, because the collateral is an operating business. Each month of delay adds cost, and it can take value away at the same time.
 
-## What a hotel loses while it waits
+## What accrues while a lender waits
 
-A hotel's value rests on things that do not stand still:
+Taxes, insurance, and maintenance continue whether or not the owner pays them. If the hotel is operating, so do payroll, utilities, and brand fees. Legal fees build with each filing. Whoever pays, whether the owner from cash flow, a receiver from revenue, or the lender through [protective advances](/glossary/#protective-advance), the shortfall tends to land on the lender, and advances are usually added to the loan balance.
 
-- **The franchise.** Missed fees, an overdue [improvement plan](/glossary/#pip), or a failed inspection can lead the brand to terminate.
-- **The staff.** People leave when they are unsure about their jobs, and the ones who go are often the ones who held the hotel together.
-- **Bookings and reputation.** Groups and repeat customers move on, and reviews follow service.
-- **The building.** Maintenance is the first thing to be deferred when money is short.
-- **Licenses and permits,** which can lapse if no one is looking after them.
+## What erodes, and where it shows
 
-## How timing changes the choices
+Each loss of value leaves a mark in the numbers:
 
-A long foreclosure favors options that keep the hotel running. A [receiver](/glossary/#receivership) can operate the property while the case proceeds. A forbearance or a [note sale](/glossary/#note-sale) may make more sense in a state where enforcement is slow than in one where it is fast.
+- **The franchise.** Missed fees, an overdue [improvement plan](/glossary/#pip), or a failed inspection can lead the brand to terminate. Occupancy and revenue per available room then fall against the hotels around it.
+- **The staff.** People leave when they are unsure about their jobs, and the ones who go are often the ones who held the hotel together. It shows as overtime, unfilled posts, and weaker reviews.
+- **Bookings.** Groups and repeat customers move on. Forward bookings and advance deposits fall before reported revenue does.
+- **The building.** Maintenance is the first thing deferred. It shows up in the next condition report, the next inspection, and the cost of the improvement plan.
+- **Licenses and permits** can lapse if no one is looking after them, and beverage and banquet revenue stops with them.
 
-The costs add up as well: legal fees, receiver costs, [protective advances](/glossary/#protective-advance), and carrying costs, all on top of any decline in value.
+## Court, bankruptcy, and receiver
 
-## The practical question
+In a non-judicial state, a lender usually follows steps set by statute and the loan documents, such as notice, a waiting period, and a public sale, without filing a lawsuit. In a judicial state it files suit, and the court's calendar and the borrower's right to contest set the pace.
 
-For a lender, the useful comparison is between a recovery that arrives later and costs more, and one that is lower but certain and immediate. [Extend, sell, or foreclose](/library/choices/) sets out the trade-offs, and the answer depends on how the loan is reserved, how long enforcement takes in the state, and where the hotel is heading in the meantime.
+A bankruptcy filing usually pauses enforcement while the court decides what happens next, and the lender may need the court's permission to continue. It can also change what a receiver may do.
+
+A [receiver](/glossary/#receivership) can operate the hotel while the case runs: collect revenue, pay operating costs, and keep the franchise, taxes, payroll, and insurance current. A receiver cannot give the lender title, end the case, or fund a hotel that has no cash. Shortfalls come from lender advances or court-approved borrowing.
+
+## How the timeline changes the choice
+
+A short path favors enforcement: less time to carry, less to erode. A long path raises the cost of foreclosing and the value of choices that fix a date or keep the hotel funded. An [extension](/glossary/#extension) fits if it buys a specific thing. A [note sale](/glossary/#note-sale) fixes the recovery and passes the time risk to the buyer, at a price that reflects it. [Extend, sell, or foreclose](/library/choices/) sets out the trade-offs.
+
+## Questions for local counsel
+
+1. Is foreclosure judicial here, and what is the realistic range from filing to a sale of a hotel in this county?
+2. Can a receiver be appointed early, and how quickly?
+3. What can the borrower do to slow the case, and what would a bankruptcy filing do to the schedule and the receivership?
+4. Does any right to redeem after the sale delay clean title, and can a shortfall be pursued afterward?
+
+**Illustration (invented numbers):** A hotel is worth $8 million with its flag and staff in place. The lender funds $50,000 a month for taxes, insurance, repairs, and legal costs the hotel's cash flow does not cover. On a six-month path the lender spends $300,000 and value holds: $7.7 million net. On an eighteen-month path it spends $900,000, the franchise lapses, and value falls to $7 million: $6.1 million net.
+
+If a receiver keeps the flag and licenses in place and value slips only to $7.6 million, the long path nets $6.7 million. Time alone still costs $600,000 in carrying costs.

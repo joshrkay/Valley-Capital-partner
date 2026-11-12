@@ -2,7 +2,7 @@
 
 The website for Valley Capital Partners, a buyer of non-performing hotel loans. It is built to grow: a set of core pages about what the firm does, and a **Resources** area made of a **Library** of technical notes, a **Blog**, a **Glossary**, and an **FAQ**. The notes, posts, and glossary terms are plain Markdown files that anyone can add to without touching code.
 
-**Design:** dark and quiet, with Outfit type, one amber accent, monospace numbered labels, and a dimmed, slowed-down hotel video inside the hero at the top of each page. Below the hero the page is plain dark, so the text stays easy to read.
+**Design:** warm ivory with one deep-forest-green accent, set in two voices. DM Serif Display for headlines (with an italic green phrase in each, as in "We acquire *non-performing* hotel loans") and Outfit for everything else, with small tracked uppercase labels. A faded hotel video sits fixed behind the whole page, kept light so it reads as a soft moving shade over the ivory; on the home page it crossfades between four clips as the story scrolls. Buttons and cards have small corners; the primary nav gets a green underline that slides in; blocks rise into place as they scroll into view. The look borrows from Lyon Stahl (serif headlines, italic highlight, outlined buttons, sliding nav underline) and Blue Owl (scroll motion, and the home page leading with a row for each audience).
 
 **Stack:** [Astro](https://astro.build) (a static site generator), Markdown content, hosted on [Vercel](https://vercel.com). No database, no server, no client framework: pages are plain HTML, CSS and a little JavaScript.
 
@@ -60,7 +60,7 @@ Case studies, FAQs, or team profiles each work the same way as the blog: add a c
 | `src/content/blog/`, `library/`, `glossary/` | The Markdown content. Front matter is checked against `src/content.config.ts` at build time, so a typo fails loudly instead of publishing a broken page. |
 | `docs/terminology.md` | The terminology guide: the canonical words per audience. |
 | `src/lib/` | `sections.ts` (the pages in each audience section), `posts.ts` and `tags.ts` (blog helpers). |
-| `src/layouts/Base.astro` | The page shell: head and search-engine tags (canonical link, Open Graph, structured data), header, footer, scripts. The hero video lives in the `Hero` component (and in the home page's own hero). |
+| `src/layouts/Base.astro` | The page shell: head and search-engine tags (canonical link, Open Graph, structured data), the background video layer, header, footer, scripts. |
 | `src/components/` | `Header`, `Footer`, `Logo`, `Hero`, `Cta`, `PostCard`, `SectionNav` (sub-navigation for Banks and Receivers), `FaqList`. |
 | `src/styles/site.css` | The whole design. Colors and the accent are variables at the top. |
 | `src/scripts/bg.js` | The background video: crossfades clips as sections scroll by and sets how strong the video is. Paused for reduced-motion, a single clip on phones, none on data-saver. |
@@ -76,8 +76,10 @@ Each audience reads the site in its own words, and every page has to say the sam
 ## Making design changes
 
 - **Words on a core page:** edit that page in `src/pages/`.
-- **Colors and type:** the variables at the top of `src/styles/site.css` (`--accent`, `--bg`, `--display`).
-- **How visible the video is:** each section can carry `data-bg` (which clip) and `data-op` (strength from 0 to 1). Sections without them inherit the previous clip and fade right down. The home story beats use about `.26` and the hero `.34`; turn these down if text ever feels hard to read.
+- **Colors and type:** every color is in the `PALETTE` block at the top of `src/styles/site.css` (`--bg`, `--ink`, `--accent`, `--alt-bg`, `--video-gain`, and so on); change only that block to re-color the site. Type is `--display` and `--serif`, corner radius `--r`. A dark palette sets `--tint` to light, `--video-gain` to `1`, and `color-scheme` to `dark`; the meta tags in `src/layouts/Base.astro` should match.
+- **Headline accent:** the italic accent phrase in a headline is just `<em>` inside an `h1` or `h2`.
+- **Motion:** blocks rise in as they scroll into view; the lists of what moves and how far are at the top of the motion block in `src/scripts/site.js`, and the distance and easing are `--rise` and `--ease` in `src/styles/site.css`. Nothing is hidden without JavaScript or with reduced motion.
+- **How visible the video is:** each section can carry `data-bg` (which clip) and `data-op` (strength from 0 to 1). Sections without them inherit the previous clip and fade right down. The home story beats use about `.26` and the hero `.34`, all multiplied by `--video-gain` in the palette, and the page-colored veil over the video is `--wash` (`.8` and `.8` on this ivory palette, because video darkens ivory instead of lighting it; `1` and `1` on a dark one). Raise them for a stronger video, but check text contrast over the darkest footage: much past these values the green labels fall below AA. Turn them down if text ever feels hard to read. The blur and color are on `.bgv video` in `src/styles/site.css`.
 
 Run `npm run build` and then `npm run check` before opening a pull request. The check fails on any broken link or anchor, missing asset, unbalanced markup, page without exactly one heading, or CSS class that has no style.
 
@@ -118,7 +120,7 @@ The logo is a bold **V** (the valley) with an amber window lit in its notch: a h
 | `public/favicon.svg`, `public/apple-touch-icon.png` | Browser tab and phone home-screen icons |
 | `public/og-image.png` | The 1200 by 630 preview shown when a page is shared |
 
-Colors: ink `#0B1626`, background `#050E16`, text `#EEF3F7`, accent amber `#F5B454`. The mark in the header is `src/components/Logo.astro` and takes the surrounding text color.
+Site colors: ivory `#F5F1E8` background, ink `#14201A`, accent forest green `#1F5A44`. The logo keeps its own brand colors whatever the site palette is: ink `#0B1626` V with an amber `#F5B454` window. The mark in the header is `src/components/Logo.astro`; the V takes the surrounding text color and the window is always amber. The favicon, home-screen icon and `public/og-image.png` were drawn on the brand's dark ink and have not been redrawn for the ivory site.
 
 ## Video credits
 
@@ -128,3 +130,5 @@ Background footage is from [Mixkit](https://mixkit.co) under the [Mixkit Video F
 |---|---|
 | `hotel-lit.mp4` | Hotel rooms with the lights on (27291) |
 | `hotel-corridor.mp4` | Corridor of an elegant hotel (34613) |
+| `hotel-neon.mp4` | Neon light of a hotel flickering in the dark (41154) |
+| `hotel-resort-aerial.mp4` | Luxury vacation resort complex with pool by the sea (9902) |

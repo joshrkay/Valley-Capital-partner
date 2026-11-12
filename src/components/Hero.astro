@@ -7,8 +7,7 @@ interface Props {
 const { eyebrow, title, lead } = Astro.props;
 const hasActions = Astro.slots.has('default');
 ---
-<section class="hero sub">
-  <div class="hero-media" aria-hidden="true"><video muted loop playsinline preload="none" data-src="/video/hotel-corridor.mp4"></video></div>
+<section class="hero sub" data-bg="default" data-op=".34">
   <div class="wrap">
     <div class="hero-copy">
       <p class="eyebrow">{eyebrow}</p>

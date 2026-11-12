@@ -15,9 +15,9 @@ const jsonLd = {
   description: "Valley Capital Partners acquires non-performing loans secured by hotels from banks, special servicers, and other lenders.",
 };
 ---
-<Base title={"Valley Capital Partners"} description={"Valley Capital Partners acquires non-performing loans secured by hotels from banks, special servicers, and other lenders."} jsonLd={jsonLd}>
+<Base title={"Valley Capital Partners"} description={"Valley Capital Partners acquires non-performing loans secured by hotels from banks, special servicers, and other lenders."} clips="home" jsonLd={jsonLd}>
 <main id="main">
-<section class="hero home"><div class="hero-media" aria-hidden="true"><video muted loop playsinline preload="none" data-src="/video/hotel-lit.mp4"></video></div><div class="wrap">
+<section class="hero home" data-bg="hero" data-op=".34"><div class="wrap">
   <div class="hero-copy"><p class="eyebrow">Hospitality debt</p>
     <h1>We acquire<br><em>non-performing</em><br>hotel loans.</h1>
     <p>Valley Capital Partners purchases defaulted and matured loans secured by hotels from banks, special servicers, and other lenders.</p>
@@ -25,26 +25,65 @@ const jsonLd = {
   </div>
 </section>
 
-<section class="story"><div class="wrap">
-  <p class="eyebrow">02 &mdash; The business</p>
+<section class="section alt" id="who"><div class="wrap">
+  <div class="head"><p class="eyebrow">Who we work with</p>
+    <h2>Counterparties on <em>every side</em> of a troubled hotel loan.</h2></div>
+  <div class="rows">
+    <article class="row">
+      <div class="row-main">
+        <h3>Community and regional banks</h3>
+        <p>Credit officers and special assets teams with a hotel loan that is past due, matured, or classified.</p>
+        <a class="more arrow" href="/banks/">For banks</a></div>
+      <div class="row-list"><p class="mono">Highlights</p>
+        <ul><li>Past due, non-accrual, matured, or in forbearance</li><li>Whole loans, participation interests, and hotels the bank already owns</li><li>We do not contact the borrower, guarantors, the brand, or hotel staff without the bank's consent</li><li>Six steps from a confidentiality agreement to funds wired</li></ul></div>
+    </article>
+    <article class="row">
+      <div class="row-main">
+        <h3>Receivers and creditors' rights counsel</h3>
+        <p>Court-appointed receivers operating a hotel, and the attorneys who represent its lender.</p>
+        <a class="more arrow" href="/receivers/">For receivers</a></div>
+      <div class="row-list"><p class="mono">Highlights</p>
+        <ul><li>Purchase agreements written for a sale order</li><li>Initial bidder under court-approved overbid procedures</li><li>Franchise, management, licenses, bookings, staff, and taxes handled so the hotel does not miss a night</li><li>We purchase the note with the receivership in place</li></ul></div>
+    </article>
+    <article class="row">
+      <div class="row-main">
+        <h3>Special servicers</h3>
+        <p>Asset managers resolving a securitized hotel loan through a note sale or a sale of the property.</p>
+        <a class="more arrow" href="/servicers/">For special servicers</a></div>
+      <div class="row-list"><p class="mono">Highlights</p>
+        <ul><li>Non-performing notes, loans in receivership, and lender-owned hotels</li><li>No financing contingency</li><li>We sign the seller's form of loan sale agreement, as-is</li><li>Proof of funds provided with the bid</li></ul></div>
+    </article>
+    <article class="row">
+      <div class="row-main">
+        <h3>Hotel owners</h3>
+        <p>Borrowers who have negotiated a discounted payoff, or want to, and need the capital to complete it.</p>
+        <a class="more arrow" href="/borrowers/">For owners</a></div>
+      <div class="row-list"><p class="mono">Highlights</p>
+        <ul><li>When a loan is sold, the loan documents stay the same</li><li>You hear from a principal of the firm</li><li>A modification, a payoff figure, or a negotiated transfer, put in writing</li><li>We prefer agreement: negotiated outcomes are faster and cost both sides less</li></ul></div>
+    </article>
+  </div>
+</div></section>
+
+<section class="story" data-bg="hero" data-op=".24"><div class="wrap">
+  <p class="eyebrow">01 &mdash; The business</p>
   <h2>A hotel is a business <em>that never closes.</em></h2>
   <p>Every night it reprices its rooms, staffs its front desk, and answers to a brand it does not own.</p></div>
 </section>
 
-<section class="story"><div class="wrap">
-  <p class="eyebrow">03 &mdash; The default</p>
+<section class="story" data-bg="default" data-op=".26"><div class="wrap">
+  <p class="eyebrow">02 &mdash; The default</p>
   <h2>Until the loan behind it <em>stops performing.</em></h2>
   <p>Renovations stall. The franchise comes under threat. Staff and bookings begin to leave.</p></div>
 </section>
 
-<section class="story"><div class="wrap">
-  <p class="eyebrow">04 &mdash; The lender</p>
+<section class="story" data-bg="lender" data-op=".26"><div class="wrap">
+  <p class="eyebrow">03 &mdash; The lender</p>
   <h2>The lender is left with a business <em>it never meant to run.</em></h2>
   <p>A receiver, a liquor license, a payroll, and a foreclosure that can take years.</p></div>
 </section>
 
-<section class="story"><div class="wrap">
-  <p class="eyebrow">05 &mdash; The purchase</p>
+<section class="story" data-bg="purchase" data-op=".30"><div class="wrap">
+  <p class="eyebrow">04 &mdash; The purchase</p>
   <h2>We buy <em>the loan.</em></h2>
   <p>The lender is paid at closing. The hotel stays open. We work the loan through to a resolution.</p>
   <div class="hero-actions"><a class="btn btn-light arrow" href="/banks/">For banks</a><a class="btn btn-ghost" href="/receivers/">For receivers and counsel</a></div></div>
@@ -70,21 +109,6 @@ const jsonLd = {
       <svg viewBox="0 0 150 84" aria-hidden="true"><rect x="22" y="14" width="62" height="58" rx="2"/><path d="M34 28h12M56 28h12M34 44h12M56 44h12M34 60h12M56 60h12"/><path d="M96 72V40h32v32"/></svg>
       <span class="mono">03</span><h3>The operation</h3>
       <p>Staff, licenses, taxes, and bookings that have to continue without a gap.</p></div>
-  </div>
-</div></section>
-
-<section class="section" id="who"><div class="wrap">
-  <div class="head"><p class="eyebrow">Who we work with</p>
-    <h2>Counterparties on <em>every side</em> of a troubled hotel loan.</h2></div>
-  <div class="acc">
-    <details name="who" open><summary><span class="n">01</span><span class="t">Community and regional banks</span><span class="pm"></span></summary>
-      <div class="body"><p>Credit officers and special assets teams with a hotel loan that is past due, matured, or classified.</p><a class="more arrow" href="/banks/">For banks</a></div></details>
-    <details name="who"><summary><span class="n">02</span><span class="t">Receivers and creditors' rights counsel</span><span class="pm"></span></summary>
-      <div class="body"><p>Court-appointed receivers operating a hotel, and the attorneys who represent its lender.</p><a class="more arrow" href="/receivers/">For receivers</a></div></details>
-    <details name="who"><summary><span class="n">03</span><span class="t">Special servicers</span><span class="pm"></span></summary>
-      <div class="body"><p>Asset managers resolving a securitized hotel loan through a note sale or a sale of the property.</p><a class="more arrow" href="/servicers/">For special servicers</a></div></details>
-    <details name="who"><summary><span class="n">04</span><span class="t">Hotel owners</span><span class="pm"></span></summary>
-      <div class="body"><p>Borrowers who have negotiated a discounted payoff, or want to, and need the capital to complete it.</p><a class="more arrow" href="/borrowers/">For owners</a></div></details>
   </div>
 </div></section>
 

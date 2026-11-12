@@ -1,7 +1,7 @@
 {
   "_note": "House rules the code enforces on a post, taken from docs/voice.md. Patterns are regular expressions matched case-insensitively at word boundaries. An error blocks a clean draft (the drafter gets one chance to fix it); a warning goes to the reviewer. The checks catch rule breaks, thin or padded writing, and invented figures. They do not judge whether a post is right or good: a person reads every post.",
   "wordRange": [500, 800],
-  "lengthExempt": ["discounted-payoffs-on-hotel-loans", "foreclosure-timelines-and-hotel-value", "ground-leases-in-hotel-loan-workouts", "liquor-licenses-and-hotel-transfers", "reading-a-hotels-operating-statement", "taxes-that-can-follow-a-hotel", "when-your-hotel-loan-is-sold", "why-special-servicers-sell-hotel-notes"],
+  "lengthExempt": [],
   "illustrationLabel": "**Illustration (invented numbers):**",
   "banned": [
     "vultures?", "bottom[- ]?fish\\w*", "fire[- ]sales?", "blood in the water", "game[- ]?changers?", "unlock\\w*", "best[- ]in[- ]class",

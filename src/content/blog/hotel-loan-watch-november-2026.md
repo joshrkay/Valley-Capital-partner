@@ -18,7 +18,7 @@ draft: true
 - Whether the FDIC Quarterly Banking Profile separates hotel loans was not checked.
 Update "Last checked" when done. -->
 
-Hotel loan delinquency in commercial mortgage-backed securities eased in October, and hotel results kept rising year over year. The latest lodging special servicing readings found are from the summer. All of these readings describe securitized loans, so none of them says how a hotel loan held by a bank is doing.
+Hotel loan delinquency in commercial mortgage-backed securities eased in October, and hotel results kept rising year over year. The latest lodging special servicing readings found are from the summer. All of these readings describe securitized loans, not hotel loans held by banks.
 
 ## The numbers
 
@@ -30,39 +30,37 @@ Hotel loan delinquency in commercial mortgage-backed securities eased in October
 
 ## What moved
 
-Lodging delinquency has run 5.22%, 5.84%, 6.18%, and 5.94% in June, August, September, and October. It rose into September and gave back part of that rise in October. No July reading was found, and we did not find a stated reason for October's lodging decline.
+Lodging delinquency has run 5.22%, 5.84%, 6.18%, and 5.94% in June, August, September, and October. It rose into September and gave back part of that rise in October. No July reading was found, and we found no stated reason for October's lodging decline.
 
-The overall rate fell for a different reason: one large loan, a showroom loan, returned to current. A rate weighted by balance can move on a single loan, so an overall change says little about hotels, and a lodging change needs its own explanation.
+The overall rate fell mainly because one large loan, a showroom loan, returned to current. That says little about hotels.
 
 A loan that is extended or modified can leave the delinquent count without having been repaid. A lower rate does not by itself show that the underlying loans have been resolved.
 
-Special servicing runs on a different clock. CREFC's lodging reading is from June and Trepp's all-property reading is from August, so neither speaks to October. A loan can be transferred to a [special servicer](/glossary/#special-servicer) while still current, so special servicing can rise before delinquency does.
-
 ## How to read these numbers
 
-**What each one counts.** A delinquency rate counts loans that have missed a payment by a stated number of days; KBRA's reading here is 30 or more days, in the rated deals it covers. A special servicing rate counts loans a servicer has taken over, some of them still current. The overall rates cover every property type, so only the lodging lines speak to hotels.
+**What each counts.** A delinquency rate counts loans that have missed a payment by a stated number of days; KBRA's reading here uses 30 or more. A special servicing rate counts loans a [special servicer](/glossary/#special-servicer) has taken over, some still current, so it can rise first. Only the lodging lines speak to hotels.
 
-**Why Trepp's and KBRA's rates differ.** They draw on different sets of loans and define the measure in their own ways, and the lodging figures here are from different months: KBRA's is as of March and Trepp's is for October. Two readings close together would not show that the publishers agree, and two far apart would not show that one is wrong.
+**Why the publishers differ.** They draw on different loans and define the measure in their own ways, and the lodging figures here are from different months: KBRA's is as of March, Trepp's is for October. Close readings would not show agreement, and distant ones would not show error.
 
-**What weekly hotel results say about loans.** Direction, and little else. Revenue per available room is revenue, while a loan is paid from net operating income after payroll, taxes, insurance, and franchise fees. The CoStar weeks compare against a year earlier across all U.S. hotels, but a loan comes under stress one hotel at a time, when income cannot cover the payment or the balance cannot be refinanced.
+**Weekly hotel results.** They show direction, and little else. Revenue per available room is revenue; a loan is paid from net operating income after payroll, taxes, insurance, and franchise fees. Loans come under stress hotel by hotel, when income cannot cover the payment or the balance cannot be refinanced.
 
 ## What this means for a lender
 
-A lender whose hotel loans sit in none of these pools can use the numbers only as context. The useful comparison is its own: the share of its hotel loans that are [past due](/glossary/#past-due) by 30 days or more, by balance and by count, read against a publisher's figure for the same month, with the difference in pools stated. Its [watch list](/glossary/#watch-list) and risk ratings carry the earlier signals.
+A lender whose hotel loans sit in none of these pools can use the numbers only as context. The useful comparison is the share of its own hotel loans [past due](/glossary/#past-due) by 30 days or more, by balance and by count, against a publisher's figure for the same month.
 
-For each hotel loan, a few questions matter more than any market rate. Is it current on its original terms or on a [modification](/glossary/#loan-modification)? When does it mature, and could the hotel's income support a refinance? How does the hotel's revenue per available room compare with its [competitive set](/glossary/#comp-set) rather than the national average?
+For each loan, a few questions beat any market rate. Is it current on its original terms or on a [modification](/glossary/#loan-modification)? When does it mature, and could the hotel's income support a refinance? How does it compare with its [competitive set](/glossary/#comp-set)?
 
-Three things would change the picture: a lodging reading that moves with no single large loan to explain it, special servicing rising while delinquency stays low, and the FDIC's third-quarter release, listed below, the only one here that covers loans banks hold. None of this points to a particular action. It shows which of the lender's own measures to look at first.
+A lodging reading that moves with no single large loan to explain it, or special servicing rising while delinquency stays low, would change the picture. None of this points to an action. It shows which of a lender's own measures to read first.
 
 ## What is due next
 
 - **Trepp's November reading:** typically in the first week of the following month, so early December.
 - **KBRA's November CMBS report:** KBRA publishes near month-end. Its October 2025 edition is dated October 31, 2025 ([Business Wire](https://www.businesswire.com/news/home/20251031928676/en/KBRA-Releases-Research-CMBS-Loan-Performance-Trends-October-2025)).
-- **FDIC Quarterly Banking Profile, third quarter:** late November, inferred from the second-quarter release in late August. It covers loans banks hold on their own books, which the securitized rates above do not.
+- **FDIC Quarterly Banking Profile, third quarter:** late November, inferred from the second-quarter release in late August. It covers loans banks hold on their own books.
 
 ## What we don't know
 
-These rates cover securitized loans only. They say nothing about hotel loans held by banks. We have not compared Trepp's and KBRA's definitions line by line, and we did not find lodging special servicing for July through October. We do not know what drove October's lodging decline, and we have not checked whether the FDIC release separates hotel loans.
+These rates cover securitized loans only and say nothing about hotel loans held by banks. We have not compared Trepp's and KBRA's definitions line by line, and we did not find lodging special servicing for July through October. We do not know what drove October's lodging decline, and we have not checked whether the FDIC release separates hotel loans.
 
 Last checked: November 12, 2026.
 

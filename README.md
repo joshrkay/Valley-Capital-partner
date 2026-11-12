@@ -58,6 +58,7 @@ Case studies, FAQs, or team profiles each work the same way as the blog: add a c
 |---|---|
 | `src/pages/` | One file per page: `index`, `banks`, `receivers`, `servicers`, `borrowers`, `underwriting`, `firm`, `contact`, `resources` (the hub), `faq`, `glossary`, and `404`, plus `library/`, `blog/`, and `rss.xml.js`. |
 | `src/content/blog/`, `library/`, `glossary/` | The Markdown content. Front matter is checked against `src/content.config.ts` at build time, so a typo fails loudly instead of publishing a broken page. |
+| `docs/terminology.md` | The terminology guide: the canonical words per audience. |
 | `src/lib/` | `sections.ts` (the pages in each audience section), `posts.ts` and `tags.ts` (blog helpers). |
 | `src/layouts/Base.astro` | The page shell: head and search-engine tags (canonical link, Open Graph, structured data), the background video layer, header, footer, scripts. |
 | `src/components/` | `Header`, `Footer`, `Logo`, `Hero`, `Cta`, `PostCard`, `SectionNav` (sub-navigation for Banks and Receivers), `FaqList`. |
@@ -67,6 +68,10 @@ Case studies, FAQs, or team profiles each work the same way as the blog: add a c
 | `public/` | Files served as they are: favicon, `robots.txt`, and the background clips (`public/video/`, fetched by the build, not stored in git). |
 | `scripts/` | `fetch-video.mjs` (downloads the clips) and `check_site.py` (static checks on `dist/`). |
 | `vercel.json` | Hosting: build command, output folder, security and noindex headers, caching. |
+
+## Terminology
+
+Each audience reads the site in its own words, and every page has to say the same thing the same way. `docs/terminology.md` fixes the canonical word for each idea (for example "loan sale" and "principal balance" for community banks, where special servicers say "note sale"), and `scripts/terminology.json` holds the rules `npm run check` enforces: if a Banks page says "note sale" or "troubled loan", the check fails and names the word to use. A block that lists variants on purpose, such as the loan summary's "You may write" table, is marked `data-terms="variants"`. The work goes one audience at a time: community banks first, then regional banks, then special servicers, then receivers and hotel owners.
 
 ## Making design changes
 

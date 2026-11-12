@@ -146,6 +146,17 @@ if OLD:
             print('%s: %d of %d old sentences are not in the new pages' % (old_name, len(miss), len(sentences(old))))
             for s in miss: print('    -', s[:110])
 
+# terminology: pages for an audience must use that audience's canonical words (docs/terminology.md)
+_tf = os.path.join(ROOT, 'scripts', 'terminology.json')
+if os.path.exists(_tf):
+    for rule in json.load(open(_tf))['rules']:
+        for url, (_, html) in sorted(pages.items()):
+            if not url.startswith(rule['scope']): continue
+            text = body_text(re.sub(r'<div[^>]*data-terms="variants"[^>]*>.*?</div>', ' ', html, flags=re.S))     # blocks that list variants on purpose
+            for a in rule['avoid']:
+                m = re.search(a['pattern'], text, re.I)
+                if m: problems.append('%s: terminology: %r found; say %r (%s)' % (url, m.group(0), a['say'], rule['audience']))
+
 print('\n%d pages checked' % len(pages))
 for w in warnings: print('warning:', w)
 if problems:

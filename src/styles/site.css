@@ -256,8 +256,12 @@ tbody tr:last-child > * { border-bottom: 0; }
 .subnav .wrap::-webkit-scrollbar { display: none; }
 .subnav a { white-space: nowrap; padding: 8px 16px; border-radius: 999px; font-size: 15px; color: #CDD7DF; border: 1px solid transparent; transition: color .2s, border-color .2s, background .2s; }
 .subnav a:hover { color: #fff; border-color: var(--line); }
+.subnav a.back { color: var(--muted); padding-right: 12px; margin-right: 4px; border-right: 1px solid var(--line); border-radius: 0; }
+.subnav a.back:hover { color: #fff; border-color: var(--line); }
 .subnav a[aria-current="page"] { background: var(--accent); color: var(--on-accent); font-weight: 500; }
 .related { margin-top: 8px; }
+.acc .body strong { color: var(--ink); font-weight: 500; }
+.acc .body p + p { margin-top: 14px; }
 .card .num { color: var(--accent); }
 
 /* ---- footer ---- */

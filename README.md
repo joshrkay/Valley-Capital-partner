@@ -2,7 +2,7 @@
 
 The website for Valley Capital Partners, a buyer of non-performing hotel loans. It is built to grow: a set of core pages about what the firm does, and a **Resources** area made of a **Library** of technical notes, a **Blog**, a **Glossary**, and an **FAQ**. The notes, posts, and glossary terms are plain Markdown files that anyone can add to without touching code.
 
-**Design:** dark and quiet, with Outfit type, one amber accent, monospace numbered labels, and a dimmed, slowed-down hotel video inside the hero at the top of each page. Below the hero the page is plain dark, so the text stays easy to read.
+**Design:** deep navy with one gold accent, set in two voices: DM Serif Display for headlines (with an italic gold phrase in each, as in "We acquire *non-performing* hotel loans") and Outfit for everything else, with small tracked uppercase labels. A dimmed, slowed-down hotel video sits inside the hero at the top of each page. Below the hero, pages alternate between navy sections and warm "paper" sections (the `.alt` sections) so long passages read comfortably. Buttons and cards have small corners; the primary nav gets a gold underline that slides in. The look borrows from two reference sites: Lyon Stahl (serif headlines, italic highlight, outlined buttons, sliding nav underline) and Brookfield REIT (navy and gold, tracked blue labels, navy and paper rhythm).
 
 **Stack:** [Astro](https://astro.build) (a static site generator), Markdown content, hosted on [Vercel](https://vercel.com). No database, no server, no client framework: pages are plain HTML, CSS and a little JavaScript.
 
@@ -76,7 +76,8 @@ Each audience reads the site in its own words, and every page has to say the sam
 ## Making design changes
 
 - **Words on a core page:** edit that page in `src/pages/`.
-- **Colours and type:** the variables at the top of `src/styles/site.css` (`--accent`, `--bg`, `--display`).
+- **Colours and type:** the variables at the top of `src/styles/site.css` (`--bg`, `--bg2`, `--accent`, `--paper`, `--display`, `--serif`, `--r` for corner radius).
+- **Paper sections:** any `section class="section alt"` is paper. The `.section.alt` rule re-points the colour variables (ink, muted, line, accent becomes blue), so everything inside it re-skins itself; use the variables, not hard-coded colours, in new components so they work on both. The italic accent phrase in a headline is just `<em>` inside an `h1` or `h2`.
 - **How visible the hero video is:** `.hero-media video.on` in `src/styles/site.css` sets its opacity (home `.24`, other pages `.17`) and the blur and colour are on the line above it. Turn the opacity down for a calmer page, or to `0` for none.
 
 Run `npm run build` and then `npm run check` before opening a pull request. The check fails on any broken link or anchor, missing asset, unbalanced markup, page without exactly one heading, or CSS class that has no style.
@@ -118,7 +119,7 @@ The logo is a bold **V** (the valley) with an amber window lit in its notch: a h
 | `public/favicon.svg`, `public/apple-touch-icon.png` | Browser tab and phone home-screen icons |
 | `public/og-image.png` | The 1200 by 630 preview shown when a page is shared |
 
-Colours: ink `#0B1626`, background `#050E16`, text `#EEF3F7`, accent amber `#F5B454`. The mark in the header is `src/components/Logo.astro` and takes the surrounding text colour.
+Colours: background navy `#001625`, band navy `#002540`, paper `#F2F1EF`, text `#F4F8FB`, accent amber `#F5B454` (on paper the accent is blue `#1D5A85`, which keeps the labels readable). The mark in the header is `src/components/Logo.astro` and takes the surrounding text colour. The favicon and home-screen icon sit on ink `#0B1626`, and `public/og-image.png` was drawn separately; none of them were redrawn for the navy refresh.
 
 ## Video credits
 

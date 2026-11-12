@@ -74,6 +74,24 @@ export function indexForPrompt(index) {
   return L.join('\n');
 }
 
+// The text of pages the firm has already published, so a draft can restate vetted material instead of inventing. Drafts are never used.
+export function loadBackground(root, related = [], cap = 6000) {
+  const out = [];
+  let used = 0;
+  for (const r of related) {
+    const [kind, slug] = String(r).split(':');
+    const rel = { blog: `src/content/blog/${slug}.md`, library: `src/content/library/${slug}.md`, glossary: `src/content/glossary/${slug}.md` }[kind];
+    if (!rel || !/^[a-z0-9-]+$/.test(slug ?? '') || !existsSync(join(root, rel))) continue;
+    const { data, body } = readFrontMatter(readFileSync(join(root, rel), 'utf8'));
+    if (data.draft === true) continue;
+    const text = body.replace(/<!--[\s\S]*?-->/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 1800);
+    out.push({ kind, slug, title: data.title ?? data.term ?? slug, text });
+    used += text.length;
+    if (used > cap) break;
+  }
+  return out;
+}
+
 export function loadVoice(root) {
   const p = join(root, 'docs/voice.md');
   if (!existsSync(p)) throw new Error('docs/voice.md not found');

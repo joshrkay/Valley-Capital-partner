@@ -65,17 +65,29 @@ Call a loan non-performing, or a hotel struggling, only when a source says so. D
 - For a ruling, give the court, the date, whether it is published, whether it applies only in one state, and whether it was later withdrawn or appealed.
 - No puns in headlines, and no weather or water images.
 
-## Shape of a news note
+## Length and substance
+
+**Every post is 500 to 800 words.** That covers timely posts, explainers, and the monthly Hotel loan watch. The count runs from the first paragraph to the end of the last section before Sources; the Sources list, the "Last checked" line, link addresses, and `[CONFIRM: ...]` placeholders do not count. The build refuses to publish a post outside the range.
+
+The length is a floor for substance, not a target to fill. A reader who runs a special-assets desk will stop at the first padded paragraph. Every paragraph must add a fact, a step, a distinction, or an example. A post this long has:
+
+- **A point in the first two paragraphs,** stated plainly. If a reader stopped there, they should still know the answer.
+- **How it works.** The mechanics, in order, in the reader's terms. This is where the length comes from.
+- **A distinction readers get wrong.** What is confused with what, and why it matters.
+- **One worked illustration.** A small hypothetical with round, made-up numbers, in a paragraph that starts **Illustration (invented numbers):** so no one mistakes it for data. It is the one place a figure needs no source.
+- **Specific things to check** in the reader's own file or documents.
+- **What we don't know,** honestly.
+
+**Never pad.** No throat-clearing opening, no "it is important to note", no closing paragraph that repeats the opening, no list of generalities, no sentence that could sit in any post. If you cannot reach 500 words without inventing facts, the post is not ready: write `[CONFIRM: ...]` where a fact is missing and say what the reviewer should add. A short, honest draft with gaps marked is better than a long one with filler.
+
+## Shape of a post
 
 **Headline:** states the fact or the question, not the shock. "What a maturity extension does to a hotel loan's classification."
 
-1. **What happened.** Two sentences, sourced, with the date.
-2. **Why it matters to a holder of a hotel loan.** Three to five sentences.
-3. **What to check.** A short list.
-4. **What we don't know.** One or two sentences. For a ruling, also say what it does not decide.
-5. **Sources.** Linked list.
-
-Lengths: flash note 150 to 300 words; explainer 400 to 800; monthly data note about 500 with a table.
+1. **The opening paragraph.** For a timely post, **What happened.** in two or three sourced, dated sentences, then the point. For an explainer, the point and why it matters now.
+2. **Three to five sections** that carry the substance: why it matters to a holder of a hotel loan, how it works, what is often confused, what to check.
+3. **What we don't know.** Two or three sentences. For a ruling, also say what it does not decide.
+4. **Last checked** and **Sources.** A linked list, one line each.
 
 ## Questions a post about a sale should answer
 

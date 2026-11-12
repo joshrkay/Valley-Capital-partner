@@ -18,6 +18,7 @@
     "desk:triage": "node scripts/desk/triage.mjs",
     "desk:draft": "node scripts/desk/draft.mjs",
     "desk:gate": "node scripts/desk/publish-gate.mjs",
+    "desk:lint": "node scripts/desk/lint-post.mjs",
     "desk:test": "node --test scripts/desk/*.test.mjs"
   },
   "dependencies": {

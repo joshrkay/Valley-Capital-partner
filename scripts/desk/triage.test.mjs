@@ -15,7 +15,7 @@ const D = (n, extra = {}) => ({ n, lane: 'explainer', worth: 4, angle: 'angle', 
 
 test('validateTriage drops bad rows, checks slugs, and applies the voice rules in code', () => {
   const data = { decisions: [
-    D(1, { lane: 'flash', worth: 4 }),
+    D(1, { lane: 'timely', worth: 4 }),
     D(2, { worth: 5 }),                                                                          // a failure: forced to skip
     D(3, { worth: 5, related: ['blog:when-your-hotel-loan-is-sold', 'blog:a-draft-post', 'glossary:nope', 'library:franchise', 'x'] }),
     D(3, { worth: 1 }),                                                                          // duplicate
@@ -24,7 +24,7 @@ test('validateTriage drops bad rows, checks slugs, and applies the voice rules i
     D(4, { lane: 'update', update_slug: 'no-such-post', worth: 5 }),                             // bad update target: skip
   ] };
   const r = validateTriage(data, CANDS, index, { maxPicks: 2 });
-  assert.deepEqual(r.decisions.map((d) => [d.n, d.lane]), [[1, 'flash'], [2, 'skip'], [3, 'explainer'], [4, 'skip']]);
+  assert.deepEqual(r.decisions.map((d) => [d.n, d.lane]), [[1, 'timely'], [2, 'skip'], [3, 'explainer'], [4, 'skip']]);
   assert.equal(r.decisions[0].patternOnly, true);                                               // the names-party flag forces pattern-only
   assert.match(r.decisions[1].note, /do not ride/);
   assert.deepEqual(r.decisions[2].related, ['blog:when-your-hotel-loan-is-sold', 'library:franchise']);

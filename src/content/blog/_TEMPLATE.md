@@ -2,6 +2,7 @@
 # Copy this file to a new name such as "how-a-comfort-letter-works.md" (lowercase, hyphens, no spaces).
 # The file name becomes the address: /blog/how-a-comfort-letter-works/
 # Files whose name starts with an underscore, like this one, are never published.
+# Every post is 500 to 800 words of substance (see docs/voice.md). The build refuses to publish a post outside that range.
 title: "A clear headline for the post"
 description: "One or two sentences, under 220 characters. Shown in lists, search results, and link previews."
 date: 2026-01-15

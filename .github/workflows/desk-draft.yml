@@ -20,7 +20,7 @@ on:
         description: 'Override the triage lane'
         required: false
         type: choice
-        options: [auto, flash, explainer]
+        options: [auto, timely, explainer]
         default: auto
       run_id:
         description: 'Listener run to take the sheet from (default: the latest successful run)'

@@ -52,7 +52,13 @@ test('the request: mid-tier model with the fallback beta, strict schema, voice g
   assert.match(params.system[0].text, /A calm, exact colleague/);                                // the voice guide is in the system prompt
   assert.match(params.system[0].text, /\[CONFIRM: what is needed\]/);
   assert.match(params.system[0].text, /CATEGORIES: .*Data/);
+  assert.match(params.system[0].text, /500 to 800 words/);
+  assert.match(params.system[0].text, /\*\*Illustration \(invented numbers\):\*\*/);
+  assert.match(params.system[0].text, /Never write: throat-clearing/);
   const user = params.messages[0].content;
+  assert.match(user, /"target_words":"500 to 800"/);
+  assert.match(user, /"approved_background":\[\{"kind":"blog","slug":"when-your-hotel-loan-is-sold"/);                    // published pages named as related are passed as vetted background
+  assert.doesNotMatch(user, /a-draft-post/);
   assert.equal((user.match(/<\/untrusted_source>/g) ?? []).length, 1);
   assert.equal((user.match(/<\/brief>/g) ?? []).length, 1);
   assert.match(user, /Last checked: November 12, 2026/);
@@ -69,6 +75,7 @@ test('a failing draft gets one repair round that names the checks, then passes',
   const second = client.calls[1].params.messages;
   assert.deepEqual(second.map((m) => m.role), ['user', 'assistant', 'user']);
   assert.match(second[2].content, /Banned word or phrase: "robust"/);
+  assert.match(second[2].content, /Never pad/);
   assert.match(second[2].content, /\$975 million/);
   assert.match(second[2].content, /\/blog\/nope\//);
   assert.equal(r.errors, 0);
@@ -138,11 +145,11 @@ test('a failed repair keeps the earlier draft; an existing file is never overwri
 
 test('briefFromCandidate: facts, allowed URLs, and the reviewer lane override', () => {
   const candidate = { title: 'T', sourceName: 'S', url: 'https://example.com/a', published: '2026-11-11T00:00:00.000Z', summary: 'snip', flags: ['names-party'] };
-  const decision = { lane: 'flash', angle: 'A', why: 'W', patternOnly: false, related: ['blog:x'] };
+  const decision = { lane: 'timely', angle: 'A', why: 'W', patternOnly: false, related: ['blog:x'] };
   const b = briefFromCandidate({ candidate, decision, facts: ' fact one | see https://example.org/doc) | | fact three ' });
   assert.deepEqual(b.facts, ['fact one', 'see https://example.org/doc)', 'fact three']);
   assert.deepEqual(b.allowedUrls, ['https://example.com/a', 'https://example.org/doc']);
-  assert.deepEqual([b.lane, b.laneSetByReviewer, b.patternOnly, b.sourceDate], ['flash', false, true, '2026-11-11']);
+  assert.deepEqual([b.lane, b.laneSetByReviewer, b.patternOnly, b.sourceDate], ['timely', false, true, '2026-11-11']);
   assert.deepEqual([briefFromCandidate({ candidate, decision, lane: 'explainer' }).lane, briefFromCandidate({ candidate, decision: null }).lane], ['explainer', 'explainer']);
 });
 
@@ -150,7 +157,7 @@ test('run: reads the sheet by candidate number and refuses a bad number', async 
   const { root, w } = makeRoot();
   const cand = { key: 'k1', title: BRIEF.title, sourceName: BRIEF.sourceName, url: BRIEF.sourceUrl, published: '2026-11-05T00:00:00.000Z', summary: BRIEF.snippet, flags: [], score: 5 };
   w('desk/out/candidates.json', JSON.stringify({ date: DATE, candidates: [cand] }));
-  w('desk/out/triage.json', JSON.stringify({ ok: true, decisions: [{ n: 1, lane: 'flash', angle: 'What the rate does and does not show.', why: '', patternOnly: false, related: [] }] }));
+  w('desk/out/triage.json', JSON.stringify({ ok: true, decisions: [{ n: 1, lane: 'timely', angle: 'What the rate does and does not show.', why: '', patternOnly: false, related: [] }] }));
   const client = fakeClient([reply(GOOD_POST)]);
   assert.equal(await run({ root, candidate: '1', facts: 'September was 6.18%.', client, date: DATE }), 0);
   assert.match(client.calls[0].params.messages[0].content, /September was 6\.18%/);

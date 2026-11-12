@@ -13,7 +13,7 @@ A pipeline that turns news into draft posts for a person to review. Nothing in i
 - **Listen** (`scripts/desk/listen.mjs`): reads the sources in `desk/sources.json`, drops what it has seen, scores the rest, flags risks, lists expected data releases from `desk/calendar.json`, and opens one GitHub issue a day.
 - **Triage** (`scripts/desk/triage.mjs`): a small model reads the day's candidates and recommends up to two, with a lane, an angle, and the facts a reviewer must copy from the source first. Advice only. It runs inside the daily workflow when the `ANTHROPIC_API_KEY` secret exists.
 - **Draft** (`scripts/desk/draft.mjs`, workflow "News desk draft"): you pick a candidate and paste the facts. A mid-tier model writes one first draft under `docs/voice.md`. The script, not the model, writes the front matter (always `draft: true`) and checks the body. The result goes up as a draft pull request.
-- **Publish gate** (`scripts/desk/publish-gate.mjs`, run first by `npm run build`): fails the build if a post that is not a draft still has a `[CONFIRM: ...]` placeholder or the "VERIFY BEFORE PUBLISHING" note. Drafts and `_TEMPLATE` files are ignored.
+- **Publish gate** (`scripts/desk/publish-gate.mjs`, run first by `npm run build`): fails the build if a post that is not a draft still has a `[CONFIRM: ...]` placeholder or the "VERIFY BEFORE PUBLISHING" note, or is outside 500 to 800 words. Drafts and `_TEMPLATE` files are ignored. `lengthExempt` in `desk/lint.json` can grandfather a post; it should stay empty.
 
 ## Status: read this first
 
@@ -48,7 +48,10 @@ The drafter is told to use only the facts in its brief and to write `[CONFIRM: .
 - **Invented figures.** Every figure with a `$`, `%`, unit, decimal, or three or more digits must appear in the source title or snippet, the source name or date, or the facts you pasted.
 - **Invented links.** Internal links must exist and must not point at a draft. External links must be the source or a URL in your facts.
 - **Names.** A post marked pattern-only may not repeat a capitalized name from the source (publishers, agencies, and places are exempt). Every other capitalized name is listed for the reviewer. This is a heuristic: it misses single-word names and can flag harmless ones.
-- **Structure.** "What we don't know", "Sources", and "Last checked" must be present. Length and long paragraphs are warnings.
+- **Length: 500 to 800 words, for every post.** Counted from the first paragraph to the end of the last section before Sources. Too short or too long is an error, and the repair round is told to add substance, never filler.
+- **Thin or padded writing,** as far as code can tell: filler phrases ("it is important to note", "landscape", "stakeholders", "when it comes to"), a sentence repeated word for word, three paragraphs that open the same way (warning), and a post that is mostly bullet points (warning). Code cannot judge whether a post is good: a person reads every one.
+- **Illustrations.** A paragraph that starts `**Illustration (invented numbers):**` is exempt from the figure check, so a post can walk through a hypothetical. Every other figure still has to come from the source, the facts, or the approved background.
+- **Structure.** "What we don't know", "Sources", and "Last checked" must be present. Long paragraphs are warnings.
 
 A draft that fails gets one repair round with the failures quoted back to the model. If it still fails, it is written anyway as a draft, with the failures at the top of the file and in the pull request, so a person can fix it.
 
@@ -69,7 +72,8 @@ Set in `desk/models.json`. Triage runs on `claude-haiku-5-5` at low effort; draf
 - **Sources:** `desk/sources.json`. **Relevance and risk flags:** `desk/keywords.json`. **Release calendar:** `desk/calendar.json`.
 - **Models, effort, repair rounds, number of picks:** `desk/models.json`.
 - **House rules the code enforces:** `desk/lint.json` (banned words, spellings, categories, length ranges, names that may appear). Keep it in step with `docs/voice.md`.
-- **Tests:** `npm run desk:test` (44 tests, no network, no key).
+- **Check any post against the house rules:** `npm run desk:lint` (every post) or `npm run desk:lint -- src/content/blog/x.md`. It prints each post's word count, its errors, and its warnings.
+- **Tests:** `npm run desk:test` (no network, no key).
 
 ## Not done
 

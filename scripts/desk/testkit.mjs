@@ -37,29 +37,40 @@ export const reply = (obj, extra = {}) => ({ content: [{ type: 'text', text: JSO
 
 export const BRIEF = {
   title: 'Lodging delinquency eases in October', sourceName: 'Connect CRE', sourceUrl: 'https://www.connectcre.com/?p=504241', sourceDate: '2026-11-05',
-  snippet: 'Trepp said the lodging delinquency rate fell 24 basis points to 5.94% in October.', flags: [], lane: 'flash', angle: 'What the rate does and does not show.',
+  snippet: 'Trepp said the lodging delinquency rate fell 24 basis points to 5.94% in October.', flags: [], lane: 'timely', angle: 'What the rate does and does not show.',
   why: '', patternOnly: false, related: [], facts: ['September was 6.18%.'], allowedUrls: ['https://www.connectcre.com/?p=504241'],
 };
 
-export const GOOD_BODY = `**What happened.** Trepp reported that its lodging delinquency rate fell 24 basis points to 5.94% in October, according to [Connect CRE](https://www.connectcre.com/?p=504241). September's reading was 6.18%.
+export const GOOD_BODY = `**What happened.** Trepp reported that its lodging delinquency rate fell 24 basis points to 5.94% in October, according to [Connect CRE](https://www.connectcre.com/?p=504241). September's reading was 6.18%. A lower rate is welcome news for anyone who holds hotel loans, but it answers a narrower question than it appears to, and the gap between the two is where lenders get into trouble.
 
-## Why it matters to a holder of a hotel loan
+## What the rate measures
 
-A lower rate does not by itself show that the underlying loans have been resolved. A loan that is extended or modified can leave the delinquent count without having been repaid.
+A delinquency rate is a count of loans in a defined pool that are behind on payments or in another listed state, weighted by balance. It describes the pool, not the hotels inside it. The pool here is hotel loans packaged into commercial mortgage-backed securities. That leaves out loans a bank holds on its own books, which is where many community-bank hotel loans sit, and it leaves out every loan that was never securitized.
 
-For a lender, the useful comparison is between this reading and the status of its own hotel loans, which are not part of securitized data. A [haircut](/glossary/#haircut) taken on a sale is a different measure again, and a [note sale](/glossary/#note-sale) changes who holds the loan, not what the documents say.
+Because the rate is weighted by balance, a handful of large loans can move it. When one large loan returns to current status, the rate falls even if the other loans are no better off. When one large loan misses a payment, the rate rises. A change of 24 basis points tells you which way the pool moved this month. It does not tell you whether the typical hotel is healthier.
 
-Anyone quoting the number should keep the measure, the publisher, and the month together, and should not set it beside another publisher's rate without checking the definitions behind each one.
+## How a loan leaves the count without being repaid
 
-## What to check
+A loan stops counting as delinquent when it becomes current, and there are several ways that can happen. The borrower can catch up on missed payments. The loan can be paid off at maturity or refinanced. Or the loan can be extended or modified, which resets its status without reducing the debt.
 
-- Whether your own hotel loans are inside the pool Trepp measures.
-- Which definition of delinquent your own reporting uses.
-- When each loan's maturity date falls.
+The third route matters most to a lender, because it moves the problem forward in time instead of solving it. A [note sale](/glossary/#note-sale) is another exit: the loan leaves the lender's book, and often the pool, but the hotel's condition has not changed at all.
+
+**Illustration (invented numbers):** Suppose a pool holds 100 loans of equal size. Ten are delinquent, so the rate is 10%. Over a month, three of the ten are extended for a year and one new loan misses a payment. Eight are now delinquent and the rate reads 8%, a fall of two points. But the three extended loans still carry the same debt, the same hotel, and the same weak cash flow. The pool looks better on paper and is not much safer.
+
+## What to check in your own portfolio
+
+- Whether your hotel loans sit inside the pool the publisher measures, or outside it.
+- Which definition of delinquent your own reporting uses, and whether it counts loans past maturity that are still paying.
+- When each loan matures, since a maturity is when an extension decision arrives.
+- What a [haircut](/glossary/#haircut) on a sale would do to your reserves, if a sale is under consideration.
+
+## Quoting the number
+
+Keep the measure, the publisher, and the month together. "Trepp's lodging delinquency rate was 5.94% in October" can be checked. "Hotel delinquencies are falling" cannot. Do not set one publisher's rate beside another's until you have read the definitions behind each.
 
 ## What we don't know
 
-We have not seen Trepp's methodology note, and the rate will change with the next report.
+We have not seen Trepp's methodology note, and the rate will change with the next report. We also do not know how many of the loans that left the count were extended rather than repaid.
 
 Last checked: November 12, 2026.
 

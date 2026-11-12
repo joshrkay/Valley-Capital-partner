@@ -1,20 +1,30 @@
 {
-  "_note": "Deterministic checks on a drafted post, taken from docs/voice.md. Patterns are regular expressions matched case-insensitively at word boundaries. An error blocks a clean draft (the drafter gets one chance to fix it); a warning goes to the reviewer. These checks catch rule breaks and invented figures. They do not judge whether a post is right or good: a person reads every draft.",
+  "_note": "House rules the code enforces on a post, taken from docs/voice.md. Patterns are regular expressions matched case-insensitively at word boundaries. An error blocks a clean draft (the drafter gets one chance to fix it); a warning goes to the reviewer. The checks catch rule breaks, thin or padded writing, and invented figures. They do not judge whether a post is right or good: a person reads every post.",
+  "wordRange": [500, 800],
+  "lengthExempt": ["discounted-payoffs-on-hotel-loans", "foreclosure-timelines-and-hotel-value", "ground-leases-in-hotel-loan-workouts", "liquor-licenses-and-hotel-transfers", "reading-a-hotels-operating-statement", "taxes-that-can-follow-a-hotel", "when-your-hotel-loan-is-sold", "why-special-servicers-sell-hotel-notes"],
+  "illustrationLabel": "**Illustration (invented numbers):**",
   "banned": [
     "vultures?", "bottom[- ]?fish\\w*", "fire[- ]sales?", "blood in the water", "game[- ]?changers?", "unlock\\w*", "best[- ]in[- ]class",
-    "robust", "guaranteed", "tsunami", "meltdown", "bloodbath", "wave of (defaults|distress|foreclosures|delinquenc\\w+)",
+    "robust", "tsunami", "meltdown", "bloodbath", "wave of (defaults|distress|foreclosures|delinquenc\\w+)",
     "opportunit\\w*", "path to ownership", "loan[- ]to[- ]own", "turnkey", "synerg\\w*", "cutting[- ]edge", "disrupt\\w*"
   ],
+  "fillerPhrases": [
+    "it(?:'s| is) important to (?:note|remember|understand)", "important to note", "worth noting", "it should be noted", "needless to say", "it goes without saying",
+    "in today's (?:market|world|environment|landscape)", "ever[- ](?:evolving|changing)", "navigat\\w+ the (?:complexit\\w+|landscape)", "delve\\w*", "landscape", "tapestry",
+    "at the end of the day", "in conclusion", "in summary", "to sum up", "to summari[sz]e", "when it comes to", "plays? a (?:crucial|vital|key|pivotal) role",
+    "a testament to", "moving forward", "going forward", "that being said", "seamless\\w*", "holistic\\w*", "paradigm\\w*", "stakeholders?", "leverag(?:e|es|ed|ing)",
+    "in the world of", "let's (?:dive|explore|take a look)", "dive (?:in|into|deep)", "deep dive", "comprehensive guide", "one thing is clear"
+  ],
   "quotedOnly": ["extend and pretend"],
+  "warnWords": ["guaranteed"],
   "british": [
-    "licence", "favour", "colour", "organis", "programme", "centre", "labour", "judgement", "whilst", "defence",
-    "behaviour", "honour", "analyse", "recognis", "summaris", "authoris", "utilis", "minimis", "prioritis", "finalis", "realis",
-    "catalogue", "enquir", "grey\\b", "tonne"
+    "licence", "favour", "colour", "programme", "centre", "labour", "judgement", "whilst", "defence",
+    "behaviour", "honour", "catalogue", "enquir", "grey\\b", "tonne",
+    "(?:organis|recognis|summaris|authoris|utilis|prioritis|finalis|realis|minimis|analys)(?:e|ed|es|ing|ation|ations)\\b"
   ],
   "titleMax": 90,
   "descriptionMax": 220,
   "categories": ["For owners", "Lender options", "Collateral", "Licensing", "Valuation", "Liabilities", "Special servicing", "Data", "Note sales", "Franchise", "Receivership", "Rulings", "News"],
-  "wordRanges": { "flash": [120, 380], "explainer": [350, 950], "data": [300, 950] },
   "allowedEntities": [
     "Trepp", "KBRA", "CREFC", "CRED iQ", "CoStar", "STR", "HVS", "MBA", "FDIC", "Federal Reserve", "Federal Register", "OCC",
     "Morningstar", "Morningstar Credit", "Morningstar DBRS", "Fitch", "Moody's", "Business Wire", "Hospitality Net", "Hotel Online", "Lodging",

@@ -37,8 +37,8 @@ p { margin: 0; color: var(--muted); }
 .bar { position: fixed; inset: 0 0 auto 0; z-index: 20; transition: background .3s, border-color .3s; border-bottom: 1px solid transparent; }
 .bar.solid { background: rgba(5, 14, 22, .74); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom-color: var(--line); }
 .bar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 24px; height: 76px; }
-.brand { font-size: 24px; font-weight: 500; letter-spacing: -.02em; white-space: nowrap; }
-.brand i { font-style: normal; color: var(--accent); }
+.brand { display: inline-flex; align-items: center; gap: 12px; font-size: 22px; font-weight: 500; letter-spacing: -.012em; white-space: nowrap; }
+.brand-mark { width: 30px; height: 30px; flex: none; }
 .nav { display: flex; gap: 28px; font-size: 15px; color: #CDD7DF; }
 .nav a { padding: 6px 0; border-bottom: 1px solid transparent; transition: color .2s, border-color .2s; }
 .nav a:hover { color: #fff; }
@@ -51,7 +51,7 @@ p { margin: 0; color: var(--muted); }
 .menu > div a { padding: 12px 14px; border-radius: 8px; font-size: 16px; }
 .menu > div a:hover { background: rgba(255, 255, 255, .06); }
 @media (max-width: 1120px) { .nav { display: none; } .menu { display: block; } }
-@media (max-width: 520px) { .bar-end .btn-ink { display: none; } .brand { font-size: 21px; } }
+@media (max-width: 520px) { .bar-end .btn-ink { display: none; } .brand { font-size: 19px; gap: 10px; } .brand-mark { width: 26px; height: 26px; } }
 
 /* ---- buttons ---- */
 .btn { display: inline-flex; align-items: center; gap: 10px; border-radius: 999px; padding: 13px 24px; font: 500 15px/1 var(--display); border: 1px solid var(--line); transition: transform .2s, background .2s, border-color .2s; cursor: pointer; }
@@ -256,7 +256,7 @@ footer { position: relative; border-top: 1px solid var(--line); padding: 70px 0 
 .foot h3 { margin: 0 0 16px; font: 500 12px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
 .foot ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; font-size: 15px; color: #CDD7DF; }
 .foot ul a:hover { color: var(--accent); }
-.foot .brand { display: inline-block; margin-bottom: 12px; font-size: 22px; }
+.foot .brand { margin-bottom: 14px; }
 .foot p { font-size: 15px; }
 .legal { border-top: 1px solid var(--line); margin-top: 56px; padding-top: 26px; font-size: 13px; line-height: 1.7; color: var(--faint); }
 .legal p { color: inherit; font-size: inherit; margin-bottom: 12px; }

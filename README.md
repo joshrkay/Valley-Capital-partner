@@ -95,6 +95,20 @@ Vercel builds the site from `main` (`vercel.json` holds the settings: `npm run b
 
 Site search (Pagefind works with static sites), a case-study collection, a newsletter sign-up, analytics, social preview images per post, and a browser-based editor for non-technical authors (Keystatic or Decap both write the same Markdown files).
 
+## Brand
+
+The logo is a bold **V** (the valley) with an amber window lit in its notch: a hotel window, and the "lights return" idea behind the firm's story. Wordmark is Outfit (SIL Open Font Licence), medium weight.
+
+| File | Use |
+|---|---|
+| `public/brand/logo-lockup.svg` | Mark and name together, for dark backgrounds (lettering is outlined, so no font is needed) |
+| `public/brand/logo-lockup-dark.svg` | The same for light backgrounds, such as letterhead or slides |
+| `public/brand/logo-mark.svg`, `logo-mark-dark.svg` | The mark alone, light and dark versions |
+| `public/favicon.svg`, `public/apple-touch-icon.png` | Browser tab and phone home-screen icons |
+| `public/og-image.png` | The 1200 by 630 preview shown when a page is shared |
+
+Colours: ink `#0B1626`, background `#050E16`, text `#EEF3F7`, accent amber `#F5B454`. The mark in the header is `src/components/Logo.astro` and takes the surrounding text colour.
+
 ## Video credits
 
 Background footage is from [Mixkit](https://mixkit.co) under the [Mixkit Video Free License](https://mixkit.co/license/#videoFree): free for commercial use, no attribution required, but the files may not be redistributed on their own. That is why they are fetched at build time and not committed to this repository. If the repository is ever made private you may commit them instead.

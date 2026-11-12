@@ -1,4 +1,5 @@
 ---
+import Logo from './Logo.astro';
 // [address, label, addresses that count as "this section"]
 const NAV: [string, string, string[]][] = [
   ['/banks/', 'Banks', ['/banks/']],
@@ -14,7 +15,7 @@ const current = (match: string[]) => match.some((m) => path.startsWith(m));
 <a class="skip" href="#main">Skip to content</a>
 <header class="bar" id="bar">
   <div class="wrap">
-    <a class="brand" href="/" aria-label="Valley Capital Partners, home">Valley Capital Partners<i>.</i></a>
+    <a class="brand" href="/" aria-label="Valley Capital Partners, home"><Logo /><span>Valley Capital Partners</span></a>
     <nav class="nav" aria-label="Primary">
       {NAV.map(([href, label, match]) => <a href={href} aria-current={current(match) ? 'page' : undefined}>{label}</a>)}
     </nav>

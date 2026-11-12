@@ -1,6 +1,6 @@
 # Voice guide
 
-**Status: draft v2.** Built from the site's existing copy, then checked against research on how peers write (`docs/research/peer-voice.md`). That research is search-snippet level only, because the peer sites could not be opened from this environment, so full-text checks are still outstanding. A principal has not yet confirmed it. Decisions are at the bottom.
+**Status: draft v3.** Built from the site's existing copy, then checked against research on how peers write (`docs/research/peer-voice.md`) and how practitioners talk and what they ask (`docs/research/market-voice.md`). Both are search-snippet level only, because the peer sites could not be opened from this environment, so full-text checks are still outstanding. A principal has not yet confirmed it. Decisions are at the bottom.
 
 **Readers of this file:** whoever writes or reviews a post, and the drafting agent that produces first drafts.
 
@@ -46,6 +46,14 @@ Facts are stated about roles in the third person: "a lender", "a receiver", "the
 
 Call a loan non-performing, or a hotel struggling, only when a source says so. Describe people with respect: "an owner facing a maturity", not "a desperate owner".
 
+**Prefer the words people already use:** maturity, extension, haircut, per key, flag, PIP, debt yield, special servicing. For a hotel, moderate sources say "stressed" or "asset-specific". Keep "non-performing" for a loan, as its documents and the cited source define it.
+
+**Start from the reader's sentence.** People say "the bank sold my loan", "hand back the keys", "my lender". Say that first, then give the term (note sale, deed in lieu, special servicer) and link the glossary.
+
+**"Extend and pretend"** only as a quoted market phrase. It is stock, and it tells lenders they are fooling themselves.
+
+**Do not promise** "certainty of execution", "proof of funds", or a "hard deposit" in a post unless the firm will deliver them.
+
 ## Style
 
 - American English: license, favor, organize.
@@ -68,6 +76,17 @@ Call a loan non-performing, or a hotel struggling, only when a source says so. D
 5. **Sources.** Linked list.
 
 Lengths: flash note 150 to 300 words; explainer 400 to 800; monthly data note about 500 with a table.
+
+## Questions a post about a sale should answer
+
+Readers ask these in plain words and rarely get a plain answer. When a post describes a sale of a hotel loan, cover each one or say that it is not known:
+1. What changes for the owner, and what does not.
+2. What changes for a guarantor. ("Non-recourse" usually has carve-outs; an LLC does not always shield a guarantor.)
+3. What happens to the flag, and what is not known about it.
+4. What the buyer does after closing, in order, with no fixed timeline.
+5. What a borrower can ask the buyer to confirm in writing: who holds the loan now, who services it, the payoff figure.
+
+Say "it depends on your documents and your state" once, not in every sentence.
 
 ## Naming parties
 

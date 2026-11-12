@@ -52,7 +52,7 @@ Add a file to `src/pages/`, for example `src/pages/team.astro`, using the same s
 
 Case studies, FAQs, or team profiles each work the same way as the blog: add a collection in `src/content.config.ts` (a folder of Markdown files plus a checked list of front matter fields), then a list page and a detail page under `src/pages/`. `src/pages/library/` is the shortest example to copy.
 
-## How it is organised
+## How it is organized
 
 | Path | What it is |
 |---|---|
@@ -62,8 +62,8 @@ Case studies, FAQs, or team profiles each work the same way as the blog: add a c
 | `src/lib/` | `sections.ts` (the pages in each audience section), `posts.ts` and `tags.ts` (blog helpers). |
 | `src/layouts/Base.astro` | The page shell: head and search-engine tags (canonical link, Open Graph, structured data), header, footer, scripts. The hero video lives in the `Hero` component (and in the home page's own hero). |
 | `src/components/` | `Header`, `Footer`, `Logo`, `Hero`, `Cta`, `PostCard`, `SectionNav` (sub-navigation for Banks and Receivers), `FaqList`. |
-| `src/styles/site.css` | The whole design. Colours and the accent are variables at the top. |
-| `src/scripts/bg.js` | The hero video: loads when the hero is near the screen, plays at half speed only while the hero is visible, and fades in. Paused for reduced-motion, removed for data-saver. |
+| `src/styles/site.css` | The whole design. Colors and the accent are variables at the top. |
+| `src/scripts/bg.js` | The background video: crossfades clips as sections scroll by and sets how strong the video is. Paused for reduced-motion, a single clip on phones, none on data-saver. |
 | `src/scripts/site.js` | Frosted header on scroll, mobile menu, sections settling into place. |
 | `public/` | Files served as they are: favicon, `robots.txt`, and the background clips (`public/video/`, fetched by the build, not stored in git). |
 | `scripts/` | `fetch-video.mjs` (downloads the clips) and `check_site.py` (static checks on `dist/`). |
@@ -76,8 +76,8 @@ Each audience reads the site in its own words, and every page has to say the sam
 ## Making design changes
 
 - **Words on a core page:** edit that page in `src/pages/`.
-- **Colours and type:** the variables at the top of `src/styles/site.css` (`--accent`, `--bg`, `--display`).
-- **How visible the hero video is:** `.hero-media video.on` in `src/styles/site.css` sets its opacity (home `.24`, other pages `.17`) and the blur and colour are on the line above it. Turn the opacity down for a calmer page, or to `0` for none.
+- **Colors and type:** the variables at the top of `src/styles/site.css` (`--accent`, `--bg`, `--display`).
+- **How visible the video is:** each section can carry `data-bg` (which clip) and `data-op` (strength from 0 to 1). Sections without them inherit the previous clip and fade right down. The home story beats use about `.26` and the hero `.34`; turn these down if text ever feels hard to read.
 
 Run `npm run build` and then `npm run check` before opening a pull request. The check fails on any broken link or anchor, missing asset, unbalanced markup, page without exactly one heading, or CSS class that has no style.
 
@@ -108,7 +108,7 @@ Site search (Pagefind works with static sites), a case-study collection, a newsl
 
 ## Brand
 
-The logo is a bold **V** (the valley) with an amber window lit in its notch: a hotel window, and the "lights return" idea behind the firm's story. Wordmark is Outfit (SIL Open Font Licence), medium weight.
+The logo is a bold **V** (the valley) with an amber window lit in its notch: a hotel window, and the "lights return" idea behind the firm's story. Wordmark is Outfit (SIL Open Font License), medium weight.
 
 | File | Use |
 |---|---|
@@ -118,7 +118,7 @@ The logo is a bold **V** (the valley) with an amber window lit in its notch: a h
 | `public/favicon.svg`, `public/apple-touch-icon.png` | Browser tab and phone home-screen icons |
 | `public/og-image.png` | The 1200 by 630 preview shown when a page is shared |
 
-Colours: ink `#0B1626`, background `#050E16`, text `#EEF3F7`, accent amber `#F5B454`. The mark in the header is `src/components/Logo.astro` and takes the surrounding text colour.
+Colors: ink `#0B1626`, background `#050E16`, text `#EEF3F7`, accent amber `#F5B454`. The mark in the header is `src/components/Logo.astro` and takes the surrounding text color.
 
 ## Video credits
 

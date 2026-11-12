@@ -31,12 +31,12 @@ const faqs: { q: string; a: string }[] = [
     "a": "We apply to the brand for a new franchise agreement in advance of closing, and we address its improvement requirements directly."
   },
   {
-    "q": "What about the liquor licence and permits?",
-    "a": "We arrange the transfer of the liquor licence and operating permits, with interim arrangements where the state allows."
+    "q": "What about the liquor license and permits?",
+    "a": "We arrange the transfer of the liquor license and operating permits, with interim arrangements where the state allows."
   },
   {
     "q": "Will bookings, staff, and taxes carry over?",
-    "a": "Group contracts and advance deposits are identified and honoured through the transfer. We work with the manager so the staff the hotel depends on stay in place, and occupancy and sales tax balances are settled at closing under the sale order."
+    "a": "Group contracts and advance deposits are identified and honored through the transfer. We work with the manager so the staff the hotel depends on stay in place, and occupancy and sales tax balances are settled at closing under the sale order."
   },
   {
     "q": "What if the lender would rather sell the loan?",
@@ -57,7 +57,7 @@ const jsonLd = {
   mainEntity: faqs.map(({ q, a }) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })),
 };
 ---
-<Base title={"FAQ for Receivers and Counsel"} description={"Short answers to the questions receivers and lenders' counsel ask: bidding as the stalking horse, deposits, as-is purchases, the franchise, licences, and loan sales."} jsonLd={jsonLd}>
+<Base title={"FAQ for Receivers and Counsel"} description={"Short answers to the questions receivers and lenders' counsel ask: bidding as the stalking horse, deposits, as-is purchases, the franchise, licenses, and loan sales."} jsonLd={jsonLd}>
   <Hero eyebrow={"For receivers and counsel"} title={"Questions receivers and counsel ask."} lead={"Short answers for receivers and the attorneys who represent a lender. For anything specific, write to us."} />
   <SectionNav section="receivers" />
   <main id="main">

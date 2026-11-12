@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.astro/
+.vercel/
+.env
+.env.*
+public/video/*.mp4
+__pycache__/
+.DS_Store

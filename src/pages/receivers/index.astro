@@ -1,12 +1,15 @@
 ---
-import Base from '../layouts/Base.astro';
-import Hero from '../components/Hero.astro';
-import Cta from '../components/Cta.astro';
+import Base from '../../layouts/Base.astro';
+import Hero from '../../components/Hero.astro';
+import Cta from '../../components/Cta.astro';
+import SectionNav from '../../components/SectionNav.astro';
+import { SECTIONS } from '../../lib/sections';
 ---
 <Base title={"For Receivers"} description={"Valley Capital Partners buys hotels out of receivership and purchases hotel loans with a receivership in place."}>
 <Hero eyebrow={"For receivers and counsel"} title={"A buyer for hotels in receivership."} lead={"We purchase hotels through court-approved receiver sales, and we buy the underlying loan when the lender prefers to sell the note."}>
   <a class="btn btn-light arrow" href="/contact/">Discuss a receivership</a>
 </Hero>
+<SectionNav section="receivers" />
 <main id="main">
 <section class="section"><div class="wrap intro">
   <div><p class="eyebrow">Buying from a receiver</p><h2>We bid in a form a court can approve.</h2>
@@ -49,6 +52,17 @@ import Cta from '../components/Cta.astro';
     <div><h3>The hotel</h3><ul><li>Operating statements under the receiver</li><li>Monthly performance reports</li><li>Correspondence with the brand</li><li>List of capital needs</li></ul></div>
   </div>
 </div></section>
+
+<section class="section alt">
+  <div class="wrap">
+    <div class="head"><p class="eyebrow">In this section</p><h2>Everything a receiver or counsel needs to know, <em>in one place.</em></h2></div>
+    <div class="cards">
+      {SECTIONS.receivers.pages.slice(1).map((p, i) => (
+        <a class="card" href={p.href}><span class="mono num">{String(i + 1).padStart(2, '0')}</span><h3>{p.title}</h3><p>{p.summary}</p><span class="go">Read</span></a>
+      ))}
+    </div>
+  </div>
+</section>
 </main>
 <Cta title={"Tell us about the hotel and the case."} text={"We respond to receivers and counsel directly."} label={"Discuss a receivership"} />
 </Base>

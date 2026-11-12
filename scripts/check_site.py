@@ -137,7 +137,7 @@ if OLD:
             kind = 'containment'
         else:
             new = body_text(pages['/' if stem == 'index' else '/%s/' % stem][1])
-            kind = 'containment' if stem == 'index' else 'identical'
+            kind = 'containment' if stem in ('index', 'banks', 'receivers') else 'identical'     # these pages have had sections added
         if kind == 'identical':
             if new == old: print('%s: copy identical to the old build' % old_name)
             else: problems.append('%s: copy differs from the old build' % old_name)

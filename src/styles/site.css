@@ -250,6 +250,16 @@ tbody tr:last-child > * { border-bottom: 0; }
 @media (max-width: 760px) { .gloss > div { grid-template-columns: 1fr; gap: 8px; } }
 .acc.faq .t { font-size: clamp(20px, 2.4vw, 30px); line-height: 1.25; }
 
+/* ---- audience sections: sub-navigation under the hero, in-section cards ---- */
+.subnav { position: sticky; top: 76px; z-index: 15; background: rgba(5, 14, 22, .72); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.subnav .wrap { display: flex; gap: 6px; overflow-x: auto; padding-top: 12px; padding-bottom: 12px; scrollbar-width: none; }
+.subnav .wrap::-webkit-scrollbar { display: none; }
+.subnav a { white-space: nowrap; padding: 8px 16px; border-radius: 999px; font-size: 15px; color: #CDD7DF; border: 1px solid transparent; transition: color .2s, border-color .2s, background .2s; }
+.subnav a:hover { color: #fff; border-color: var(--line); }
+.subnav a[aria-current="page"] { background: var(--accent); color: var(--on-accent); font-weight: 500; }
+.related { margin-top: 8px; }
+.card .num { color: var(--accent); }
+
 /* ---- footer ---- */
 footer { position: relative; border-top: 1px solid var(--line); padding: 70px 0 40px; background: #030A10; }
 .foot { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr; gap: 40px; }

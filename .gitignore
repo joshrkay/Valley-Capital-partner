@@ -7,3 +7,5 @@ dist/
 public/video/*.mp4
 __pycache__/
 .DS_Store
+desk/state/
+desk/out/

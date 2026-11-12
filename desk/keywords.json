@@ -1,0 +1,30 @@
+{
+  "_note": "Relevance rules. A source lists the groups an item must contain (`needs`). A term matches at the start of a word, so 'foreclos' matches foreclosure and foreclosed. Each needed group scores 2 if it is in the title and 1 if only in the snippet, plus the source weight. An item needs at least `threshold` to become a candidate. Risk flags do not change the score: they tell the person or model doing the drafting which voice-guide rules apply (docs/voice.md).",
+  "threshold": 3,
+  "maxCandidates": 25,
+  "groups": {
+    "hotel": ["hotel", "motel", "lodging", "hospitality", "resort", "revpar"],
+    "debt": ["loan", "debt", "cmbs", "mortgage", "delinquen", "special servic", "foreclos", "receiver", "note sale", "maturit", "refinanc", "forbearance", "default", "distress", "bankrupt", "chapter 11", "workout", "lender", "lending", "franchise", "improvement plan"],
+    "cre": ["commercial real estate", "commercial mortgage", "cre loan", "real estate loan", "cmbs"]
+  },
+  "exclude": [
+    "\\b(giveaway|sweepstakes|coupon|promo code)\\b",
+    "\\bbest hotels? (in|for)\\b",
+    "\\bthings to do\\b",
+    "\\btravel deals?\\b"
+  ],
+  "risk": {
+    "names-party": ["\\bsues?\\b", "\\blawsuit\\b", "\\balleg", "\\bforeclos", "\\breceivership\\b", "\\bbankrupt", "\\bchapter 11\\b", "\\bspecial servic", "\\bdefault(s|ed)?\\b"],
+    "failure": ["\\bbank (fails?|failure|closed)\\b", "\\bclosed by (the )?(fdic|regulators?)\\b"],
+    "layoffs-closure": ["\\blayoffs?\\b", "\\bwarn notice\\b", "\\blaid off\\b", "\\bhotel (clos(es|ing|ed)|shutters?)\\b"],
+    "ruling": ["\\bcourt\\b", "\\bruling\\b", "\\bjudge\\b", "\\bopinion\\b"],
+    "figures": ["\\d+(\\.\\d+)?\\s?%", "\\$\\s?\\d"]
+  },
+  "riskNotes": {
+    "names-party": "A party may be named. Write about the pattern, not the party, unless it is public record, counsel has cleared it, and it is attributed.",
+    "failure": "A bank failure. Do not ride it for attention; write only about mechanics, later.",
+    "layoffs-closure": "A closure or layoffs. Do not ride it for attention.",
+    "ruling": "A ruling. Give the court, the date, whether it is published, whether it is state-specific, and whether it was withdrawn or appealed. Say what it does not decide.",
+    "figures": "Has figures. State the measure, the publisher, and the date for each, and open the source to confirm."
+  }
+}

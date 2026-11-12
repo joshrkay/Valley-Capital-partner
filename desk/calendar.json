@@ -1,0 +1,61 @@
+{
+  "_note": "Releases the desk expects, so the monthly Hotel loan watch and other scheduled notes can be prepared the day a window opens. Windows are [first day, last day] in given months. ALL TIMINGS ARE INFERRED from the research in docs/research/peer-voice.md and one or two observed release dates each; none was confirmed with the publisher. Correct them when you see the real dates.",
+  "entries": [
+    {
+      "id": "trepp-monthly",
+      "name": "Trepp monthly CMBS readings (delinquency, special servicing, maturities)",
+      "windows": [{ "months": "all", "days": [1, 7] }],
+      "action": "Draft the monthly Hotel loan watch from the new readings (see src/content/blog/_TEMPLATE-hotel-loan-watch.md).",
+      "inferred": true,
+      "basis": "Trepp's readings were reported early in the following month in 2026 coverage."
+    },
+    {
+      "id": "kbra-monthly",
+      "name": "KBRA CMBS Loan Performance Trends",
+      "windows": [{ "months": "all", "days": [27, 31] }],
+      "action": "Read it for the lodging line and add it to the watch.",
+      "inferred": true,
+      "basis": "KBRA's October 2025 edition is dated October 31, 2025."
+    },
+    {
+      "id": "crefc-monthly",
+      "name": "CREFC monthly CMBS loan performance report",
+      "windows": [{ "months": "all", "days": [25, 31] }],
+      "action": "Take the lodging special servicing line for the watch.",
+      "inferred": true,
+      "basis": "CREFC's June 2026 report was released July 28, 2026. One data point."
+    },
+    {
+      "id": "fdic-qbp",
+      "name": "FDIC Quarterly Banking Profile",
+      "windows": [{ "months": [2, 5, 8, 11], "days": [15, 30] }],
+      "action": "Bank-held loan data. Look for commercial real estate noncurrent rates.",
+      "inferred": true,
+      "basis": "The second-quarter profile came out in late August 2026."
+    },
+    {
+      "id": "mba-quarterly",
+      "name": "MBA commercial and multifamily delinquency report",
+      "windows": [{ "months": [1, 4, 7, 10], "days": [25, 31] }],
+      "action": "Check whether the release has a lodging line.",
+      "inferred": true,
+      "basis": "Second-quarter data was published July 30, 2026. One data point."
+    },
+    {
+      "id": "sloos",
+      "name": "Federal Reserve Senior Loan Officer Opinion Survey",
+      "windows": [{ "months": [2, 5, 8, 11], "days": [1, 10] }],
+      "action": "Look at the commercial real estate lending standards and demand lines.",
+      "inferred": true,
+      "basis": "The latest survey was published around November 2, 2026."
+    },
+    {
+      "id": "hotel-earnings",
+      "name": "Hotel REIT and brand quarterly results",
+      "windows": [{ "months": [2, 5, 8, 11], "days": [1, 15] }, { "months": [4, 7, 10], "days": [25, 31] }],
+      "action": "Skim for loan repayments, refinancings, and franchise or improvement-plan comments.",
+      "inferred": true,
+      "basis": "One large hotel REIT reported third-quarter results on November 4, 2026. Others vary."
+    }
+  ]
+}

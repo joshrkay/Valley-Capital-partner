@@ -35,7 +35,7 @@ export const SECTIONS: Record<'banks' | 'communityBanks' | 'receivers', Audience
       { href: '/banks/community-banks/situations/', title: 'Situations', summary: 'Six situations community banks bring us, and what the bank is weighing in each.' },
       { href: '/banks/community-banks/board-package/', title: 'Loan committee and board', summary: 'What the memo should cover when a loan sale goes to committee, with a recovery comparison.' },
       { href: '/banks/community-banks/examiners-and-reserves/', title: 'Examiners and reserves', summary: 'How a sale shows up in the bank\'s numbers, and what supervisors tend to want to see.' },
-      { href: '/banks/community-banks/borrower-relationship/', title: 'The borrower relationship', summary: 'When the owner is a customer and a neighbour: how to handle it, and when a sale is not the answer.' },
+      { href: '/banks/community-banks/borrower-relationship/', title: 'The borrower relationship', summary: 'When the owner is a customer and a neighbor: how to handle it, and when a sale is not the answer.' },
       { href: '/banks/community-banks/extensions/', title: 'When to stop extending', summary: 'What an extension costs that does not show in the rate, and five questions to ask before the next one.' },
       { href: '/banks/community-banks/participations-and-guarantees/', title: 'Participations and guarantees', summary: 'What to sort out early when the loan has participants or a government guarantee.' },
     ],

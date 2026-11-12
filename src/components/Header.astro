@@ -1,0 +1,32 @@
+---
+const NAV = [
+  ['/banks/', 'Banks'],
+  ['/receivers/', 'Receivers'],
+  ['/servicers/', 'Special servicers'],
+  ['/underwriting/', 'Underwriting'],
+  ['/library/', 'Library'],
+  ['/blog/', 'Blog'],
+  ['/firm/', 'Firm'],
+];
+const path = Astro.url.pathname;
+const current = (href: string) => path.startsWith(href);
+---
+<a class="skip" href="#main">Skip to content</a>
+<header class="bar" id="bar">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Valley Capital Partners, home">Valley Capital Partners<i>.</i></a>
+    <nav class="nav" aria-label="Primary">
+      {NAV.map(([href, label]) => <a href={href} aria-current={current(href) ? 'page' : undefined}>{label}</a>)}
+    </nav>
+    <div class="bar-end">
+      <a class="btn btn-ink" href="/contact/">Contact</a>
+      <details class="menu">
+        <summary>Menu</summary>
+        <div>
+          {NAV.map(([href, label]) => <a href={href}>{label}</a>)}
+          <a href="/contact/">Contact</a>
+        </div>
+      </details>
+    </div>
+  </div>
+</header>

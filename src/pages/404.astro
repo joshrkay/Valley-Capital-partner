@@ -1,0 +1,12 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+---
+<Base title="Page not found" description="This page could not be found.">
+  <Hero eyebrow="404" title="That page is not here." lead="It may have moved. Try the main pages below.">
+    <a class="btn btn-light arrow" href="/">Home</a>
+    <a class="btn btn-ghost" href="/library/">Library</a>
+    <a class="btn btn-ghost" href="/contact/">Contact</a>
+  </Hero>
+  <main id="main"></main>
+</Base>

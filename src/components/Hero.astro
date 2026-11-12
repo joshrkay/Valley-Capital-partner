@@ -1,0 +1,19 @@
+---
+interface Props {
+  eyebrow: string;
+  title: string;
+  lead?: string;
+}
+const { eyebrow, title, lead } = Astro.props;
+const hasActions = Astro.slots.has('default');
+---
+<section class="hero sub" data-bg="default" data-op=".34">
+  <div class="wrap">
+    <div class="hero-copy">
+      <p class="eyebrow">{eyebrow}</p>
+      <h1>{title}</h1>
+      {lead && <p>{lead}</p>}
+      {hasActions && <div class="hero-actions"><slot /></div>}
+    </div>
+  </div>
+</section>

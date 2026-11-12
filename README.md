@@ -1,5 +1,99 @@
 # Valley Capital Partners website
 
-Source for the Valley Capital Partners website, a buyer of non-performing hotel loans.
+The website for Valley Capital Partners, a buyer of non-performing hotel loans. It is built to grow: a set of core pages about what the firm does, a **Library** of technical notes, and a **Blog**, all written as plain Markdown files that anyone can add to without touching code.
 
-The first full version arrives in the initial pull request.
+**Design:** dark and quiet, with Outfit type, one amber accent, monospace numbered labels, and a single dimmed hotel video fixed behind every page. On the home page the video crossfades with the story beats and fades right down after the hero, so text stays easy to read.
+
+**Stack:** [Astro](https://astro.build) (a static site generator), Markdown content, hosted on [Vercel](https://vercel.com). No database, no server, no client framework: pages are plain HTML, CSS and a little JavaScript.
+
+## Quick start
+
+You need Node.js 22.12 or newer.
+
+```bash
+npm install          # once
+npm run dev          # writing mode at http://localhost:4321, includes drafts, reloads as you edit
+npm run build        # builds the site into dist/ (also fetches the background clips the first time)
+npm run preview      # serve the built site locally
+npm run check        # after a build: links, anchors, assets, markup, styles (needs Python 3)
+```
+
+## Adding content
+
+### A blog post
+
+1. Copy `src/content/blog/_TEMPLATE.md` to a new file, for example `src/content/blog/how-a-comfort-letter-works.md`. The file name becomes the address: `/blog/how-a-comfort-letter-works/`.
+2. Fill in the front matter at the top (title, a description under 220 characters, date, optional category and tags) and write the post in Markdown below it.
+3. Keep `draft: true` while writing: drafts show in `npm run dev` and never in the live site. Set it to `false` to publish.
+
+Tags become their own pages automatically (`/blog/tags/<tag>/`). The list page, the tag pages, the RSS feed (`/rss.xml`) and the sitemap all update themselves. Until the first post is published, the build prints a harmless warning that the blog collection is empty.
+
+### A Library note
+
+Same idea, in `src/content/library/`. Notes are longer technical pieces; `order` in the front matter sets where each appears in the list, and `topic` is the short label shown beside the title. The five existing notes are there as examples.
+
+### A new page
+
+Add a file to `src/pages/`, for example `src/pages/team.astro`, using the same shape as `src/pages/firm.astro`: the `Base` layout, a `Hero`, a `<main id="main">` with sections, and a `Cta`. Add it to the menu in `src/components/Header.astro` (and the footer, if it belongs there).
+
+### A new kind of content
+
+Case studies, FAQs, or team profiles each work the same way as the blog: add a collection in `src/content.config.ts` (a folder of Markdown files plus a checked list of front matter fields), then a list page and a detail page under `src/pages/`. `src/pages/library/` is the shortest example to copy.
+
+## How it is organised
+
+| Path | What it is |
+|---|---|
+| `src/pages/` | One file per page. `index`, `banks`, `receivers`, `servicers`, `borrowers`, `underwriting`, `firm`, `contact`, plus `library/`, `blog/`, `404`, and `rss.xml.js`. |
+| `src/content/blog/`, `src/content/library/` | The Markdown content. Front matter is checked against `src/content.config.ts` at build time, so a typo fails loudly instead of publishing a broken page. |
+| `src/layouts/Base.astro` | The page shell: head and search-engine tags (canonical link, Open Graph, structured data), the background video layer, header, footer, scripts. |
+| `src/components/` | `Header`, `Footer`, `Hero`, `Cta`, `PostCard`. |
+| `src/styles/site.css` | The whole design. Colours and the accent are variables at the top. |
+| `src/scripts/bg.js` | The background video: crossfades clips as sections scroll by and sets how strong the video is. Paused for reduced-motion, a single clip on phones, none on data-saver. |
+| `src/scripts/site.js` | Frosted header on scroll, mobile menu, sections settling into place. |
+| `public/` | Files served as they are: favicon, `robots.txt`, and the background clips (`public/video/`, fetched by the build, not stored in git). |
+| `scripts/` | `fetch-video.mjs` (downloads the clips) and `check_site.py` (static checks on `dist/`). |
+| `vercel.json` | Hosting: build command, output folder, security and noindex headers, caching. |
+
+## Making design changes
+
+- **Words on a core page:** edit that page in `src/pages/`.
+- **Colours and type:** the variables at the top of `src/styles/site.css` (`--accent`, `--bg`, `--display`).
+- **How visible the video is:** each section can carry `data-bg` (which clip) and `data-op` (strength from 0 to 1). Sections without them inherit the previous clip and fade right down. The home story beats use about `.26` and the hero `.34`; turn these down if text ever feels hard to read.
+
+Run `npm run build` and then `npm run check` before opening a pull request. The check fails on any broken link or anchor, missing asset, unbalanced markup, page without exactly one heading, or CSS class that has no style.
+
+## Hosting
+
+Vercel builds the site from `main` (`vercel.json` holds the settings: `npm run build`, output `dist`). Every pull request gets its own preview address once the repository is connected to a Vercel project. Set the environment variable `SITE_URL` to the production address so canonical links, the sitemap and the feed use it; until then they use `https://valleycapitalpartner.com`.
+
+## Pull requests
+
+1. Branch from `main`, named for the change (`blog/comfort-letters`, `copy/banks-page`, `design/hero-fade`).
+2. Run `npm run build` and `npm run check`.
+3. Open a pull request saying what changed and what you looked at.
+4. Merge when the Vercel preview looks right.
+
+## Before launch
+
+- [ ] The site is deliberately hidden from search engines: `X-Robots-Tag: noindex` in `vercel.json` and `Disallow: /` in `public/robots.txt`. Remove both when going live.
+- [ ] Firm facts still to confirm: principals, phone, address, loan size range, regions, and the bid terms on the special servicers page.
+- [ ] The contact address `acquisitions@valleycapitalpartner.com` must exist as a working mailbox.
+- [ ] Attach the production domain in Vercel and set `SITE_URL`.
+- [ ] Review the Blog page and 404 page wording, which are new.
+- [ ] Look at every page on a phone and a laptop, with the background video both playing and blocked.
+
+## Ideas for later
+
+Site search (Pagefind works with static sites), a case-study collection, a newsletter sign-up, analytics, social preview images per post, and a browser-based editor for non-technical authors (Keystatic or Decap both write the same Markdown files).
+
+## Video credits
+
+Background footage is from [Mixkit](https://mixkit.co) under the [Mixkit Video Free License](https://mixkit.co/license/#videoFree): free for commercial use, no attribution required, but the files may not be redistributed on their own. That is why they are fetched at build time and not committed to this repository. If the repository is ever made private you may commit them instead.
+
+| File | Mixkit clip |
+|---|---|
+| `hotel-lit.mp4` | Hotel rooms with the lights on (27291) |
+| `hotel-corridor.mp4` | Corridor of an elegant hotel (34613) |
+| `hotel-neon.mp4` | Neon light of a hotel flickering in the dark (41154) |
+| `hotel-resort-aerial.mp4` | Luxury vacation resort complex with pool by the sea (9902) |

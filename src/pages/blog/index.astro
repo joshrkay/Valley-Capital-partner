@@ -1,0 +1,33 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Hero from '../../components/Hero.astro';
+import Cta from '../../components/Cta.astro';
+import { tagSlug } from '../../lib/tags';
+import PostCard from '../../components/PostCard.astro';
+
+// Drafts appear while writing (`npm run dev`) and never in a production build.
+const posts = (await getCollection('blog', ({ data }) => (import.meta.env.PROD ? !data.draft : true))).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+const tags = [...new Set(posts.flatMap((p) => p.data.tags))].sort();
+---
+<Base title="Blog" description="Commentary on non-performing hotel loans, receiverships, and franchise issues, for lenders, servicers, receivers, and counsel.">
+  <Hero eyebrow="Blog" title="Writing on hotel loans and workouts." lead="Commentary on non-performing hotel loans, receiverships, and franchise issues, for lenders, servicers, receivers, and counsel." />
+  <main id="main">
+    <section class="section">
+      <div class="wrap">
+        {tags.length > 0 && (
+          <ul class="taglist" aria-label="Topics">
+            {tags.map((t) => <li><a href={`/blog/tags/${tagSlug(t)}/`}>{t}</a></li>)}
+          </ul>
+        )}
+        {posts.length === 0
+          ? <p class="empty">No posts yet. New writing will appear here.</p>
+          : <div class="cards">{posts.map((post) => <PostCard post={post} />)}</div>}
+        <p class="fine">General commentary only. It is not legal, accounting, or regulatory advice.</p>
+      </div>
+    </section>
+  </main>
+  <Cta title="Have a hotel loan you would like us to review?" text="Send a summary of the loan and the property. We reply with an indication of interest or a clear decline." />
+</Base>

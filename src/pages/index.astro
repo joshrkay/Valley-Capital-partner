@@ -1,0 +1,132 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import Cta from '../components/Cta.astro';
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Valley Capital Partners',
+  url: Astro.site?.href,
+  description: "Valley Capital Partners acquires non-performing loans secured by hotels from banks, special servicers, and other lenders.",
+};
+---
+<Base title={"Valley Capital Partners"} description={"Valley Capital Partners acquires non-performing loans secured by hotels from banks, special servicers, and other lenders."} clips="home" jsonLd={jsonLd}>
+<main id="main">
+<section class="hero home" data-bg="hero" data-op=".34"><div class="wrap">
+  <div class="hero-copy"><p class="eyebrow">Hospitality debt</p>
+    <h1>We acquire<br><em>non-performing</em><br>hotel loans.</h1>
+    <p>Valley Capital Partners purchases defaulted and matured loans secured by hotels from banks, special servicers, and other lenders.</p>
+    <div class="hero-actions"><a class="btn btn-light arrow" href="/banks/">For banks</a><a class="btn btn-ghost" href="/receivers/">For receivers and counsel</a></div></div>
+  </div><span class="mono scroll" aria-hidden="true">Scroll</span>
+</section>
+
+<section class="story" data-bg="hero" data-op=".24"><div class="wrap">
+  <p class="eyebrow">02 &mdash; The business</p>
+  <h2>A hotel is a business <em>that never closes.</em></h2>
+  <p>Every night it reprices its rooms, staffs its front desk, and answers to a brand it does not own.</p></div>
+</section>
+
+<section class="story" data-bg="default" data-op=".26"><div class="wrap">
+  <p class="eyebrow">03 &mdash; The default</p>
+  <h2>Until the loan behind it <em>stops performing.</em></h2>
+  <p>Renovations stall. The franchise comes under threat. Staff and bookings begin to leave.</p></div>
+</section>
+
+<section class="story" data-bg="lender" data-op=".26"><div class="wrap">
+  <p class="eyebrow">04 &mdash; The lender</p>
+  <h2>The lender is left with a business <em>it never meant to run.</em></h2>
+  <p>A receiver, a liquor licence, a payroll, and a foreclosure that can take years.</p></div>
+</section>
+
+<section class="story" data-bg="purchase" data-op=".3"><div class="wrap">
+  <p class="eyebrow">05 &mdash; The purchase</p>
+  <h2>We buy <em>the loan.</em></h2>
+  <p>The lender is paid at closing. The hotel stays open. We work the loan through to a resolution.</p>
+  <div class="hero-actions"><a class="btn btn-light arrow" href="/banks/">For banks</a><a class="btn btn-ghost" href="/receivers/">For receivers and counsel</a></div></div>
+</section>
+
+<section class="section" id="why"><div class="wrap">
+  <div class="head"><p class="eyebrow">Why hotels</p>
+    <h2>A hotel loan is a loan on <em>an operating business.</em></h2>
+    <p>A hotel reprices its rooms every night, depends on a brand it does not own, and loses value quickly once it closes. When the loan behind it defaults, the lender inherits questions most real estate lenders never have to answer.</p></div>
+  <div class="intro" style="grid-template-columns:1fr">
+    <p style="font-size:19px;color:var(--soft);max-width:760px">Hotel debt is the only thing we buy. We underwrite the operation along with the real estate, and we price the loan with the franchise, the required renovations, and the unpaid taxes already accounted for.</p>
+  </div>
+  <div class="panel">
+    <div>
+      <svg viewBox="0 0 150 84" aria-hidden="true"><path d="M30 12v62M30 14h58l-10 14 10 14H30"/><circle cx="118" cy="62" r="5"/><path d="M118 40v12"/></svg>
+      <span class="mono">01</span><h3>The franchise</h3>
+      <p>Whether the flag survives a default, and whether the lender's rights with the brand pass to a buyer of the loan.</p></div>
+    <div>
+      <svg viewBox="0 0 150 84" aria-hidden="true"><path d="M20 16h86M20 38h86M20 60h58"/><path d="M114 14l6 6 12-14M114 36l6 6 12-14"/><circle cx="123" cy="62" r="4"/></svg>
+      <span class="mono">02</span><h3>The improvement plan</h3>
+      <p>What the brand requires, what it costs, and who will fund it.</p></div>
+    <div>
+      <svg viewBox="0 0 150 84" aria-hidden="true"><rect x="22" y="14" width="62" height="58" rx="2"/><path d="M34 28h12M56 28h12M34 44h12M56 44h12M34 60h12M56 60h12"/><path d="M96 72V40h32v32"/></svg>
+      <span class="mono">03</span><h3>The operation</h3>
+      <p>Staff, licences, taxes, and bookings that have to continue without a gap.</p></div>
+  </div>
+</div></section>
+
+<section class="section" id="who"><div class="wrap">
+  <div class="head"><p class="eyebrow">Who we work with</p>
+    <h2>Counterparties on <em>every side</em> of a troubled hotel loan.</h2></div>
+  <div class="acc">
+    <details name="who" open><summary><span class="n">01</span><span class="t">Community and regional banks</span><span class="pm"></span></summary>
+      <div class="body"><p>Credit officers and special assets teams with a hotel loan that is past due, matured, or classified.</p><a class="more arrow" href="/banks/">For banks</a></div></details>
+    <details name="who"><summary><span class="n">02</span><span class="t">Receivers and creditors' rights counsel</span><span class="pm"></span></summary>
+      <div class="body"><p>Court-appointed receivers operating a hotel, and the attorneys who represent its lender.</p><a class="more arrow" href="/receivers/">For receivers</a></div></details>
+    <details name="who"><summary><span class="n">03</span><span class="t">Special servicers</span><span class="pm"></span></summary>
+      <div class="body"><p>Asset managers resolving a securitized hotel loan through a note sale or a sale of the property.</p><a class="more arrow" href="/servicers/">For special servicers</a></div></details>
+    <details name="who"><summary><span class="n">04</span><span class="t">Hotel owners</span><span class="pm"></span></summary>
+      <div class="body"><p>Borrowers who have negotiated a discounted payoff, or want to, and need the capital to complete it.</p><a class="more arrow" href="/borrowers/">For owners</a></div></details>
+  </div>
+</div></section>
+
+<section class="section alt"><div class="wrap">
+  <div class="head"><p class="eyebrow">Situations</p><h2>The hotel loans <em>we are asked to look at.</em></h2></div>
+  <div class="grid3">
+    <div><span class="mono">01</span><h3>Unfunded improvement plan</h3><p>The brand has required renovations the owner cannot pay for, and the franchise is at risk.</p></div>
+    <div><span class="mono">02</span><h3>Franchise default</h3><p>The brand has issued a default or termination notice for unpaid fees or failed inspections.</p></div>
+    <div><span class="mono">03</span><h3>Maturity default</h3><p>The hotel is operating, the loan has matured, and a refinance will not cover the balance.</p></div>
+    <div><span class="mono">04</span><h3>Payment default</h3><p>Revenue has fallen below what the hotel needs to cover debt service.</p></div>
+    <div><span class="mono">05</span><h3>Receivership</h3><p>A receiver is operating the hotel while the lender decides between a note sale and foreclosure.</p></div>
+    <div><span class="mono">06</span><h3>Closed or lender-owned hotel</h3><p>The hotel has gone dark, or the lender has taken title and wants to sell.</p></div>
+  </div>
+</div></section>
+
+<section class="section" id="where"><div class="wrap">
+  <div class="head"><p class="eyebrow">Where we step in</p><h2>The course of <em>a defaulted hotel loan.</em></h2>
+    <p>A lender can sell at any stage. The earlier the sale, the less time and cost it carries.</p></div>
+  <div class="tl">
+    <div class="step"><h3>Default</h3><p>A payment is missed or the loan matures unpaid.</p></div>
+    <div class="step"><h3>Forbearance</h3><p>Lender and owner try to agree on new terms.</p></div>
+    <div class="step"><h3>Receivership</h3><p>A court appoints a receiver to operate the hotel.</p></div>
+    <div class="step"><h3>Foreclosure</h3><p>The lender enforces its lien on the property.</p></div>
+    <div class="step"><h3>Lender-owned</h3><p>The lender holds title and runs the hotel.</p></div>
+    <div class="step"><h3>Sale</h3><p>The hotel passes to a new owner.</p></div>
+  </div>
+  <div class="ranges">
+    <div class="r1"><strong>We buy the loan</strong><span>At any point before the lender takes title</span></div>
+    <div class="r2"><strong>We buy the hotel</strong><span>Through a receiver's sale, at foreclosure, or from the lender</span></div>
+  </div>
+</div></section>
+
+<section class="section alt" id="capital"><div class="wrap cap">
+  <div><p class="eyebrow">Capital</p><h2>Funded by a private family office and <em>committed firm capital.</em></h2></div>
+  <div><p class="lead">Our acquisitions are funded by a private family office, whose principal has a founding background in online travel and hospitality, and by the firm's own committed capital.</p>
+    <ul><li>No third-party financing is needed to close</li><li>The capital source is identified to sellers under a confidentiality agreement</li><li>Proof of funds is provided with a bid</li></ul>
+    <a class="btn btn-light arrow" href="/firm/">About the firm</a></div>
+</div></section>
+
+<section class="section"><div class="wrap">
+  <div class="head"><p class="eyebrow">Library</p><h2>Technical notes on <em>hotel loan workouts.</em></h2></div>
+  <div class="cards">
+    <a class="card" href="/library/franchise/"><span class="mono">Note 01</span><h3>The franchise when a hotel loan is sold</h3><p>What a comfort letter gives the lender, and whether a buyer of the loan inherits it.</p><span class="go">Read</span></a>
+    <a class="card" href="/library/pip/"><span class="mono">Note 02</span><h3>Pricing an unfunded improvement plan</h3><p>The three ways required renovations reduce the value of the collateral.</p><span class="go">Read</span></a>
+    <a class="card" href="/library/receivership/"><span class="mono">Note 03</span><h3>Keeping a hotel open through receivership</h3><p>The six points that decide whether a hotel keeps operating.</p><span class="go">Read</span></a>
+  </div>
+</div></section>
+</main>
+<Cta title={"Have a hotel loan you would like us to review?"} text={"Send a summary of the loan and the property. We reply with an indication of interest or a clear decline."} label={"Contact us"} />
+</Base>

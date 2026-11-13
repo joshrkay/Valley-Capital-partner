@@ -194,7 +194,7 @@ These come from the repo's own "Before launch" list and voice guide. The agents 
 - [ ] The site is live and indexable, not `noindex` (`vercel.json`, `public/robots.txt`).
 - [ ] **A named principal,** a phone number and a street address on the site (`docs/voice.md` says no principal is named anywhere yet). Recipients will look.
 - [ ] A working mailbox, a decided sending domain, authentication set up, and a warm-up period.
-- [ ] A **buy box per sector:** loan size range, regions, collateral subtypes, loan status, lien position, property or loan or both. Agents cannot rank accounts or write an accurate first line without it. Hospitality has most of this on the site; multifamily and retail have none.
+- [ ] A **buy box per sector:** loan size range, regions, collateral subtypes, loan status, lien position. Agents cannot rank accounts or write an accurate first line without it. Hospitality has most of this on the site; multifamily and retail have none.
 - [ ] **A way to answer "what have you closed?"** Bank officers ask. The site has no track record, so the principals need an honest, short answer to give by phone and in a reply, and counsel should approve it.
 - [ ] A CRM chosen and the principals' existing contacts loaded.
 - [ ] Counsel's answers to section 8.
@@ -214,7 +214,7 @@ There is no benchmark for this market in my head and I will not invent one. Set 
 
 Each has a recommended default so work can start without a meeting.
 
-1. **The buy box for multifamily and retail.** Loan size, regions, subtypes, status, buy the loan or the property or both. *Default: write hospitality's buy box from the site, and fill the other two with a principal in an hour.*
+1. **The buy box for multifamily and retail.** Loan size, regions, subtypes, and loan status. (Already confirmed, November 13: the firm buys both properties and notes in all three sectors.) *Default: write hospitality's buy box from the site, and fill the other two with a principal in an hour.*
 2. **Who sends and how much time they have.** The names, and the hours a week for calls and replies. This sets the volume cap. *Default: one principal, a cap of about 15 new Tier A touches a week until replies are being answered within a day.*
 3. **Who first: sellers, intermediaries, or both.** *Default: both, with the intermediaries first, because they are fewer, they refer, and a mistake with them costs less.*
 4. **Appetite for any AI-voiced calling.** *Default: none outbound. Revisit an AI-assisted inbound line for after-hours intake only after counsel has weighed in.*

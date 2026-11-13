@@ -55,6 +55,8 @@ Find *why now* before finding *who*. A name with no reason is a cold contact. A 
 | Trade press | The news desk's existing listeners (`desk/sources.json`) | Existing | Market color, named sales, lender statements. | Hospitality now |
 | Events | Speaker and attendee pages | Free | Who will be in a room we can be in. | All |
 
+Only the trade-press row runs on the news desk's listener today. Every other row needs its own adapter (section 5.1).
+
 **Rule: a signal about a specific asset is context for a principal, not a hook for a message.** The voice guide says to react to the pattern, not the party. An outreach draft may say "we buy hotel loans from banks that have decided to sell." It may not say "we saw the hotel on X Street laid off its staff." The brief can contain the asset; the draft cannot, unless the recipient raised it.
 
 ### 3.2 Names (getting from an institution to a person)
@@ -117,14 +119,14 @@ Any "no" or opt-out is permanent. A reply of any kind stops the sequence and ale
 
 ## 5. The agents
 
-Pattern: **code first, a cheap model to sort, a mid-tier model to write, a person decides, and no agent has a path to send.** This is how `scripts/desk/` is built: the model returns JSON, the script builds the artifact and runs the checks, and nothing publishes itself. Reuse its files for the lint, the test kit, the model config and the workflow style.
+Pattern: **code first, a cheap model to sort, a mid-tier model to write, a person decides, and no agent has a path to send.** This is how `scripts/desk/` is built: the model returns JSON, the script builds the artifact and runs the checks, and nothing publishes itself. What carries over is the pattern, the test kit, the model config (`desk/models.json`) and the banned-word list. What does not carry over is covered in 5.1: the desk's listener reads only RSS and one JSON feed, and its guard checks only numbers, links and names.
 
 | # | Agent | Job | Autonomy | Model and effort | When |
 |---|---|---|---|---|---|
 | 1 | **Suppression and cadence guard** | Blocks any touch to a suppressed account, caps volume, enforces the sequence, stops on reply, keeps an audit log. | Code only, no model | none | First |
 | 2 | **Briefer** | One page per account before any touch: the institution's exposure and trend, the signals, the person, shared connections, what they have said in public, a suggested angle, and the source for every fact. | Research only, no outside effect | Sonnet, high effort | First |
 | 3 | **Drafter** | Email, letter, LinkedIn note, call sheet, in the voice. Code checks banned words, per-audience terminology, invented figures, invented personalization, and anything naming a party. | Drafts only. A person approves each one. | Sonnet, high effort | First |
-| 4 | **Signal watcher** | Daily. Extends the news desk listeners to the signals in 3.1, dedupes, scores, and writes "why now" cards. | Research only | Haiku, low effort, plus code | Second |
+| 4 | **Signal watcher** | Daily. Reads the signals in 3.1 through source adapters (5.1), resolves each to one institution, dedupes, scores, and writes "why now" cards. | Research only | Haiku, low effort, plus code | Second |
 | 5 | **Account ranker and contact finder** | Builds and ranks the account list from public data; finds and verifies the named person; records provenance. | Research only | Code; Haiku for title and role matching | Second |
 | 6 | **Reply triage** | Sorts replies: interested, not now, wrong person, opt-out, bounce, out of office. Processes opt-outs at once. Alerts a principal on "interested." Never replies with substance. | Classifies and alerts only | Haiku, low effort | Third |
 | 7 | **Referral mapper** | Finds warm paths from the principals' own contacts; drafts the ask to the connector. | Drafts only | Sonnet | Third |
@@ -137,11 +139,29 @@ Pattern: **code first, a cheap model to sort, a mid-tier model to write, a perso
 
 **System of record.** Use a CRM the principals will actually open, and have agents write to it. Do not build a CRM. If none exists, pick one that keeps a thread history and has an API.
 
+### 5.1 What the desk gives us, and what it does not
+
+**The listener.** `scripts/desk/listen.mjs` accepts two source types: RSS or Atom feeds, and one Federal Register JSON shape. Any other type fails with `unknown source type`. Of the signals in 3.1, only trade press runs on it today. The rest need dedicated adapters, each producing one normalized record format:
+
+- Call Report bulk files (tabular, quarterly).
+- EDGAR trust filings, 10-D and ABS-EE (XML, loan-level, large).
+- Court dockets and county records (different in every jurisdiction; scraped or bought as a vendor export).
+- Vendor exports and APIs (CSV or JSON).
+- People moves and job postings.
+
+Every adapter has three shared needs: **entity resolution** (one bank, trust or person appears under several names and has to become one record), **provenance** on every record (source, date fetched, confidence), and an **access-controlled store** (section 7). Treat this as the largest build in the plan. It is most of the work in agents 4 and 5.
+
+**The guard.** `scripts/desk/guard.mjs` checks banned phrases, numeric figures, links and capitalized names against a brief. It does not load `scripts/terminology.json`, which today holds rules for `/banks/` only, and it cannot tell whether a non-numeric sentence such as "I read your..." has a source. **The outbound linter is new work.** It needs:
+
+1. Machine-readable terminology for every audience (banks, servicers, counsel, receivers, brokers). `docs/terminology.md` holds the human version.
+2. An allowlist of approved firm claims.
+3. Structured fact records. Each personalized statement in a draft carries an ID that points to one stored source record, and a draft fails if any statement lacks one.
+
 ## 6. Guardrails that live in code, not in a prompt
 
 1. **Suppression list.** Opt-outs. Every asset and party we have signed an NDA on, bid on, or hold (the voice guide's "never write about an asset or party we have bid on, hold, or signed an NDA about," made executable). Anyone who said no. Employees, regulators and press. Competitors. Personal addresses.
-2. **The site's promises are the outreach's promises.** The draft linter loads the same banned-word list as `desk/lint.json` and the same audience terminology as `scripts/terminology.json` (banks hear "loan sale"; special servicers hear "note sale"). It refuses any claim the site does not already make, including "proof of funds" and "certainty of execution" beyond what the pages say.
-3. **No invented personalization.** Every personalized fact in a draft must have a stored source link, or the draft fails. This is the desk's invented-figure check applied to "I read your...".
+2. **The site's promises are the outreach's promises.** The outbound linter (new work, see 5.1) holds a machine-readable list of approved firm claims and per-audience terminology (banks hear "loan sale"; special servicers hear "note sale"), and starts from the banned words in `desk/lint.json`. It refuses any claim not on the list, including "proof of funds" and "certainty of execution" beyond what the pages say.
+3. **No invented personalization.** Every personalized fact in a draft must have a stored source link, or the draft fails. This extends the desk's invented-figure check from numbers to any personalized statement, using the fact records described in 5.1.
 4. **Volume caps** per mailbox per day and per account per quarter, set in a config file.
 5. **A kill switch,** one setting that stops all sending.
 6. **An audit log** of every draft, edit, approval and send, with who approved it.
@@ -149,10 +169,11 @@ Pattern: **code first, a cheap model to sort, a mid-tier model to write, a perso
 
 ## 7. What runs where
 
-- **Scheduled jobs** in GitHub Actions for watchers and rankers, as the desk does (`.github/workflows/desk.yml`). The Anthropic key stays a repository secret.
+- **Scheduled jobs** for watchers and rankers, run the way the desk's are (`.github/workflows/desk.yml`). The Anthropic key stays a secret. Job logs must not contain contact data.
 - **Database** for accounts, people, signals, touches and suppression. The firm has a Supabase connection; it fits, or the CRM's own objects can hold most of it. Decide with the CRM choice.
 - **Sending** from real mailboxes or a sequencing tool, behind the guard in agent 1. Letters through a print-and-mail API. Calls from a principal's phone.
-- **Review surface:** start with a pull-request-style queue like the desk's draft pull requests, or a table in the CRM. Do not build a UI first.
+- **Review surface:** a table in the CRM or the database, behind access control. Do not build a UI first. **Do not use pull requests, issues, branches, workflow logs or artifacts for review.** The desk can, because its drafts are public-facing posts; outbound briefs are not.
+- **Data rule:** named contacts, relationship maps, facts derived from a principal's email history, suppression lists, and anything that identifies an asset under NDA never go into this repository, its pull requests, issues, workflow logs or artifacts. Copies in Git history and metadata cannot be fully removed by a deletion request or an access change. This repository builds a public site, so prefer a separate private repository for the outbound agents' code and configuration.
 
 ## 8. Compliance: a working understanding, to be confirmed by counsel
 
@@ -204,7 +225,7 @@ Each has a recommended default so work can start without a meeting.
 
 1. **Before any code:** decisions 1 to 3, the items in section 9, and a hand-built list of 50 accounts. The principals know who these are.
 2. **Pilot:** agents 1 to 3 (guard, briefer, drafter), a principal sends. Tune the prompts on real briefs and real edits.
-3. **Add** the signal watcher and the account ranker and contact finder (agents 4 and 5), reusing the desk listeners. Open multifamily and retail as their buy boxes arrive.
+3. **Add** the signal watcher and the account ranker and contact finder (agents 4 and 5), with the source adapters from 5.1. Open multifamily and retail as their buy boxes arrive.
 4. **Add** reply triage, the referral mapper, meeting prep and the reporter (agents 6 to 9). Consider Level 2 for Group B email only after a clean audit.
 
-Two pieces of work in this repo to schedule when the pilot starts: extending `desk/sources.json`, `desk/keywords.json` and the desk prompts to multifamily and retail (they are hotel-only today, and the README flags this), and adding a `/banks/` and `/servicers/` page per new sector once its buy box exists.
+Two pieces of work in this repo to schedule when the pilot starts: extending `desk/sources.json`, `desk/keywords.json` and the desk prompts to multifamily and retail for the blog (they are hotel-only today, and the README flags this; the outbound signal sources are a separate build, 5.1), and adding a `/banks/` and `/servicers/` page per new sector once its buy box exists.

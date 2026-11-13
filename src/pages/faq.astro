@@ -65,7 +65,7 @@ const jsonLd = {
   mainEntity: faqs.map(({ q, a }) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })),
 };
 ---
-<Base title="FAQ" description="Answers to common questions from banks, receivers, special servicers, and hotel owners about selling or resolving a non-performing hotel loan." jsonLd={jsonLd}>
+<Base title="FAQ" description="Answers to common questions from banks, receivers, special servicers, and owners about selling or resolving a non-performing loan, most of them about hotel loans." jsonLd={jsonLd}>
   <Hero eyebrow="FAQ" title="Questions we are asked about loan sales." lead="Short answers for banks, receivers, servicers, and owners, most of them about hotel loans. For anything specific, write to us.">
     <a class="btn btn-light arrow" href="/contact/">Ask a question</a>
   </Hero>
@@ -84,5 +84,5 @@ const jsonLd = {
       </div>
     </section>
   </main>
-  <Cta title="Have a loan or a property you would like us to review?" text="Send a summary of the loan and the property. We reply with an indication of interest or a clear decline." />
+  <Cta title="Have a loan or a property you would like us to review?" text="Send a summary of the loan, the property, or both. We reply with an indication of interest or a clear decline." />
 </Base>

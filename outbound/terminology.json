@@ -1,0 +1,44 @@
+{
+  "_note": "Per-audience word rules for outbound copy. The bank rules are NOT duplicated here: they are read from scripts/terminology.json (the rules `npm run check` already enforces on /banks/), so there is one source of truth. Servicer rules follow docs/terminology.md ('note sale'; 'REO'). Counsel, receivers, funds and brokers have no rules yet because their vocabulary has not been researched (docs/outbound/research-agenda.md, D2); the linter warns instead of guessing.",
+  "bankRulesFrom": "scripts/terminology.json",
+  "audiences": {
+    "servicer": {
+      "avoid": [
+        { "pattern": "\\bloan sale\\b", "say": "note sale" },
+        { "pattern": "\\bOREO\\b", "say": "REO" }
+      ]
+    },
+    "fund": { "avoid": [] },
+    "counsel": { "avoid": [] },
+    "receiver": { "avoid": [] },
+    "broker": { "avoid": [] }
+  },
+  "banned": [
+    "pounce\\w*", "steal\\w*", "bargain\\w*", "cheap\\w*", "fire[- ]?sale", "desperate", "struggling", "in trouble",
+    "ASAP", "act now", "limited time", "don'?t miss", "once[- ]in[- ]a[- ]\\w+", "exclusive (?:offer|deal|opportunity)"
+  ],
+  "cliches": [
+    "hope this (?:email |message |note )?finds you", "just (?:following up|checking in|circling back|touching base)", "circling back", "touching base",
+    "bumping (?:this|my)", "per my last", "pick your brain", "reaching out (?:to you )?(?:today|because)", "i wanted to reach out"
+  ],
+  "observational": [
+    "\\b(?:i|we)\\s+(?:read|saw|noticed|came across|watched|heard|followed|admired?|enjoyed)\\b",
+    "\\bcongrat\\w+",
+    "\\byour\\s+(?:recent|latest|post|article|interview|panel|talk|keynote|speech|comments?|remarks?|presentation|piece|op-?ed)\\b",
+    "\\bcaught your\\b", "\\b(?:been\\s+)?following your\\b", "\\bimpressed\\b", "\\blove (?:what|how|your)\\b"
+  ],
+  "claimPhrases": [
+    { "pattern": "proof of funds", "claim": "proof-of-funds" },
+    { "pattern": "certainty of execution", "claim": "" },
+    { "pattern": "hard deposit", "claim": "" },
+    { "pattern": "guarantee[ds]?", "claim": "" },
+    { "pattern": "track record", "claim": "" },
+    { "pattern": "we(?:'ve| have) (?:closed|completed|bought|acquired|purchased)", "claim": "" },
+    { "pattern": "financing contingency", "claim": "no-financing-contingency" },
+    { "pattern": "all[- ]cash", "claim": "" },
+    { "pattern": "(?:close|closing) in \\d+ days", "claim": "" },
+    { "pattern": "fast(?:er)? clos\\w+", "claim": "" },
+    { "pattern": "regulatory approval", "claim": "" },
+    { "pattern": "no obligation", "claim": "no-obligation" }
+  ]
+}

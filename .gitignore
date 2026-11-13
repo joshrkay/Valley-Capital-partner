@@ -9,8 +9,3 @@ __pycache__/
 .DS_Store
 desk/state/
 desk/out/
-
-# Outbound agents: prospect data must never be committed. The code refuses a data directory inside the repo; this is the backstop.
-outbound/data/
-outbound/.env
-outbound/*.local.json

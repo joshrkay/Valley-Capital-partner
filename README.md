@@ -134,3 +134,13 @@ Background footage is from [Mixkit](https://mixkit.co) under the [Mixkit Video F
 | `hotel-corridor.mp4` | Corridor of an elegant hotel (34613) |
 | `hotel-neon.mp4` | Neon light of a hotel flickering in the dark (41154) |
 | `hotel-resort-aerial.mp4` | Luxury vacation resort complex with pool by the sea (9902) |
+
+## Files other repositories depend on
+
+The outbound agents live in a separate private repository. Its approved outreach claims are sentences that must match this site word for word, and its word rules are this repository's. It keeps a copy (a snapshot) of these files:
+
+- `src/pages/contact.astro`, `src/pages/faq.astro`, `src/pages/firm.astro`, `src/pages/banks/what-we-buy.astro` (the pages its claims quote)
+- `desk/lint.json` (the banned-word list), `scripts/terminology.json` (the terminology rules), `docs/terminology.md`
+- the list of pages under `src/pages/` (so a message can only link to a page that exists)
+
+**If you change the wording on those pages, or add or rename a page, the snapshot goes stale and an outreach claim could quietly stop matching what the site says.** Tell whoever runs the outbound agents; they refresh the snapshot with a command that checks the public repository, and a test there fails if a claim no longer matches.

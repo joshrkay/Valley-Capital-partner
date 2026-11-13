@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "Website for Valley Capital Partners, a buyer of non-performing hotel loans.",
+  "description": "Website for Valley Capital Partners, an investor in hospitality, multifamily, and retail real estate.",
   "engines": {
     "node": ">=22.12.0"
   },
@@ -19,7 +19,9 @@
     "desk:draft": "node scripts/desk/draft.mjs",
     "desk:gate": "node scripts/desk/publish-gate.mjs",
     "desk:lint": "node scripts/desk/lint-post.mjs",
-    "desk:test": "node --test scripts/desk/*.test.mjs"
+    "desk:test": "node --test scripts/desk/*.test.mjs",
+    "outbound": "node outbound/cli.mjs",
+    "outbound:test": "node --test outbound/test/*.test.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^1.8.0",

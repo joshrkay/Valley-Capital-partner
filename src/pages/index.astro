@@ -12,21 +12,32 @@ const jsonLd = {
   name: 'Valley Capital Partners',
   url: Astro.site?.href,
   logo: new URL('/apple-touch-icon.png', Astro.site).href,
-  description: "Valley Capital Partners acquires non-performing loans secured by hotels from banks, special servicers, and other lenders.",
+  description: "Valley Capital Partners invests in hospitality, multifamily, and retail real estate, and buys non-performing loans from banks, special servicers, and other lenders.",
 };
 ---
-<Base title={"Valley Capital Partners"} description={"Valley Capital Partners acquires non-performing loans secured by hotels from banks, special servicers, and other lenders."} clips="home" jsonLd={jsonLd}>
+<Base title={"Valley Capital Partners"} description={"Valley Capital Partners invests in hospitality, multifamily, and retail real estate, and buys non-performing loans from banks, special servicers, and other lenders."} clips="home" jsonLd={jsonLd}>
 <main id="main">
 <section class="hero home" data-bg="hero" data-op=".34"><div class="wrap">
-  <div class="hero-copy"><p class="eyebrow">Hospitality debt</p>
-    <h1>We acquire<br><em>non-performing</em><br>hotel loans.</h1>
-    <p>Valley Capital Partners purchases defaulted and matured loans secured by hotels from banks, special servicers, and other lenders.</p>
+  <div class="hero-copy"><p class="eyebrow">Real estate investors</p>
+    <h1>We invest in<br><em>hospitality, multifamily,</em><br>and retail.</h1>
+    <p>Valley Capital Partners buys real estate and the loans secured by it. We continue to buy non-performing notes from banks, special servicers, and other lenders, and these three sectors are our focus.</p>
     <div class="hero-actions"><a class="btn btn-light arrow" href="/banks/">For banks</a><a class="btn btn-ghost" href="/receivers/">For receivers and counsel</a></div></div>
   </div>
 </section>
 
+<section class="section" id="focus"><div class="wrap">
+  <div class="head"><p class="eyebrow">What we invest in</p>
+    <h2>Three property types, <em>and the loans behind them.</em></h2>
+    <p>We buy properties, and we buy the loans secured by them, including loans that are past due or have matured.</p></div>
+  <div class="grid3">
+    <div><span class="mono">01</span><h3>Hospitality</h3><p>Hotels and the loans secured by them, branded or independent. The Library, the blog, and the underwriting page cover this sector in depth.</p></div>
+    <div><span class="mono">02</span><h3>Multifamily</h3><p>Apartment properties and the loans secured by them.</p></div>
+    <div><span class="mono">03</span><h3>Retail</h3><p>Retail properties and the loans secured by them.</p></div>
+  </div>
+</div></section>
+
 <section class="section alt" id="who"><div class="wrap">
-  <div class="head"><p class="eyebrow">Who we work with</p>
+  <div class="head"><p class="eyebrow">Who we work with on hotel loans</p>
     <h2>Counterparties on <em>every side</em> of a troubled hotel loan.</h2></div>
   <div class="rows">
     <article class="row">
@@ -117,7 +128,7 @@ const jsonLd = {
     <h2>A hotel loan is a loan on <em>an operating business.</em></h2>
     <p>A hotel reprices its rooms every night, depends on a brand it does not own, and loses value quickly once it closes. When the loan behind it defaults, the lender inherits questions most real estate lenders never have to answer.</p></div>
   <div class="intro" style="grid-template-columns:1fr">
-    <p style="font-size:19px;color:var(--soft);max-width:760px">Hotel debt is the only thing we buy. We underwrite the operation along with the real estate, and we price the loan with the franchise, the required renovations, and the unpaid taxes already accounted for.</p>
+    <p style="font-size:19px;color:var(--soft);max-width:760px">On a hotel loan, we underwrite the operation along with the real estate, and we price the loan with the franchise, the required renovations, and the unpaid taxes already accounted for.</p>
   </div>
   <div class="panel">
     <div>
@@ -189,5 +200,5 @@ const jsonLd = {
     </section>
   )}
 </main>
-<Cta title={"Have a hotel loan you would like us to review?"} text={"Send a summary of the loan and the property. We reply with an indication of interest or a clear decline."} label={"Contact us"} />
+<Cta title={"Have a loan or a property you would like us to review?"} text={"Send a summary of the loan and the property. We reply with an indication of interest or a clear decline."} label={"Contact us"} />
 </Base>

@@ -6,7 +6,11 @@ import Cta from '../components/Cta.astro';
 // Every answer restates what the rest of this site already says. Edit the wording here, and keep it consistent with the core pages.
 const faqs: { q: string; a: string }[] = [
   {
-    q: 'What does Valley Capital Partners buy?',
+    q: 'What does Valley Capital Partners invest in?',
+    a: 'Hospitality, multifamily, and retail real estate. We buy properties and the loans secured by them, and we continue to buy non-performing notes from banks, special servicers, and other lenders. The answers below describe our hotel loan purchases in the most detail, because that is the sector this site covers in depth.',
+  },
+  {
+    q: 'What do you buy in hospitality?',
     a: 'Loans secured by hotels that have stopped performing or cannot be repaid at maturity. That includes past-due, non-accrual, matured, and classified loans, including loans in forbearance, foreclosure, receivership, or borrower bankruptcy. We buy whole loans and participation interests, and hotels a bank already owns. The collateral can be a limited-service, select-service, extended-stay, or full-service hotel, branded or independent.',
   },
   {
@@ -62,7 +66,7 @@ const jsonLd = {
 };
 ---
 <Base title="FAQ" description="Answers to common questions from banks, receivers, special servicers, and hotel owners about selling or resolving a non-performing hotel loan." jsonLd={jsonLd}>
-  <Hero eyebrow="FAQ" title="Questions we are asked about hotel loan sales." lead="Short answers for banks, receivers, servicers, and owners. For anything specific, write to us.">
+  <Hero eyebrow="FAQ" title="Questions we are asked about loan sales." lead="Short answers for banks, receivers, servicers, and owners, most of them about hotel loans. For anything specific, write to us.">
     <a class="btn btn-light arrow" href="/contact/">Ask a question</a>
   </Hero>
   <main id="main">
@@ -80,5 +84,5 @@ const jsonLd = {
       </div>
     </section>
   </main>
-  <Cta title="Have a hotel loan you would like us to review?" text="Send a summary of the loan and the property. We reply with an indication of interest or a clear decline." />
+  <Cta title="Have a loan or a property you would like us to review?" text="Send a summary of the loan and the property. We reply with an indication of interest or a clear decline." />
 </Base>

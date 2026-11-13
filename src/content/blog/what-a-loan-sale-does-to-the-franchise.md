@@ -1,35 +1,58 @@
 ---
 title: "What a loan sale does to the franchise, and what it does not"
-description: "Selling a hotel loan does not change who is party to the franchise agreement. What can still put the flag at risk around a sale, and what a seller, an owner, and a buyer should check."
+description: "Selling a hotel loan does not change who is party to the franchise agreement. Why the brand cares who controls the hotel, how the comfort letter works, and what a seller, an owner, and a buyer can do early."
 date: 2026-11-12
 category: "Franchise"
 tags: ["franchise", "note sales"]
 draft: true
 ---
 
-"Will I lose my flag?" is one of the first questions a hotel owner asks when a lender sells the loan. The short answer is that the sale does not, by itself, change the franchise. Several things around a sale can.
+<!-- VERIFY BEFORE PUBLISHING. Expanded from a shorter draft using only the site's own pages and general practice; no sourced figures were added, and the only numbers are in the labeled illustration. Counsel should confirm the general statements about a brand's interest in who controls a hotel, how comfort-letter notice, cure, and new-franchise rights usually work, and what usually needs the brand's consent. -->
+
+"Will I lose my [flag](/glossary/#flag)?" is one of the first questions a hotel owner asks when a lender sells the loan. The short answer is that the sale does not, by itself, change the franchise. Several things around a sale can, and most of them run on a clock the brand sets.
 
 ## What stays the same
 
-The franchise agreement is between the brand and the owner. The lender is not a party to it, as [the franchise when a hotel loan is sold](/library/franchise/) explains. A [note sale](/glossary/#note-sale) changes who holds the debt. It does not change who holds the franchise. The fees, the standards, the inspections, and the [improvement plan](/glossary/#pip) carry on under the same terms.
+The [franchise agreement](/glossary/#franchise-agreement) is between the brand and the owner. The lender is not a party to it, as [the franchise when a hotel loan is sold](/library/franchise/) explains. A [note sale](/glossary/#note-sale) changes who holds the debt, not who holds the franchise. The fees, the standards, the inspections, and the [improvement plan](/glossary/#pip) carry on under the same terms.
 
-## What can put the flag at risk around a sale
+## Why a brand cares who controls the hotel
 
-- **Problems that already exist.** Unpaid fees, an overdue improvement plan, or a failed quality inspection can already give the brand grounds to act. A sale puts attention on them, because a new holder will ask about them.
-- **A transfer of the hotel.** If the loan ends in a foreclosure, a deed in lieu, or a negotiated transfer, the hotel changes hands. A franchise agreement usually cannot pass to a new owner without the brand's consent, and a new owner usually applies for its own franchise.
-- **The comfort letter.** The [comfort letter](/glossary/#comfort-letter) gives the lender notice of a franchise default and time to cure it. Whether those rights pass to a buyer of the loan depends on the letter. Many need the brand's consent, or a replacement letter. If the rights do not pass, the new holder may not be told when the franchise is in default.
-- **The loan documents.** Some loans treat a franchise default as a default on the loan. Some include losing the flag among the triggers in a [non-recourse carve-out](/glossary/#non-recourse-carve-out) guaranty.
+A brand earns fees from the hotel. A guest cannot tell who owns the building, so the brand answers for the stay. That is why it sets standards, inspects, and cares who stands behind the hotel: whether fees will be paid and required work funded. The franchise was granted to a particular owner, so a change in control makes the brand ask what it now faces.
 
-## Why it matters so much
+## What draws the brand's attention
 
-A hotel that loses its flag loses much of its demand, because the brand supplies the name, the reservation system, and the loyalty program. Many franchise agreements also charge liquidated damages if they end early. The cost of losing the flag lands on the owner first, and then on the value of the loan.
+- **Problems that already exist.** Unpaid fees, an overdue improvement plan, or a failed inspection can already give the brand grounds to act. A buyer who asks the brand to confirm the hotel's standing brings those problems to its attention.
+- **A transfer of the hotel.** If the loan ends in a foreclosure, a deed in lieu, or a negotiated transfer, the hotel changes hands, and a new owner usually applies for its own franchise.
+- **The loan documents.** Some loans treat a franchise default as a loan default, and some list losing the flag among the triggers in a [non-recourse carve-out](/glossary/#non-recourse-carve-out) guaranty.
 
-## What to check
+## The comfort letter, step by step
 
-- **A lender selling the loan.** The comfort letter in the file, its terms on assignment, and whether the brand has to be told.
-- **A buyer of the loan.** The franchise's standing, any unpaid fees, and the status of required improvements, confirmed in writing by the brand, with the seller's consent. Also the comfort letter's terms on whether its rights pass to the buyer.
-- **An owner.** That fees and the improvement schedule are current, the result of the last inspection, and the franchise agreement's terms on transfer, before agreeing to any transfer of the hotel.
+The [comfort letter](/glossary/#comfort-letter) is signed by the brand, the owner, and the lender. It has three working parts:
+
+- **Notice.** The brand tells the lender when the owner is in default under the franchise agreement.
+- **Cure.** The lender gets time to fix the default, for example by paying fees or funding overdue work, before the brand acts.
+- **A new franchise.** If the lender takes title, the letter gives a path to a franchise for the new owner.
+
+Whether these rights pass to a buyer of the loan depends on the letter. Many need the brand's consent, or a replacement letter. If the rights do not pass, the new holder may learn of a default late.
+
+Consent is also usually needed to pass a franchise agreement to a new owner and, in a receivership, for a receiver to operate under the flag, often for a short term.
+
+## Why time is the scarce thing
+
+A brand's notice starts a cure period, whose length is set by the franchise agreement and the comfort letter and is not known from outside. A buyer's review, the seller's consent to approach the brand, the brand's reply, and any improvement work all draw on it, so each party's useful moves come early.
+
+**An owner** can bring fees current, ask the brand to agree the improvement schedule in writing, and read the franchise agreement's transfer terms.
+
+**A lender** selling the loan can read the comfort letter's assignment terms first, and decide early whether to ask the brand for consent or a replacement letter.
+
+**A buyer** can read the letter before bidding, ask the brand, with the seller's consent, to confirm standing, fees, and improvements, and allow time for a new franchise application.
+
+## What losing the flag costs
+
+A hotel that loses its flag loses much of its demand, because the brand supplies the name, the reservation system, and the loyalty program. Many franchise agreements also charge liquidated damages if they end early.
+
+**Illustration (invented numbers):** A hotel has a $9 million loan with debt payments of $900,000 a year. Under the flag it earns $1.2 million of net operating income, a [debt service coverage ratio](/glossary/#dscr) of 1.33. Without it, income falls to $700,000, a ratio of 0.78 and a $200,000 yearly shortfall, and the brand claims $400,000 in liquidated damages. A buyer of the loan prices the hotel on the lower income.
 
 ## What we don't know
 
-Whether a sale of the loan alone can trigger anything under a particular franchise agreement or comfort letter. We found no published source that addresses a sale of the loan, as opposed to a foreclosure, and brands differ from one another. The answer is in the documents, and sometimes in what the brand says when it is asked.
+We do not know whether a sale of the loan alone can trigger anything under a particular franchise agreement or comfort letter. We found no published source that addresses a sale of the loan, as opposed to a foreclosure, and brands differ from one another. The answer is in the documents, and sometimes in what the brand says when it is asked.

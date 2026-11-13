@@ -1,6 +1,7 @@
 name: News desk listeners
 
 # Runs once a day, reads the sources in desk/sources.json, and opens one GitHub issue with the day's candidates.
+# If the repository secret ANTHROPIC_API_KEY is set, a cheap model also triages the candidates and the issue ends with its recommendations.
 # It changes no files in the repository and publishes nothing. Scheduled workflows run only from the default branch,
 # so nothing starts until this file is merged. Even then the daily schedule stays off until the repository variable
 # DESK_ENABLED is set to "true" (Settings > Secrets and variables > Actions > Variables), because the source addresses are
@@ -24,6 +25,8 @@ jobs:
     if: github.event_name == 'workflow_dispatch' || vars.DESK_ENABLED == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    env:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
     steps:
       - uses: actions/checkout@v4
 
@@ -31,7 +34,13 @@ jobs:
         with:
           node-version-file: .nvmrc
 
-      - name: Test the listener
+      # Install without running any package's install scripts, then check the registry signatures of what was installed.
+      - name: Install
+        run: |
+          npm ci --ignore-scripts --no-audit --no-fund
+          npm audit signatures
+
+      - name: Test the desk
         run: node --test scripts/desk/*.test.mjs
 
       # The list of items already seen lives in the Actions cache, not in the repository.
@@ -55,6 +64,12 @@ jobs:
           path: desk/state
           key: desk-state-${{ github.run_id }}
 
+      # Triage is advice, never a gate: if it fails the sheet still goes out, without recommendations.
+      - name: Triage
+        if: steps.listen.outcome == 'success' && env.ANTHROPIC_API_KEY != ''
+        continue-on-error: true
+        run: node scripts/desk/triage.mjs
+
       # One issue per day, and only when there is something to read: a candidate, or a release window that opens today.
       - name: Open the desk sheet
         if: steps.listen.outcome == 'success'
@@ -64,9 +79,11 @@ jobs:
           n=$(jq '.candidates' desk/out/summary.json)
           opens=$(jq '.opensToday' desk/out/summary.json)
           d=$(jq -r '.date' desk/out/summary.json)
+          body=desk/out/sheet.md
+          [ -f "$body" ] || body=desk/out/candidates.md
           if [ "$n" -gt 0 ] || [ "$opens" -gt 0 ]; then
             gh label create news-desk --color 0B1626 --description "Daily news desk sheet" --force || true
-            gh issue create --title "News desk $d: $n candidate(s)" --label news-desk --body-file desk/out/candidates.md
+            gh issue create --title "News desk $d: $n candidate(s)" --label news-desk --body-file "$body"
           else
             echo "Nothing to report for $d."
           fi

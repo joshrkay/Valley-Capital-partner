@@ -12,6 +12,7 @@ draft: true
 
 <!--
 RULES FOR EVERY EDITION
+- 500 to 800 words, like every post. The numbers are the skeleton; the length comes from "What moved" and "How to read these numbers", which must say something a reader could not get from the table alone. No filler.
 - Each reading is one line: publisher, measure, month, number, change from the prior month. Never put two publishers' rates side by side without saying their definitions differ.
 - Report a reading only if it is published. If a source has not published yet, say so in "What we don't know". Do not carry last month's number forward.
 - Open every source page and confirm the number, the month, and the measure before publishing. Fix the VERIFY comment, then delete it.
@@ -39,7 +40,15 @@ One or two sentences. What moved in the main readings, stated plainly, with no a
 
 ## What moved
 
-Two or three sentences. Which reading moved, and the reason a source gives. Note if one large loan drove a rate. Say that an extended or modified loan can leave the delinquent count without being repaid.
+One or two paragraphs. Which readings moved, how far, and the reason a source gives for each. Note if one large loan drove a rate. Compare with the previous edition. Say that an extended or modified loan can leave the delinquent count without being repaid.
+
+## How to read these numbers
+
+What each measure counts and what it leaves out, in the reader's terms: the pool, the weighting, the definition, the date. Why two publishers' rates differ. What the hotel-performance figures do and do not say about loan stress.
+
+## What this means for a lender
+
+Two or three paragraphs of plain implication for someone holding a hotel loan that is not in any of these pools: what to compare, what to ask, what would change the picture.
 
 ## What is due next
 

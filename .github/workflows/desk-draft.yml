@@ -1,0 +1,111 @@
+name: News desk draft
+
+# Run by hand. Takes one candidate from the latest desk sheet, drafts a post from it with the Anthropic API, and opens a DRAFT pull request.
+# The post is written with `draft: true`, so merging the pull request does not publish it. Needs the repository secret ANTHROPIC_API_KEY.
+# Opening a pull request from a workflow also needs Settings > Actions > General > "Allow GitHub Actions to create and approve pull requests".
+# If that is off, the branch is still pushed and the log says so.
+on:
+  workflow_dispatch:
+    inputs:
+      candidate:
+        description: 'Candidate number from the desk sheet (the number after ### in the issue)'
+        required: true
+        type: string
+      facts:
+        description: 'Facts copied from the source, separated by | (strongly recommended: without them the draft is mostly placeholders)'
+        required: false
+        type: string
+        default: ''
+      lane:
+        description: 'Override the triage lane'
+        required: false
+        type: choice
+        options: [auto, timely, explainer]
+        default: auto
+      run_id:
+        description: 'Listener run to take the sheet from (default: the latest successful run)'
+        required: false
+        type: string
+        default: ''
+
+permissions:
+  contents: write
+  pull-requests: write
+  actions: read
+
+concurrency:
+  group: news-desk-draft
+  cancel-in-progress: false
+
+jobs:
+  draft:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+    steps:
+      - name: Check the secret
+        run: |
+          [ -n "$ANTHROPIC_API_KEY" ] || { echo "::error::The repository secret ANTHROPIC_API_KEY is not set."; exit 1; }
+
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+
+      - name: Install
+        run: |
+          npm ci --ignore-scripts --no-audit --no-fund
+          npm audit signatures
+
+      - name: Test the desk
+        run: node --test scripts/desk/*.test.mjs
+
+      # Inputs reach the shell only through environment variables, never by being pasted into the script.
+      - name: Get the desk sheet
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_ID: ${{ inputs.run_id }}
+        run: |
+          set -euo pipefail
+          if [ -z "$RUN_ID" ]; then
+            RUN_ID=$(gh run list --workflow desk.yml --status success --limit 1 --json databaseId --jq '.[0].databaseId')
+          fi
+          [ -n "$RUN_ID" ] || { echo "::error::No successful listener run found."; exit 1; }
+          gh run download "$RUN_ID" --name news-desk-sheet --dir desk/out || { echo "::error::The sheet from run $RUN_ID is gone (artifacts last 14 days). Run the listener again."; exit 1; }
+
+      - name: Draft
+        env:
+          CANDIDATE: ${{ inputs.candidate }}
+          FACTS: ${{ inputs.facts }}
+          LANE: ${{ inputs.lane }}
+        run: node scripts/desk/draft.mjs --candidate "$CANDIDATE" --facts "$FACTS" --lane "$LANE" --out desk/out/draft
+
+      - name: Open a draft pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BASE: ${{ github.event.repository.default_branch }}
+        run: |
+          set -euo pipefail
+          slug=$(jq -r '.slug' desk/out/draft/summary.json)
+          title=$(jq -r '.prTitle' desk/out/draft/summary.json)
+          branch="$(jq -r '.branch' desk/out/draft/summary.json)-r${GITHUB_RUN_NUMBER}"
+          case "$slug" in *[!a-z0-9-]*|'') echo "::error::Unexpected slug."; exit 1;; esac
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$branch"
+          git add "src/content/blog/$slug.md"
+          git commit -m "Draft post from the news desk: $slug"
+          git push origin "$branch"
+          gh pr create --draft --base "$BASE" --head "$branch" --title "$title" --body-file desk/out/draft/pr-body.md \
+            || echo "::warning::Could not open the pull request. Branch $branch was pushed. Turn on 'Allow GitHub Actions to create and approve pull requests' in Settings > Actions > General, or open it by hand."
+
+      - name: Keep the draft
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: news-desk-draft
+          path: desk/out/draft
+          if-no-files-found: ignore
+          retention-days: 14

@@ -52,7 +52,7 @@ test('playbooks: unique question ids, known kinds, every type has a person quest
 
 test('every regular expression in the rule files compiles', () => {
   const t = rules.terminology;
-  for (const p of [...t.banned, ...t.cliches, ...t.observational, ...t.claimPhrases.map((c) => c.pattern), ...Object.values(t.audiences).flatMap((a) => a.avoid.map((x) => x.pattern)), ...rules.bankAvoid.map((x) => x.pattern)]) assert.doesNotThrow(() => new RegExp(p, 'i'), p);
+  for (const p of [...t.banned, ...t.cliches, ...t.observational, ...t.brokerPhrases, ...t.bluntAsks, ...t.claimPhrases.map((c) => c.pattern), ...Object.values(t.audiences).flatMap((a) => a.avoid.map((x) => x.pattern)), ...rules.bankAvoid.map((x) => x.pattern)]) assert.doesNotThrow(() => new RegExp(p, 'i'), p);
 });
 
 test('every configured model has a price, so cost is always reported', () => {
@@ -65,4 +65,11 @@ test('DATA RULE: no prospect data file is tracked in git under outbound/', () =>
   try { files = execFileSync('git', ['ls-files', 'outbound'], { cwd: REPO, encoding: 'utf8' }).split('\n').filter(Boolean); } catch { return; }   // no git: skip
   const bad = files.filter((f) => /(^|\/)(suppression\.json|touches\.jsonl|audit\.jsonl|senders\.json|KILL|\.env)$|\/(accounts|research|briefs|drafts|facts|data)\//.test(f));
   assert.deepEqual(bad, [], 'prospect data must never be committed; it lives in OUTBOUND_DATA_DIR outside the repo');
+});
+
+test('preferred terms exist for the audiences that have researched vocabulary, and match the terminology guide', () => {
+  assert.ok(rules.terminology.prefer.bank.includes('loan sale'));
+  assert.ok(rules.terminology.prefer.servicer.includes('note sale'));
+  const guide = readFileSync(join(REPO, 'docs/terminology.md'), 'utf8').toLowerCase();
+  for (const w of rules.terminology.prefer.bank) assert.ok(guide.includes(w.toLowerCase()), `"${w}" is not in docs/terminology.md`);
 });

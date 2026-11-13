@@ -65,6 +65,33 @@
       "needsCounsel": false
     },
     {
+      "id": "nda-first",
+      "text": "We sign a confidentiality agreement, yours or ours, before any loan-level information is shared.",
+      "source": "src/pages/faq.astro",
+      "approved": true,
+      "sectors": ["hospitality", "multifamily", "retail"],
+      "audiences": ["bank", "servicer", "fund", "counsel", "receiver", "broker"],
+      "needsCounsel": false
+    },
+    {
+      "id": "hold-to-figure",
+      "text": "We hold to the figure unless diligence turns up a reason to change it.",
+      "source": "src/pages/faq.astro",
+      "approved": true,
+      "sectors": ["hospitality", "multifamily", "retail"],
+      "audiences": ["bank", "servicer", "fund", "counsel", "receiver", "broker"],
+      "needsCounsel": true
+    },
+    {
+      "id": "principal-buyer",
+      "text": "We purchase the loan or the hotel for our own account and own it after closing.",
+      "source": "src/pages/firm.astro",
+      "approved": true,
+      "sectors": ["hospitality"],
+      "audiences": ["bank", "servicer", "fund", "counsel", "receiver", "broker"],
+      "needsCounsel": false
+    },
+    {
       "id": "confidential-no-property-contact",
       "text": "We do not contact borrowers, guarantors, or property staff without the consent of the party that sent it.",
       "source": "",

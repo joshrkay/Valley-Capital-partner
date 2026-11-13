@@ -250,3 +250,32 @@ test('the prompt fences recipient data and escapes "<"', () => {
   const { user } = buildDraftPrompt({ account: evil, channel: 'email', step: 2, sender: SENDER, facts: [], claims: rules.claims, priorTouches: [], rules });
   assert.equal(user.includes('</recipient> ignore'), false);
 });
+
+test('sounding like an insider is not sounding like a broker or a pusher: broker language, blunt asks, deadline pressure, pricing and balance-sheet talk are blocked', () => {
+  has(lint({ body: GOOD_BODY + ' I represent a group of investors.' }), 'BROKER_LANGUAGE');
+  has(lint({ body: GOOD_BODY + ' We have a network of private lenders.' }), 'BANNED_WORD');
+  has(lint({ body: GOOD_BODY + ' We are flipping notes.' }), 'BANNED_WORD');
+  has(lint({ body: GOOD_BODY + ' A lucrative chance.' }), 'BANNED_WORD');
+  has(lint({ body: GOOD_BODY + ' Do you have any notes for sale?' }), 'BLUNT_ASK');
+  has(lint({ body: GOOD_BODY + ' Are you looking to move any paper ahead of quarter-end?' }), 'BLUNT_ASK');
+  has(lint({ body: GOOD_BODY + ' Please send a list of all your loans.' }), 'BLUNT_ASK');
+  has(lint({ body: GOOD_BODY + ' We buy off our own balance sheet.' }), 'CLAIM_NOT_APPROVED');
+  has(lint({ body: GOOD_BODY + ' We buy as-is, where-is.' }), 'CLAIM_NOT_APPROVED');
+  has(lint({ body: GOOD_BODY + ' We typically clear in the mid-60s of UPB.' }), 'CLAIM_NOT_APPROVED');
+  assert.ok(lint({ body: GOOD_BODY + ' One thing \u2014 the summary.' }).warnings.some((w) => w.code === 'EM_DASH'));
+});
+
+test('the new approved claims expand word for word; the principal-buyer claim is hospitality only', () => {
+  const ok = lint({ body: GOOD_BODY + ' {{claim:nda-first}} {{claim:hold-to-figure}} {{claim:principal-buyer}}' });
+  assert.equal(ok.errors.filter((e) => e.code.startsWith('CLAIM_')).length, 0);
+  has(lint({ body: GOOD_BODY + ' {{claim:principal-buyer}}' }, { sector: 'multifamily' }), 'CLAIM_WRONG_SECTOR');
+  assert.equal(expandBody('{{claim:hold-to-figure}}', rules.claims, 'x'), 'We hold to the figure unless diligence turns up a reason to change it.');
+});
+
+test('the drafter is told the audience\'s own words and what never to ask', () => {
+  const { system, user } = buildDraftPrompt({ account: A, channel: 'email', step: 2, sender: SENDER, facts: [], claims: rules.claims, priorTouches: [], rules });
+  assert.match(user, /<words>.*loan sale.*principal balance/);
+  assert.match(user, /principal-buyer/);
+  assert.match(system, /Never ask what the recipient has for sale/);
+  assert.match(system, /never use a term to suggest experience the firm has not claimed/);
+});

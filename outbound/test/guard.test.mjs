@@ -162,3 +162,25 @@ test('the data rule: the data directory must be set and must be outside the repo
   mkdirSync(join(outside, 'ok'));
   assert.ok(dataDir({ OUTBOUND_DATA_DIR: join(outside, 'ok') }).endsWith('ok'));
 });
+
+test('institution-wide: a reply from anyone at a bank stops outreach to everyone there; a stop at another bank does not', () => {
+  const reply = { type: 'reply', accountId: 'acme-bank-sa', institution: 'Acme Community Bank', date: '2026-11-05' };
+  blocked(checkTouch(touch(A, { date: '2026-11-16' }), ctxWith({ touches: [reply] })), 'SEQUENCE_STOPPED');
+  assert.deepEqual(codes(checkTouch(touch(A), ctxWith({ touches: [{ ...reply, institution: 'Other Bank' }] }))), []);
+});
+
+test('one person at a time per institution: a colleague touched recently blocks a new sequence until the quiet period ends; gaps count the whole bank', () => {
+  const other = { type: 'touch', accountId: 'acme-bank-sa', institution: 'Acme Community Bank', step: 1, channel: 'letter', sender: 'pat', date: '2026-10-20' };
+  blocked(checkTouch(touch(A, { date: '2026-11-16' }), ctxWith({ touches: [other] })), 'OTHER_CONTACT_ACTIVE');   // 27 days later
+  assert.deepEqual(codes(checkTouch(touch(A, { date: '2026-12-05' }), ctxWith({ touches: [other] }))), []);        // 46 days later
+  const cfg = config(); cfg.caps.institutionOneAtATimeDays = 0; cfg.caps.minGapDays = 5;
+  blocked(checkTouch(touch(A, { date: '2026-10-22' }), ctxWith({ cfg, touches: [other] })), 'TOO_SOON');
+});
+
+test('recorded touches and events carry the institution, so the rules above can see them', () => {
+  const dir = makeDir(); put(dir, 'senders.json', { senders: [SENDER] });
+  const ctx = loadContext({ dir, config: config(), env: {} });
+  recordTouch(dir, touch(A, { date: '2026-11-16' }), ctx);
+  recordEvent(dir, { accountId: A.id, institution: A.name, type: 'reply', date: '2026-11-18' }, ctx);
+  assert.deepEqual(readJsonl(join(dir, 'touches.jsonl')).map((l) => l.institution), [A.name, A.name]);
+});

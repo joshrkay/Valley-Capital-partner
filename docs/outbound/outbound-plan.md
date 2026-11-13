@@ -24,10 +24,16 @@
 | Group | Who, exactly | Why they matter | Best first channel | Agent job |
 |---|---|---|---|---|
 | **A. Note sellers** | Special assets heads, chief credit officers and workout officers at community and regional banks (at a small bank, the president too). Asset managers and loan sale desks at special servicers. Debt funds, mortgage REITs, bridge lenders, life companies and SBA lenders holding stressed loans. | They decide whether a note is sold and to whom. | Introduction, then email from a principal, then a letter, then a call | Find signals, name the person, brief, draft, schedule |
-| **B. Intermediaries** | Loan sale advisors and note brokers. Investment sales brokers in each sector. Creditors' rights and restructuring attorneys. Receivers. Appraisers and consultants who see problems early. | They hear first and they control who is invited. One relationship produces repeat flow. | Introduction, content, events, a coffee | Rank them (see 3.2), track the relationship, prepare for meetings |
+| **B. Intermediaries** | Loan sale advisors and note brokers. Investment sales brokers in each sector. Creditors' rights and restructuring attorneys. Receivers. Appraisers and consultants who see problems early. Title officers and bank auditors, who work beside special assets officers every day. | They hear first and they control who is invited. One relationship produces repeat flow. | Registration on advisors' buyer lists, introduction, events, a coffee | Rank them (see 3.2), track the relationship, prepare for meetings |
 | **C. Property owners** | Owners and sponsors with a loan in trouble. | Source of direct property purchases and discounted-payoff capital. | Direct mail, human calls | **Not in this plan.** Later, separately. |
 
 **Group C waits, for two reasons.** First, the site promises banks that we do not contact the borrower, guarantors, the brand or hotel staff without the sender's consent. Any owner outreach needs a hard block on every asset we are looking at, bidding on, or under NDA on. Second, owner outreach carries different legal exposure and a different reputation risk (the press has attached allegations of predatory conduct to this kind of approach, which is why the voice guide bars "path to ownership" and "loan-to-own" framing). Build the lender-side motion first and the suppression machinery with it.
+
+**Two routes into a bank's debt** (from an outside note the principals shared; unverified, so the pilot should test it):
+
+- **Through an advisor.** Mid-size and larger banks often hire a loan sale advisor to run a formal bid process and to vet buyers. The route in is to be on the advisor's buyer list: register, sign its master confidentiality agreement, and supply proof of funds. That needs the credibility package (section 9, and research agenda D9) before it can start.
+- **Direct.** Smaller banks (the note says under about $10 billion in assets) more often sell individual loans without an advisor, to avoid fees and publicity. This is where agents 1 to 3 do most of their work.
+- **First-touch ask.** Where the right person at a bank is not clear, ask who handles loan dispositions. Do not ask what the bank has for sale. A named chief credit officer or special assets head can be asked to route it, and the role check still applies.
 
 **The three sectors change who "the holder" is.** I am reasoning from general market structure here, not from firm data **[verify with a principal]**:
 
@@ -66,6 +72,7 @@ Only the trade-press row runs on the news desk's listener today. Every other row
 3. **Waterfall enrichment for contact details.** Try the sources in order, verify the address before it is used, and stop when verified. **Test any data vendor first:** take 50 people the principals already know and see which vendor finds them correctly. Coverage in this niche is uneven and vendor claims will not tell you.
 4. **Every contact carries provenance:** where each field came from, when it was found, how confident the match is. This is for deletion requests, for accuracy, and so a principal can see why a name is there.
 5. **Never use** personal email addresses, personal mobile numbers, or anyone's data from a source we cannot name.
+6. **Public records name the people who act.** A notice of default, an assignment of mortgage, a bankruptcy declaration or a relief-from-stay motion names the officer who signed for the lender and the outside counsel. That is good evidence of who holds the role and a map of warm paths through counsel. It is also about a particular asset, so it is context for a principal and **never something to mention in a message**. Reaching the bank through its counsel or title officer is often the fastest warm path.
 
 ### 3.3 The account list
 
@@ -87,6 +94,14 @@ Two tiers, not one big list.
 | 7 | **Content and an opt-in note** | Medium, slow, compounding. The blog and the monthly Hotel loan watch are already this. | The news desk, then a person | Extend the desk to multifamily and retail when the buy box exists. | Quality. The desk's lint and review gate stay. |
 | 8 | **Events and meetings** | High for Group B. | A principal | Pulls speaker and exhibitor lists, proposes who to meet, writes the brief for each meeting and the follow-up. | Time and travel cost. |
 
+Events worth checking for Group B (from the same note; unverified): the Information Management Network (IMN) distressed real estate and note conferences, Turnaround Management Association events, Risk Management Association regional chapters, NAIOP, the Urban Land Institute, and state bankers' associations.
+
+### 4.4 Restraint and a quarterly rhythm (from outside notes; unverified)
+
+The notes the principals shared agree on restraint: a short first email (under about 100 words), a call two or three days after it, one follow-up a week or so later, and then no more than one touch a quarter, timed three or four weeks before quarter-end (March, June, September, December) when banks feel balance-sheet pressure to clear problem assets. Weekly follow-up reads as desperation. They also describe a zero-ask nurture: short notes sharing useful public market information.
+
+Our placeholder sequence is heavier: five touches in about 18 days. **I recommend a lighter first sequence (letter, email, call, one follow-up email) and a quarterly nurture of zero-ask notes built from the firm's own published research** (the news desk and the monthly Hotel loan watch), public sources only, never deal flow, and never a recommendation of a named receiver or other third party without counsel. The guard ends a sequence at `SEQUENCE_COMPLETE` today; nurture timing is not built. Decision 9.
+
 ### 4.1 What we will not do, and why
 
 - **No AI-voiced outbound calls and no AI voicemail to prospects.** The FCC has said an AI-generated voice is an "artificial voice" under the TCPA (2024) and that ringless voicemail counts as a call (2022) **[verify current status]**. That means consent rules for mobile numbers and state-law exposure. More important, the first sentence a bank officer hears from this firm should be a person.
@@ -95,6 +110,7 @@ Two tiers, not one big list.
 - **No tracking pixels or click-tracking links in cold email.** Bank security gateways quarantine them and recipients distrust them.
 - **No cold email through a transactional email service.** The firm already has Resend connected. Its use is transactional and opt-in mail, such as the newsletter. Most such providers prohibit unsolicited or purchased-list mail in their terms and can suspend an account and damage its sending reputation **[verify the provider's current acceptable use policy]**. Use real mailboxes on a separate sending domain, or a sequencing tool built for it.
 - **No blast.** Daily send caps per mailbox, set low and raised only when replies and bounces stay healthy.
+- **No "certainty of execution", "all-cash" or "close in N days" language** until the firm confirms it can deliver each one and counsel approves it. The outside note's sample opener leans on exactly these. The claims system blocks them by design (`outbound/claims.json`); the site's own approved wording is "no financing contingency" and "proof of funds is provided with a bid."
 
 ### 4.2 Email mechanics that decide whether anyone sees it
 
@@ -166,6 +182,8 @@ Every adapter has three shared needs: **entity resolution** (one bank, trust or 
 5. **A kill switch,** one setting that stops all sending.
 6. **An audit log** of every draft, edit, approval and send, with who approved it.
 7. **Untrusted text.** Anything read from the web (an enrichment page, a filing, a reply) is data, never instructions, and is fenced and escaped as the desk does. A reply that says "ignore previous instructions" must be inert.
+8. **One person at a bank at a time.** A reply or opt-out from anyone at a bank stops outreach to everyone there; the weekly cap, gap and 90-day cap count the whole bank; and a second contact waits out a quiet period (45 days, a placeholder). Banks talk to each other and inside themselves.
+9. **Insider does not mean broker or pusher.** The linter blocks broker language ("a group of investors", "I represent buyers"), asking what is for sale or for a list of loans, deadline pressure such as quarter-end, quoted prices and discounts, and "own balance sheet" or "as-is, where-is" talk, all of which are firm statements with no approved claim. Outside notes recommend several of these; the voice guide and the claims system rule them out until the firm can truthfully stand behind each one.
 
 ## 7. What runs where
 
@@ -196,6 +214,7 @@ These come from the repo's own "Before launch" list and voice guide. The agents 
 - [ ] A working mailbox, a decided sending domain, authentication set up, and a warm-up period.
 - [ ] A **buy box per sector:** loan size range, regions, collateral subtypes, loan status, lien position. Agents cannot rank accounts or write an accurate first line without it. Hospitality has most of this on the site; multifamily and retail have none.
 - [ ] **A way to answer "what have you closed?"** Bank officers ask. The site has no track record, so the principals need an honest, short answer to give by phone and in a reply, and counsel should approve it.
+- [ ] **The credibility package:** a proof-of-funds letter, a one-page approved record of past acquisitions, and a confidentiality agreement counsel has pre-approved, ready to turn around in about a day (research agenda D9). Advisors' buyer lists and bank compliance screening ask for these before sharing a loan tape.
 - [ ] A CRM chosen and the principals' existing contacts loaded.
 - [ ] Counsel's answers to section 8.
 
@@ -214,18 +233,22 @@ There is no benchmark for this market in my head and I will not invent one. Set 
 
 Each has a recommended default so work can start without a meeting.
 
-1. **The buy box for multifamily and retail.** Loan size, regions, subtypes, and loan status. (Already confirmed, November 13: the firm buys both properties and notes in all three sectors.) *Default: write hospitality's buy box from the site, and fill the other two with a principal in an hour.*
+1. **The buy box, all three sectors.** Loan size range, regions, subtypes, loan status, and **what the firm will not touch** (stating exclusions makes a message more believable than claiming to buy everything). (Already confirmed, November 13: the firm buys both properties and notes in all three sectors.) *Default: write hospitality's buy box from the site, and fill the other two with a principal in an hour.*
 2. **Who sends and how much time they have.** The names, and the hours a week for calls and replies. This sets the volume cap. *Default: one principal, a cap of about 15 new Tier A touches a week until replies are being answered within a day.*
 3. **Who first: sellers, intermediaries, or both.** *Default: both, with the intermediaries first, because they are fewer, they refer, and a mistake with them costs less.*
 4. **Appetite for any AI-voiced calling.** *Default: none outbound. Revisit an AI-assisted inbound line for after-hours intake only after counsel has weighed in.*
 5. **Tools and budget:** CRM, a data vendor (after the 50-name test), a mailbox or sequencing tool, a print-and-mail service. *Default: choose the CRM first; run the vendor test before paying for anything.*
 6. **Pilot scope.** *Default: hospitality only, 50 Tier A accounts hand-chosen by the principals, agents 1 to 3 only, a principal sends everything. Judge the pilot on conversations and draft edits, then add the signal watcher and ranker, then the other sectors.*
+7. **Contacts per bank.** *Default: one at a time, enforced by the guard (decision rule in section 6, item 8). Outside notes suggest 2 to 3 per bank; if the principals want that, a second contact starts after the first has finished or pointed elsewhere.*
+8. **Firm commitments to lead with.** Can the firm truthfully say it is an all-cash principal buyer, how fast it closes after receiving a loan file, and that it does not retrade without a diligence finding? *Default: say only what the site already says (principal buyer, confidentiality agreement first, hold to the figure unless diligence turns up a reason, no financing contingency). Anything more needs the principals' evidence and counsel's approval, then it becomes a claim.*
+9. **Cadence.** *Default: keep the placeholder until the pilot, but I recommend the lighter sequence and a quarterly nurture described in 4.4. Say so and I will change the config and build the nurture timing.*
+10. **Capital and response time.** Is every deal funded from the firm's own capital and the family office (the site's statement), or is any deal syndicated per deal? If any is, first messages must say so plainly, because "a group of investors" reads as a broker and raising money can trigger securities rules. And can the principals acknowledge every loan tape within 24 to 48 hours, with a reason when they pass? *Default: own capital only; acknowledge within two business days.*
 
 ## 12. Build order
 
 1. **Before any code:** decisions 1 to 3, the items in section 9, and a hand-built list of 50 accounts. The principals know who these are.
 2. **Pilot:** agents 1 to 3 (guard, briefer, drafter), a principal sends. Tune the prompts on real briefs and real edits.
 3. **Add** the signal watcher and the account ranker and contact finder (agents 4 and 5), with the source adapters from 5.1. Open multifamily and retail as their buy boxes arrive.
-4. **Add** reply triage, the referral mapper, meeting prep and the reporter (agents 6 to 9). Consider Level 2 for Group B email only after a clean audit.
+4. **Add** reply triage, the referral mapper, meeting prep, the reporter (agents 6 to 9) and the quarterly nurture. Consider Level 2 for Group B email only after a clean audit.
 
 Two pieces of work in this repo to schedule when the pilot starts: extending `desk/sources.json`, `desk/keywords.json` and the desk prompts to multifamily and retail for the blog (they are hotel-only today, and the README flags this; the outbound signal sources are a separate build, 5.1), and adding a `/banks/` and `/servicers/` page per new sector once its buy box exists.

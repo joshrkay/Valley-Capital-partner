@@ -15,12 +15,26 @@
   },
   "banned": [
     "pounce\\w*", "steal\\w*", "bargain\\w*", "cheap\\w*", "fire[- ]?sale", "desperate", "struggling", "in trouble",
-    "ASAP", "act now", "limited time", "don'?t miss", "once[- ]in[- ]a[- ]\\w+", "exclusive (?:offer|deal|opportunity)"
+    "ASAP", "act now", "limited time", "don'?t miss", "once[- ]in[- ]a[- ]\\w+", "exclusive (?:offer|deal|opportunity)",
+    "flip(?:ping|ped|s)?", "get rid of", "dump(?:ing|ed)?", "bad debt", "toxic", "hard money", "cash investors", "network of (?:private )?(?:lenders|investors)",
+    "lucrative", "thrilled", "excited to", "delighted"
   ],
   "cliches": [
     "hope this (?:email |message |note )?finds you", "just (?:following up|checking in|circling back|touching base)", "circling back", "touching base",
     "bumping (?:this|my)", "per my last", "pick your brain", "reaching out (?:to you )?(?:today|because)", "i wanted to reach out"
   ],
+  "brokerPhrases": [
+    "(?:a |our |my )?group of (?:private )?investors", "my investors", "our investors", "i represent (?:a )?(?:group of )?(?:buyers|investors|clients)",
+    "we represent (?:a )?(?:group of )?(?:buyers|investors|clients)", "on behalf of (?:a |our |my )?(?:clients?|buyers?|investors?)"
+  ],
+  "bluntAsks": [
+    "do you have any (?:notes|loans|assets|credits|properties)", "what (?:notes|loans|assets|credits|properties) do you have", "anything (?:you(?:'re| are) )?(?:looking to sell|for sale)",
+    "list of (?:all )?(?:your|the) (?:\\w+ )?(?:loans|notes|credits|assets)", "what(?:'s| is) on your desk", "(?:ahead of|before|by) quarter[- ]end", "off (?:your|the) books"
+  ],
+  "prefer": {
+    "bank": ["loan sale", "principal balance", "past due", "non-accrual", "risk rating", "problem loan", "special assets", "workout", "reserve", "charge-off", "OREO", "flag", "rooms"],
+    "servicer": ["note sale", "REO", "special servicer", "workout"]
+  },
   "observational": [
     "\\b(?:i|we)\\s+(?:read|saw|noticed|came across|watched|heard|followed|admired?|enjoyed)\\b",
     "\\bcongrat\\w+",
@@ -39,6 +53,14 @@
     { "pattern": "(?:close|closing) in \\d+ days", "claim": "" },
     { "pattern": "fast(?:er)? clos\\w+", "claim": "" },
     { "pattern": "regulatory approval", "claim": "" },
-    { "pattern": "no obligation", "claim": "no-obligation" }
+    { "pattern": "no obligation", "claim": "no-obligation" },
+    { "pattern": "balance[- ]sheet (?:buyer|capital|purchaser)", "claim": "" },
+    { "pattern": "own balance sheet", "claim": "" },
+    { "pattern": "as[- ]is,? where[- ]is", "claim": "" },
+    { "pattern": "without (?:any )?(?:reps|representations)", "claim": "" },
+    { "pattern": "release of (?:all )?lender[- ]liability", "claim": "" },
+    { "pattern": "cents on the dollar", "claim": "" },
+    { "pattern": "of UPB", "claim": "" },
+    { "pattern": "(?:typically|usually|generally) (?:clear|buy|pay|bid)", "claim": "" }
   ]
 }

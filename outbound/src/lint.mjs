@@ -51,6 +51,9 @@ export function lintDraft(input) {
   for (const p of terminology.banned ?? []) { const m = looseText.match(re(p)); if (m) err('BANNED_WORD', `"${m[0]}" is not used in outreach.`); }
   for (const p of desk.british ?? []) { const m = looseText.match(new RegExp(`\\b(?:${p})`, 'i')); if (m) err('BRITISH_SPELLING', `"${m[0]}": use American spelling.`); }
   for (const p of terminology.cliches ?? []) { const m = looseText.match(re(p)); if (m) err('CLICHE', `"${m[0]}" is a stock outreach phrase. Say the specific thing instead.`); }
+  for (const p of terminology.brokerPhrases ?? []) { const m = looseText.match(re(p)); if (m) err('BROKER_LANGUAGE', `"${m[0]}" reads as a broker or a daisy chain. State the role plainly through {{claim:principal-buyer}} where it is approved, or say nothing about it.`); }
+  for (const p of terminology.bluntAsks ?? []) { const m = looseText.match(re(p)); if (m) err('BLUNT_ASK', `"${m[0]}": do not ask what the bank has for sale, ask for a list, or press with a deadline. Ask how they handle buyers and confidentiality agreements, or invite a one-page summary through an approved claim.`); }
+  if (/\u2014/.test(looseText)) warn('EM_DASH', 'An em dash reads as machine-written in an email. Use a period or a comma.');
   for (const p of desk.fillerPhrases ?? []) { const m = looseText.match(re(p)); if (m) warn('FILLER', `"${m[0]}" is filler.`); }
   const avoid = audience === BANK_AUDIENCE ? bankAvoid : (terminology.audiences?.[audience]?.avoid ?? []);
   for (const a of avoid) { const m = looseText.match(new RegExp(a.pattern, 'i')); if (m) err('WRONG_TERM', `"${m[0]}": say "${a.say}" for a ${audience}.`); }

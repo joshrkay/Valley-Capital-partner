@@ -16,7 +16,8 @@
     "firstTouchesPerSenderPerWeek": 15,
     "emailsPerSenderPerDay": 20,
     "touchesPerAccountPer90Days": 6,
-    "minGapDays": 2
+    "minGapDays": 2,
+    "institutionOneAtATimeDays": 45
   },
   "sequence": [
     { "step": 1, "channel": "letter", "afterDays": 0 },

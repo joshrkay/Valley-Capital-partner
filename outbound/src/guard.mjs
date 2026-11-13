@@ -69,9 +69,17 @@ export function checkTouch(touch, ctx) {
 
   // 5. History for this account: a reply, opt-out, meeting or handoff stops the sequence for good.
   const mine = ctx.touches.filter((t) => t.accountId === touch.accountId);
-  const stop = mine.find((t) => (config.stopEvents ?? []).includes(t.type));
-  if (stop) err('SEQUENCE_STOPPED', `This account has a recorded ${stop.type} (${stop.date}). The sequence is over; a principal takes it from here.`);
-  const sent = mine.filter((t) => t.type === 'touch').sort((a, b) => dateOf(a.date) - dateOf(b.date));
+  // Institutions are small worlds: a reply or opt-out from anyone at the bank stops outreach to everyone there, and caps count the whole bank.
+  const sameInstitution = (t) => instNorm && t.institution && norm(t.institution) === instNorm;
+  const related = ctx.touches.filter((t) => t.accountId === touch.accountId || sameInstitution(t));
+  const stop = related.find((t) => (config.stopEvents ?? []).includes(t.type));
+  if (stop) err('SEQUENCE_STOPPED', `${stop.accountId === touch.accountId ? 'This account has' : `Another contact at ${touch.institution} (${stop.accountId}) has`} a recorded ${stop.type} (${stop.date}). The sequence is over; a principal takes it from here.`);
+  const byDate = (a, b) => dateOf(a.date) - dateOf(b.date);
+  const sent = mine.filter((t) => t.type === 'touch').sort(byDate);
+  const instSent = related.filter((t) => t.type === 'touch').sort(byDate);
+  const quiet = config.caps.institutionOneAtATimeDays ?? 0;
+  const other = instSent.filter((t) => t.accountId !== touch.accountId && daysBetween(day, t.date) >= 0 && daysBetween(day, t.date) < quiet).pop();
+  if (other) err('OTHER_CONTACT_ACTIVE', `Another person at ${touch.institution} (${other.accountId}) was last contacted ${ymd(other.date)}. One person at a bank at a time: wait until ${addDays(other.date, quiet)}, or ask a principal.`);
 
   // 6. Contact quality.
   if (touch.channel === 'email') {
@@ -112,10 +120,11 @@ export function checkTouch(touch, ctx) {
     const n = ctx.touches.filter((t) => t.type === 'touch' && t.channel === 'email' && t.sender === touch.sender && ymd(t.date) === day).length;
     if (n >= caps.emailsPerSenderPerDay) err('CAP_EMAIL_DAY', `${n} emails already sent by ${touch.sender} on ${day} (cap ${caps.emailsPerSenderPerDay}).`);
   }
-  const recent = sent.filter((t) => daysBetween(day, t.date) >= 0 && daysBetween(day, t.date) < 90).length;
-  if (recent >= caps.touchesPerAccountPer90Days) err('CAP_ACCOUNT_90D', `${recent} touches to this account in the last 90 days (cap ${caps.touchesPerAccountPer90Days}).`);
+  const recent = instSent.filter((t) => daysBetween(day, t.date) >= 0 && daysBetween(day, t.date) < 90).length;
+  if (recent >= caps.touchesPerAccountPer90Days) err('CAP_ACCOUNT_90D', `${recent} touches to this institution in the last 90 days (cap ${caps.touchesPerAccountPer90Days}).`);
+  const lastAny = instSent[instSent.length - 1];
+  if (lastAny && daysBetween(day, lastAny.date) < caps.minGapDays) err('TOO_SOON', `The last touch to this institution was ${ymd(lastAny.date)}. Wait at least ${caps.minGapDays} days between touches.`);
   const last = sent[sent.length - 1];
-  if (last && daysBetween(day, last.date) < caps.minGapDays) err('TOO_SOON', `The last touch was ${ymd(last.date)}. Wait at least ${caps.minGapDays} days between touches.`);
 
   // 8. Sequence: the next step, on the right channel, once it is due.
   const seq = config.sequence;
@@ -138,17 +147,17 @@ export function recordTouch(dir, touch, ctx) {
   const r = checkTouch(touch, ctx);
   audit(dir, { type: 'guard_check', accountId: touch.accountId, channel: touch.channel, step: touch.step, allowed: r.allowed, codes: r.errors.map((e) => e.code) });
   if (!r.allowed) { const e = new Error(`Not recorded: ${r.errors.map((x) => x.code).join(', ')}`); e.result = r; throw e; }
-  const rec = { type: 'touch', accountId: touch.accountId, step: touch.step, channel: touch.channel, sender: touch.sender, date: ymd(touch.date ?? new Date()), recordedAt: new Date().toISOString() };
+  const rec = { type: 'touch', accountId: touch.accountId, institution: touch.institution, step: touch.step, channel: touch.channel, sender: touch.sender, date: ymd(touch.date ?? new Date()), recordedAt: new Date().toISOString() };
   appendJsonl(join(dir, 'touches.jsonl'), rec);
   ctx.touches.push(rec);
   return rec;
 }
 
 // A reply, opt-out, bounce, meeting or handoff. An opt-out suppresses the person and address at once.
-export function recordEvent(dir, { accountId, type, date, note, person }, ctx) {
+export function recordEvent(dir, { accountId, institution, type, date, note, person }, ctx) {
   const allowed = ['reply', 'opt_out', 'bounce', 'meeting', 'handoff'];
   if (!allowed.includes(type)) throw new Error(`Unknown event "${type}". Use ${allowed.join(', ')}.`);
-  const rec = { type, accountId, date: ymd(date ?? new Date()), note: note ? String(note).slice(0, 200) : undefined, recordedAt: new Date().toISOString() };
+  const rec = { type, accountId, institution, date: ymd(date ?? new Date()), note: note ? String(note).slice(0, 200) : undefined, recordedAt: new Date().toISOString() };
   appendJsonl(join(dir, 'touches.jsonl'), rec);
   ctx.touches.push(rec);
   if (type === 'opt_out' && person) {

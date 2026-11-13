@@ -54,9 +54,10 @@ npm run outbound -- guard record --account acme-bank --channel letter --step 1 -
 - a complete sender block (name, title, phone, street address) for the channel;
 - suppression: an address, a domain, a person, an institution and its aliases and affiliates, or an asset or party under NDA that the text names;
 - the contact: business addresses only (no personal domains, no role addresses like `info@`), a verified address, a confirmed role, a recorded source, calls only to business landlines in local weekday hours;
-- the caps: new accounts per sender per week, emails per sender per day, touches per account in 90 days, a minimum gap;
+- the caps: new accounts per sender per week, emails per sender per day, touches in 90 days and a minimum gap (both counted across the whole bank, not per person);
+- one person at a bank at a time: a second contact at the same bank waits out a quiet period (45 days, a placeholder);
 - the sequence: the right step, on the right channel, once it is due; and it ends;
-- a reply, opt-out, meeting or handoff stops the sequence for good. An opt-out suppresses the person and address immediately.
+- a reply, opt-out, meeting or handoff from anyone at a bank stops outreach to everyone there for good. An opt-out suppresses the person and address immediately.
 
 It stores no message text, and writes an audit line for every decision.
 
@@ -82,7 +83,7 @@ It stores no message text, and writes an audit line for every decision.
 1. **Refuses early,** before spending anything: no research, a risk screen that says wait or do not approach, or a guard refusal.
 2. **Sees only what is cleared:** the facts the briefer cleared for a message, and the claims people approved for this sector and audience. It never sees context-only facts, so it cannot leak them.
 3. **Writes markers, not promises.** The model writes `{{claim:id}}` and `{{page:/path/}}`; the script inserts the approved wording word for word and the real link. It also adds the greeting and the sender's signature. So the model cannot promise, link or sign anything on its own. Each approved claim is a sentence that appears on the site, and a test fails if the site's wording drifts.
-4. **Is linted** (`lint.mjs`) for: banned and cliché language, the wrong word for the audience (banks say "loan sale"; servicers say "note sale"), any firm promise not made through a claim, figures and names not in a cleared fact, "I read your..." with no fact behind it, context-only facts leaking, bad links, subject and length. One repair round is allowed; a draft that still fails is saved as **blocked**.
+4. **Is linted** (`lint.mjs`) for: banned and cliché language, broker language and blunt asks (what is for sale, a list of loans, quarter-end pressure), the wrong word for the audience (banks say "loan sale"; servicers say "note sale"), any firm promise not made through a claim, figures and names not in a cleared fact, "I read your..." with no fact behind it, context-only facts leaking, bad links, subject and length. One repair round is allowed; a draft that still fails is saved as **blocked**.
 5. **Is checked by the guard again** with its text, so a draft that names a suppressed asset is blocked.
 6. **Waits for a person.** `draft approve` re-runs the linter and the guard on the saved draft, so an edited or stale draft cannot slip through, and records who approved it. Approving is not sending and records no touch.
 
@@ -96,7 +97,7 @@ It stores no message text, and writes an audit line for every decision.
 | `terminology.json` | Per-audience word rules, banned and cliché language, claim phrases |
 | `playbooks.json` | The briefer's questions by account type |
 | `src/` | `guard`, `research`, `draft`, `lint`, `model` (the only file that calls the API), `rules`, `store`, `paths` |
-| `test/` | 53 tests, no network, invented data only. `npm run outbound:test` |
+| `test/` | 60 tests, no network, invented data only. `npm run outbound:test` |
 
 In `$OUTBOUND_DATA_DIR`: `senders.json`, `suppression.json`, `accounts/`, `research/`, `facts/`, `briefs/`, `drafts/<account>/`, `touches.jsonl`, `audit.jsonl`.
 
